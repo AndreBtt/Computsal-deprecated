@@ -1,10 +1,10 @@
 package com.example.andre.computsal;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,6 +16,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+
 public class MainActivity extends AppCompatActivity {
 
     private Button mLogin,mCreate;
@@ -25,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
 
     private FirebaseAuth.AuthStateListener mAuthListener;
+
+    private ProgressDialog mProgressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,16 +42,21 @@ public class MainActivity extends AppCompatActivity {
         mEmail = (EditText) findViewById(R.id.user_email);
         mSenha = (EditText) findViewById(R.id.user_senha);
 
+        FirebaseAuth.getInstance().signOut();
+
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user != null) {
-                    // User is signed in
-                    Log.d("LOGIN", "onAuthStateChanged:signed_in:" + user.getUid());
-                } else {
-                    // User is signed out
-                    Log.d("LOGIN", "onAuthStateChanged:signed_out");
+
+                if (user != null){
+                    if (user.isEmailVerified()) {
+                        Toast.makeText(MainActivity.this,"You are in =)",Toast.LENGTH_LONG).show();
+                    }
+
+                    else {
+                        Toast.makeText(MainActivity.this,"Confime o email...",Toast.LENGTH_LONG).show();
+                    }
                 }
             }
         };
@@ -56,15 +64,20 @@ public class MainActivity extends AppCompatActivity {
         mLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.v("clicou", "login");
+
+                String email = mEmail.getText().toString().trim();
+                String senha = mSenha.getText().toString().trim();
+
+                if(valido()){
+                    SignIn(email,senha);
+                }
+
             }
         });
 
         mCreate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.v("clicou", "criar");
-
                 String email = mEmail.getText().toString().trim();
                 String senha = mSenha.getText().toString().trim();
 
@@ -92,13 +105,17 @@ public class MainActivity extends AppCompatActivity {
             mSenha.setError("Obrigatório.");
             valid = false;
         } else {
+            if(password.length() < 6){
+                Toast.makeText(MainActivity.this,"Senha deve possuir no mínimo 6 caracteres",Toast.LENGTH_LONG).show();
+                valid = false;
+            }
             mSenha.setError(null);
         }
 
         return valid;
     }
 
-    public void Criar_usuario(String email, String senha){
+    private void Criar_usuario(String email, String senha){
         mAuth.createUserWithEmailAndPassword(email, senha)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -108,13 +125,54 @@ public class MainActivity extends AppCompatActivity {
                         // the auth state listener will be notified and logic to handle the
                         // signed in user can be handled in the listener.
                         if(task.isSuccessful()){
-                            Log.d("Criando novo Usuario", "createUserWithEmail:onComplete:" + task.isSuccessful());
+                            sendEmailVerification();
                         }
-
                         // If sign in fails, display a message to the user.
-                        if (!task.isSuccessful()) {
+                        else {
                             Toast.makeText(MainActivity.this, "Email inválido ou já cadastrado.",
                                     Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+    }
+
+    private void SignIn(String email, String password) {
+
+        mProgressDialog = new ProgressDialog(this);
+
+        mProgressDialog.setMessage("Logando...");
+
+        mProgressDialog.show();
+
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+
+                        if (task.isSuccessful()) {
+                            // Sign in success
+
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Toast.makeText(MainActivity.this, "Email ou Senha incorretos.",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+
+                        mProgressDialog.dismiss();
+                    }
+                });
+    }
+
+    private void sendEmailVerification() {
+
+        final FirebaseUser user = mAuth.getCurrentUser();
+        user.sendEmailVerification()
+                .addOnCompleteListener(this, new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+
+                        if (!task.isSuccessful()){
+                            Toast.makeText(MainActivity.this, "Falha ao enviar email de confirmação.", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

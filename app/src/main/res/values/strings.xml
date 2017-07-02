@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Computsal</string>
+    <string name="facebook_app_id">148521592365444</string>
+    <string name="fb_login_protocol_scheme">fb148521592365444</string>
 </resources>
