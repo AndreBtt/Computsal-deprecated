@@ -1,6 +1,7 @@
 package com.example.andre.computsal;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -16,8 +17,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-
-public class MainActivity extends AppCompatActivity {
+public class Criar_logar extends AppCompatActivity {
 
     private Button mLogin,mCreate;
 
@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.tela_criar_logar);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         mEmail = (EditText) findViewById(R.id.user_email);
         mSenha = (EditText) findViewById(R.id.user_senha);
 
-        FirebaseAuth.getInstance().signOut();
+        //FirebaseAuth.getInstance().signOut();
 
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -51,11 +51,10 @@ public class MainActivity extends AppCompatActivity {
 
                 if (user != null){
                     if (user.isEmailVerified()) {
-                        Toast.makeText(MainActivity.this,"You are in =)",Toast.LENGTH_LONG).show();
+                        startActivity(new Intent(Criar_logar.this, Principal.class));
                     }
-
                     else {
-                        Toast.makeText(MainActivity.this,"Confime o email...",Toast.LENGTH_LONG).show();
+                        Toast.makeText(Criar_logar.this,"Confime o email...",Toast.LENGTH_LONG).show();
                     }
                 }
             }
@@ -106,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
             valid = false;
         } else {
             if(password.length() < 6){
-                Toast.makeText(MainActivity.this,"Senha deve possuir no mínimo 6 caracteres",Toast.LENGTH_LONG).show();
+                Toast.makeText(Criar_logar.this,"Senha deve possuir no mínimo 6 caracteres",Toast.LENGTH_LONG).show();
                 valid = false;
             }
             mSenha.setError(null);
@@ -129,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                         // If sign in fails, display a message to the user.
                         else {
-                            Toast.makeText(MainActivity.this, "Email inválido ou já cadastrado.",
+                            Toast.makeText(Criar_logar.this, "Email inválido ou já cadastrado.",
                                     Toast.LENGTH_SHORT).show();
                         }
                     }
@@ -154,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
 
                         } else {
                             // If sign in fails, display a message to the user.
-                            Toast.makeText(MainActivity.this, "Email ou Senha incorretos.",
+                            Toast.makeText(Criar_logar.this, "Email ou Senha incorretos.",
                                     Toast.LENGTH_SHORT).show();
                         }
 
@@ -172,7 +171,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Void> task) {
 
                         if (!task.isSuccessful()){
-                            Toast.makeText(MainActivity.this, "Falha ao enviar email de confirmação.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Criar_logar.this, "Falha ao enviar email de confirmação.", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
