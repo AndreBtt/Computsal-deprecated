@@ -1,9 +1,231 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.andre.computsal.Criar_time">
+    android:background="@color/colorPrimary">
 
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/nome_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="50dp"
+            android:gravity="center_horizontal"
+            android:textColor="@color/branco"
+            android:hint="Insira o nome do time..."
+            android:textColorHint="@color/branco"/>
+
+        <Button
+            android:id="@+id/imagem"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="30dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:background="@drawable/dashed_line"
+            android:textColor="@color/branco"
+            android:textSize="15dp"
+            android:text="Insira a logo do time"
+            android:drawableRight="@mipmap/ic_add_to_photos_white_24dp"
+            android:gravity="center"
+            />
+
+        <ImageView
+            android:id="@+id/mostrar_imagem"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginBottom="15dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginRight="50dp"
+            android:background="@color/colorPrimary"
+            android:src="@mipmap/ic_add_white_24dp"
+            />
+
+        <EditText
+            android:id="@+id/j1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="30dp"
+            android:textColor="@color/branco"
+            android:hint="1. Insira o nome do jogador..."
+            android:textColorHint="@color/branco"/>
+
+        <EditText
+            android:id="@+id/j2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="30dp"
+            android:textColor="@color/branco"
+            android:hint="2. Insira o nome do jogador..."
+            android:textColorHint="@color/branco"/>
+
+        <EditText
+            android:id="@+id/j3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="30dp"
+            android:textColor="@color/branco"
+            android:hint="3. Insira o nome do jogador..."
+            android:textColorHint="@color/branco"/>
+
+        <EditText
+            android:id="@+id/j4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="30dp"
+            android:textColor="@color/branco"
+            android:hint="4. Insira o nome do jogador..."
+            android:textColorHint="@color/branco"/>
+
+        <EditText
+            android:id="@+id/j5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="30dp"
+            android:textColor="@color/branco"
+            android:hint="5. Insira o nome do jogador..."
+            android:textColorHint="@color/branco"/>
+
+        <EditText
+            android:id="@+id/j6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="30dp"
+            android:textColor="@color/branco"
+            android:hint="6. Insira o nome do jogador..."
+            android:textColorHint="@color/branco"/>
+
+        <EditText
+            android:id="@+id/j7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="30dp"
+            android:textColor="@color/branco"
+            android:hint="7. Insira o nome do jogador..."
+            android:textColorHint="@color/branco"/>
+
+        <EditText
+            android:id="@+id/j8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="30dp"
+            android:textColor="@color/branco"
+            android:hint="8. Insira o nome do jogador..."
+            android:textColorHint="@color/branco"/>
+
+        <EditText
+            android:id="@+id/j9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="30dp"
+            android:textColor="@color/branco"
+            android:hint="9. Insira o nome do jogador..."
+            android:textColorHint="@color/branco"/>
+
+        <EditText
+            android:id="@+id/j10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="30dp"
+            android:textColor="@color/branco"
+            android:hint="10. Insira o nome do jogador..."
+            android:textColorHint="@color/branco"/>
+
+        <EditText
+            android:id="@+id/j11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="30dp"
+            android:textColor="@color/branco"
+            android:hint="11. Insira o nome do jogador..."
+            android:textColorHint="@color/branco"/>
+
+        <EditText
+            android:id="@+id/j12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="30dp"
+            android:textColor="@color/branco"
+            android:hint="12. Insira o nome do jogador..."
+            android:textColorHint="@color/branco"/>
+
+        <EditText
+            android:id="@+id/j13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="30dp"
+            android:textColor="@color/branco"
+            android:hint="13. Insira o nome do jogador..."
+            android:textColorHint="@color/branco"/>
+
+        <EditText
+            android:id="@+id/j14"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="30dp"
+            android:textColor="@color/branco"
+            android:hint="14. Insira o nome do jogador..."
+            android:textColorHint="@color/branco"/>
+
+        <EditText
+            android:id="@+id/j15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="30dp"
+            android:textColor="@color/branco"
+            android:hint="15. Insira o nome do jogador..."
+            android:textColorHint="@color/branco"/>
+
+        <Button
+            android:id="@+id/enviar"
+            android:textColor="@color/secundaria"
+            android:background="@color/colorPrimary"
+            android:text="Criar meu time"
+            android:textSize="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="30dp"
+
+            />
+
+    </LinearLayout>
+
+</ScrollView>

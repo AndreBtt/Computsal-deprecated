@@ -1,48 +1,267 @@
 package com.example.andre.computsal;
 
+import android.app.ProgressDialog;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
-import Model.Jogador;
+import Model.Time;
+
 
 public class Criar_time extends AppCompatActivity {
 
+    private Time user;
+
     private DatabaseReference mDataBase;
 
-    private Button b;
+    private Button mImage,enviar;
 
-    private EditText nome,idade;
+    private ImageView mMostrar;
+
+    private EditText j1,j2,j3,j4,j5,j6,j7,j8,j9,j10,j11,j12,j13,j14,j15,nome_time;
+
+    private Uri mImageUri;
+
+    private StorageReference mStorage;
+
+    private ProgressDialog mProgressDialog;
+
+    private static final int GALLERY_REQUEST = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tela_criar_time);
 
-        /*mDataBase = FirebaseDatabase.getInstance().getReference();
+        mImage = (Button) findViewById(R.id.imagem);
 
-        b = (Button) findViewById(R.id.b);
+        mMostrar = (ImageView) findViewById(R.id.mostrar_imagem);
 
-        nome = (EditText) findViewById(R.id.nome);
-        idade = (EditText) findViewById(R.id.idade);
+        mStorage = FirebaseStorage.getInstance().getReference();
 
-        b.setOnClickListener(new View.OnClickListener() {
+        nome_time = (EditText) findViewById(R.id.nome_time);
+        j1 = (EditText) findViewById(R.id.j1);
+        j2 = (EditText) findViewById(R.id.j2);
+        j3 = (EditText) findViewById(R.id.j3);
+        j4 = (EditText) findViewById(R.id.j4);
+        j5 = (EditText) findViewById(R.id.j5);
+        j6 = (EditText) findViewById(R.id.j6);
+        j7 = (EditText) findViewById(R.id.j7);
+        j8 = (EditText) findViewById(R.id.j8);
+        j9 = (EditText) findViewById(R.id.j9);
+        j10 = (EditText) findViewById(R.id.j10);
+        j11 = (EditText) findViewById(R.id.j11);
+        j12 = (EditText) findViewById(R.id.j12);
+        j13 = (EditText) findViewById(R.id.j13);
+        j14 = (EditText) findViewById(R.id.j14);
+        j15 = (EditText) findViewById(R.id.j15);
+
+        enviar = (Button) findViewById(R.id.enviar);
+
+        mDataBase = FirebaseDatabase.getInstance().getReference().child("Times");
+
+        mImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                writeNewUser("boelo++",nome.getText().toString(),idade.getText().toString());
+
+                Intent galleryIntent = new Intent(Intent.ACTION_GET_CONTENT);
+                galleryIntent.setType("image/*");
+                startActivityForResult(galleryIntent,GALLERY_REQUEST);
             }
-        });*/
+        });
+
+        mProgressDialog = new ProgressDialog(this);
+
+        enviar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Boolean correto = armazenar();
+
+                if(correto) startActivity(new Intent(Criar_time.this,Times.class));
+            }
+        });
     }
 
-    private void writeNewUser(String userId, String nome, String idade) {
-        Jogador user = new Jogador(nome, idade);
+    private Boolean armazenar(){
 
-        Toast.makeText(Criar_time.this, "entrei",Toast.LENGTH_LONG).show();
+        user = Criar_usuario();
 
-        mDataBase.child("Times").child(userId).setValue(user);
+        if(user == null) return false;
+
+        mProgressDialog.setMessage("Criando seu time...");
+
+        mProgressDialog.show();
+
+        Bitmap b = (Bitmap) mMostrar.getTag();
+        if(b == null) {
+            //the imageView is empty
+            String img_padrao = "https://firebasestorage.googleapis.com/v0/b/computsal-70e30.appspot.com/o/Logo_times%2Flogo.png?alt=media&token=64856c56-bc24-4380-8904-88acc82654c4";
+
+            user.setLogo(img_padrao);
+
+            DatabaseReference newPost = mDataBase.push();
+
+            newPost.setValue(user);
+
+            mProgressDialog.dismiss();
+        }
+        else {
+            // there is an image
+            StorageReference filepath = mStorage.child("Logo_times").child(mImageUri.getLastPathSegment());
+
+            filepath.putFile(mImageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+
+                    @SuppressWarnings("VisibleForTests")
+                    Uri downloadUrl = taskSnapshot.getDownloadUrl();
+
+                    DatabaseReference newPost = mDataBase.push();
+
+                    user.setLogo(downloadUrl.toString());
+
+                    newPost.setValue(user);
+
+                    mProgressDialog.dismiss();
+
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(Criar_time.this, "Falha ao baixar imagem", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+
+        return true;
+
+    }
+
+    private Time Criar_usuario(){
+
+        Time user = new Time();
+
+        if(TextUtils.isEmpty(nome_time.getText().toString().trim())){
+            nome_time.setError("Obrigatório");
+            Toast.makeText(this, "Insira o nome do time", Toast.LENGTH_SHORT).show();
+            return null;
+        }
+        else user.setNome_time(nome_time.getText().toString().trim());
+
+        int total_jogador = 0;
+
+        if(TextUtils.isEmpty(j1.getText().toString().trim())) user.setJ1("#");
+        else {
+            user.setJ1(j1.getText().toString().trim());
+            total_jogador++;
+        }
+        if(TextUtils.isEmpty(j2.getText().toString().trim())) user.setJ2("#");
+        else {
+            user.setJ2(j2.getText().toString().trim());
+            total_jogador++;
+        }
+        if(TextUtils.isEmpty(j3.getText().toString().trim())) user.setJ3("#");
+        else {
+            user.setJ3(j3.getText().toString().trim());
+            total_jogador++;
+        }
+        if(TextUtils.isEmpty(j4.getText().toString().trim())) user.setJ4("#");
+        else{
+            user.setJ4(j4.getText().toString().trim());
+            total_jogador++;
+        }
+        if(TextUtils.isEmpty(j5.getText().toString().trim())) user.setJ5("#");
+        else {
+            user.setJ5(j5.getText().toString().trim());
+            total_jogador++;
+        }
+        if(TextUtils.isEmpty(j6.getText().toString().trim())) user.setJ6("#");
+        else {
+            user.setJ6(j6.getText().toString().trim());
+            total_jogador++;
+        }
+        if(TextUtils.isEmpty(j7.getText().toString().trim())) user.setJ7("#");
+        else{
+            user.setJ7(j7.getText().toString().trim());
+            total_jogador++;
+        }
+        if(TextUtils.isEmpty(j8.getText().toString().trim())) user.setJ8("#");
+        else {
+            user.setJ8(j8.getText().toString().trim());
+            total_jogador++;
+        }
+        if(TextUtils.isEmpty(j9.getText().toString().trim())) user.setJ9("#");
+        else {
+            user.setJ9(j9.getText().toString().trim());
+            total_jogador++;
+        }
+        if(TextUtils.isEmpty(j10.getText().toString().trim())) user.setJ10("#");
+        else {
+            user.setJ10(j10.getText().toString().trim());
+            total_jogador++;
+        }
+        if(TextUtils.isEmpty(j11.getText().toString().trim())) user.setJ11("#");
+        else {
+            user.setJ11(j11.getText().toString().trim());
+            total_jogador++;
+        }
+        if(TextUtils.isEmpty(j12.getText().toString().trim())) user.setJ12("#");
+        else {
+            user.setJ12(j12.getText().toString().trim());
+            total_jogador++;
+        }
+        if(TextUtils.isEmpty(j13.getText().toString().trim())) user.setJ13("#");
+        else {
+            user.setJ13(j13.getText().toString().trim());
+            total_jogador++;
+        }
+        if(TextUtils.isEmpty(j14.getText().toString().trim())) user.setJ14("#");
+        else {
+            user.setJ14(j14.getText().toString().trim());
+            total_jogador++;
+        }
+        if(TextUtils.isEmpty(j15.getText().toString().trim())) user.setJ15("#");
+        else {
+            user.setJ15(j15.getText().toString().trim());
+            total_jogador++;
+        }
+
+
+        if(total_jogador < 4){
+            Toast.makeText(this, "Insira pelo menos 4 jogadores", Toast.LENGTH_SHORT).show();
+            return null;
+        }
+
+        user.setPago(false);
+
+        return user;
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == GALLERY_REQUEST && resultCode == RESULT_OK){
+            mImageUri = data.getData();
+            mMostrar.setImageURI(mImageUri);
+        }
     }
 }

@@ -150,6 +150,7 @@ public class Criar_logar extends AppCompatActivity {
     }
 
     private void Criar_usuario(String email, String senha){
+
         mAuth.createUserWithEmailAndPassword(email, senha)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
