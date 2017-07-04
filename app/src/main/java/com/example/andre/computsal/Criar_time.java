@@ -2,7 +2,6 @@ package com.example.andre.computsal;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -24,7 +23,6 @@ import com.google.firebase.storage.UploadTask;
 
 import Model.Time;
 
-
 public class Criar_time extends AppCompatActivity {
 
     private Time user;
@@ -44,6 +42,8 @@ public class Criar_time extends AppCompatActivity {
     private ProgressDialog mProgressDialog;
 
     private static final int GALLERY_REQUEST = 1;
+
+    Boolean ja_foi_inserida = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,8 +110,7 @@ public class Criar_time extends AppCompatActivity {
 
         mProgressDialog.show();
 
-        Bitmap b = (Bitmap) mMostrar.getTag();
-        if(b == null) {
+        if(!ja_foi_inserida) {
             //the imageView is empty
             String img_padrao = "https://firebasestorage.googleapis.com/v0/b/computsal-70e30.appspot.com/o/Logo_times%2Flogo.png?alt=media&token=64856c56-bc24-4380-8904-88acc82654c4";
 
@@ -244,7 +243,6 @@ public class Criar_time extends AppCompatActivity {
             total_jogador++;
         }
 
-
         if(total_jogador < 4){
             Toast.makeText(this, "Insira pelo menos 4 jogadores", Toast.LENGTH_SHORT).show();
             return null;
@@ -262,6 +260,7 @@ public class Criar_time extends AppCompatActivity {
         if(requestCode == GALLERY_REQUEST && resultCode == RESULT_OK){
             mImageUri = data.getData();
             mMostrar.setImageURI(mImageUri);
+            ja_foi_inserida = true;
         }
     }
 }
