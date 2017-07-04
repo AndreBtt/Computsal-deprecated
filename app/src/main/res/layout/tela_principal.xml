@@ -20,13 +20,13 @@
             android:layout_height="wrap_content"
             android:src="@drawable/logo"/>
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/sair"
+        <ImageView
+            android:id="@+id/Artilheiro"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_marginLeft="15dp"
             android:layout_height="wrap_content"
-            android:src="@drawable/jogador"/>
+            android:src="@drawable/chuteira"/>
 
     </LinearLayout>
 
@@ -65,12 +65,13 @@
             android:layout_height="wrap_content"
             android:src="@drawable/jogador"/>
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_marginLeft="15dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/jogador"/>
+        <ImageView
+        android:id="@+id/sair"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_marginLeft="15dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/chuteira"/>
 
     </LinearLayout>
 

@@ -6,9 +6,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class Principal extends AppCompatActivity {
 
     private ImageView mTimes;
+    private ImageView mSair;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,10 +20,20 @@ public class Principal extends AppCompatActivity {
 
         mTimes = (ImageView) findViewById(R.id.Times_jogadores);
 
+        mSair = (ImageView) findViewById(R.id.sair);
+
         mTimes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(Principal.this,Times.class));
+            }
+        });
+
+        mSair.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(Principal.this,Criar_logar.class));
             }
         });
 

@@ -29,6 +29,8 @@ public class Criar_logar extends AppCompatActivity {
 
     private ProgressDialog mProgressDialog;
 
+    private Button mEsqueci;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +43,8 @@ public class Criar_logar extends AppCompatActivity {
 
         mEmail = (EditText) findViewById(R.id.user_email);
         mSenha = (EditText) findViewById(R.id.user_senha);
+
+        mEsqueci = (Button) findViewById(R.id.esqueci_senha);
 
         //FirebaseAuth.getInstance().signOut();
 
@@ -86,12 +90,43 @@ public class Criar_logar extends AppCompatActivity {
 
             }
         });
+
+        mEsqueci.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                String email = mEmail.getText().toString().trim();
+
+                if(TextUtils.isEmpty(email)){
+                    Toast.makeText(Criar_logar.this, "Insira seu email", Toast.LENGTH_SHORT).show();
+                }
+                else Esqueci_senha(email);
+            }
+        });
+    }
+
+    private void Esqueci_senha(String email){
+
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+
+        auth.sendPasswordResetEmail(email)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(Criar_logar.this, "Email enviado", Toast.LENGTH_SHORT).show();
+                        }
+                        else{
+                            Toast.makeText(Criar_logar.this, "Esse email não é cadastrado", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
     }
 
     private boolean valido() {
         boolean valid = true;
 
-        String email = mEmail.getText().toString();
+        String email = mEmail.getText().toString().trim();
         if (TextUtils.isEmpty(email)) {
             mEmail.setError("Obrigatório.");
             valid = false;
@@ -99,7 +134,7 @@ public class Criar_logar extends AppCompatActivity {
             mEmail.setError(null);
         }
 
-        String password = mSenha.getText().toString();
+        String password = mSenha.getText().toString().trim();
         if (TextUtils.isEmpty(password)) {
             mSenha.setError("Obrigatório.");
             valid = false;

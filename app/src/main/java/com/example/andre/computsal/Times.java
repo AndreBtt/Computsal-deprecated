@@ -1,57 +1,53 @@
 package com.example.andre.computsal;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
+import android.view.MenuItem;
 
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import Model.Jogador;
 
 public class Times extends AppCompatActivity {
 
-    private DatabaseReference mDataBase;
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
 
-    private Button b;
-
-    private EditText nome,idade;
+    //DatabaseReference myRef = database.getReference("Times");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tela_times);
 
-        mDataBase = FirebaseDatabase.getInstance().getReference();
-
-        b = (Button) findViewById(R.id.b);
-
-        nome = (EditText) findViewById(R.id.nome);
-        idade = (EditText) findViewById(R.id.idade);
-
-        b.setOnClickListener(new View.OnClickListener() {
+        /*myRef.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onClick(View view) {
-                writeNewUser("boelo++",nome.getText().toString(),idade.getText().toString());
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                String value = dataSnapshot.getValue(String.class);
+                Log.d("Nome", "Value is: " + value);
             }
-        });
-    }
 
-    private void writeNewUser(String userId, String nome, String idade) {
-        Jogador user = new Jogador(nome, idade);
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w("Falha", "Failed to read value.", error.toException());
+            }
+        });*/
 
-        Toast.makeText(Times.this, "entrei",Toast.LENGTH_LONG).show();
-
-        mDataBase.child("Times").child(userId).setValue(user);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
         return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId() == R.id.butao_add){
+            startActivity(new Intent(Times.this, Criar_time.class));
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

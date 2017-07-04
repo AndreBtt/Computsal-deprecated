@@ -45,8 +45,10 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Times"
-            android:label="@string/title_activity_times"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:label="@string/title_activity_times" />
+        <activity
+            android:name=".Criar_time"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>
