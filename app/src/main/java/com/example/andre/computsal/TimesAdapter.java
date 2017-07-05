@@ -1,7 +1,6 @@
 package com.example.andre.computsal;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,7 +37,6 @@ public class TimesAdapter extends ArrayAdapter<Time> {
         Time atual = getItem(position);
 
         ImageView logo = (ImageView) listItemView.findViewById(R.id.logo);
-        Log.v("error",atual.getNome_time());
         TextView nome = (TextView) listItemView.findViewById(R.id.nome_time);
 
         Glide.with(context).load(atual.getLogo()).into(logo);
