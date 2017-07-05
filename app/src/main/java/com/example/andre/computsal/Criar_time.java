@@ -21,11 +21,16 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.util.ArrayList;
+
+import Model.Jogador;
 import Model.Time;
 
 public class Criar_time extends AppCompatActivity {
 
     private Time user;
+
+    private ArrayList<Jogador> jogador;
 
     private DatabaseReference mDataBase;
 
@@ -49,6 +54,8 @@ public class Criar_time extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tela_criar_time);
+
+        jogador = new ArrayList<>();
 
         mImage = (Button) findViewById(R.id.imagem);
 
@@ -75,8 +82,6 @@ public class Criar_time extends AppCompatActivity {
 
         enviar = (Button) findViewById(R.id.enviar);
 
-        mDataBase = FirebaseDatabase.getInstance().getReference().child("Times");
-
         mImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -95,7 +100,11 @@ public class Criar_time extends AppCompatActivity {
 
                 Boolean correto = armazenar();
 
-                if(correto) startActivity(new Intent(Criar_time.this,Times.class));
+                Intent intent = new Intent(Criar_time.this,Times.class);
+
+                intent.putExtra("criar","criado");
+
+                if(correto) startActivity(intent);
             }
         });
     }
@@ -116,13 +125,15 @@ public class Criar_time extends AppCompatActivity {
 
             user.setLogo(img_padrao);
 
+            mDataBase = FirebaseDatabase.getInstance().getReference().child("Times");
+
             DatabaseReference newPost = mDataBase.push();
 
             newPost.setValue(user);
 
             mProgressDialog.dismiss();
         }
-        else {
+        else if(ja_foi_inserida){
             // there is an image
             StorageReference filepath = mStorage.child("Logo_times").child(mImageUri.getLastPathSegment());
 
@@ -132,6 +143,8 @@ public class Criar_time extends AppCompatActivity {
 
                     @SuppressWarnings("VisibleForTests")
                     Uri downloadUrl = taskSnapshot.getDownloadUrl();
+
+                    mDataBase = FirebaseDatabase.getInstance().getReference().child("Times");
 
                     DatabaseReference newPost = mDataBase.push();
 
@@ -150,6 +163,13 @@ public class Criar_time extends AppCompatActivity {
             });
         }
 
+        mDataBase = FirebaseDatabase.getInstance().getReference().child("Jogadores");
+
+        for(Jogador j: jogador){
+            DatabaseReference newPost = mDataBase.push();
+            newPost.setValue(j);
+        }
+
         return true;
 
     }
@@ -157,6 +177,8 @@ public class Criar_time extends AppCompatActivity {
     private Time Criar_usuario(){
 
         Time user = new Time();
+
+        jogador.clear();
 
         if(TextUtils.isEmpty(nome_time.getText().toString().trim())){
             nome_time.setError("Obrigatório");
@@ -171,76 +193,91 @@ public class Criar_time extends AppCompatActivity {
         else {
             user.setJ1(j1.getText().toString().trim());
             total_jogador++;
+            jogador.add(new Jogador(j1.getText().toString().trim(),nome_time.getText().toString().trim(),0));
         }
         if(TextUtils.isEmpty(j2.getText().toString().trim())) user.setJ2("#");
         else {
             user.setJ2(j2.getText().toString().trim());
             total_jogador++;
+            jogador.add(new Jogador(j2.getText().toString().trim(),nome_time.getText().toString().trim(),0));
         }
         if(TextUtils.isEmpty(j3.getText().toString().trim())) user.setJ3("#");
         else {
             user.setJ3(j3.getText().toString().trim());
             total_jogador++;
+            jogador.add(new Jogador(j3.getText().toString().trim(),nome_time.getText().toString().trim(),0));
         }
         if(TextUtils.isEmpty(j4.getText().toString().trim())) user.setJ4("#");
         else{
             user.setJ4(j4.getText().toString().trim());
             total_jogador++;
+            jogador.add(new Jogador(j4.getText().toString().trim(),nome_time.getText().toString().trim(),0));
         }
         if(TextUtils.isEmpty(j5.getText().toString().trim())) user.setJ5("#");
         else {
             user.setJ5(j5.getText().toString().trim());
             total_jogador++;
+            jogador.add(new Jogador(j5.getText().toString().trim(),nome_time.getText().toString().trim(),0));
         }
         if(TextUtils.isEmpty(j6.getText().toString().trim())) user.setJ6("#");
         else {
             user.setJ6(j6.getText().toString().trim());
             total_jogador++;
+            jogador.add(new Jogador(j6.getText().toString().trim(),nome_time.getText().toString().trim(),0));
         }
         if(TextUtils.isEmpty(j7.getText().toString().trim())) user.setJ7("#");
         else{
             user.setJ7(j7.getText().toString().trim());
             total_jogador++;
+            jogador.add(new Jogador(j7.getText().toString().trim(),nome_time.getText().toString().trim(),0));
         }
         if(TextUtils.isEmpty(j8.getText().toString().trim())) user.setJ8("#");
         else {
             user.setJ8(j8.getText().toString().trim());
             total_jogador++;
+            jogador.add(new Jogador(j8.getText().toString().trim(),nome_time.getText().toString().trim(),0));
         }
         if(TextUtils.isEmpty(j9.getText().toString().trim())) user.setJ9("#");
         else {
             user.setJ9(j9.getText().toString().trim());
             total_jogador++;
+            jogador.add(new Jogador(j9.getText().toString().trim(),nome_time.getText().toString().trim(),0));
         }
         if(TextUtils.isEmpty(j10.getText().toString().trim())) user.setJ10("#");
         else {
             user.setJ10(j10.getText().toString().trim());
             total_jogador++;
+            jogador.add(new Jogador(j10.getText().toString().trim(),nome_time.getText().toString().trim(),0));
         }
         if(TextUtils.isEmpty(j11.getText().toString().trim())) user.setJ11("#");
         else {
             user.setJ11(j11.getText().toString().trim());
             total_jogador++;
+            jogador.add(new Jogador(j11.getText().toString().trim(),nome_time.getText().toString().trim(),0));
         }
         if(TextUtils.isEmpty(j12.getText().toString().trim())) user.setJ12("#");
         else {
             user.setJ12(j12.getText().toString().trim());
             total_jogador++;
+            jogador.add(new Jogador(j12.getText().toString().trim(),nome_time.getText().toString().trim(),0));
         }
         if(TextUtils.isEmpty(j13.getText().toString().trim())) user.setJ13("#");
         else {
             user.setJ13(j13.getText().toString().trim());
             total_jogador++;
+            jogador.add(new Jogador(j13.getText().toString().trim(),nome_time.getText().toString().trim(),0));
         }
         if(TextUtils.isEmpty(j14.getText().toString().trim())) user.setJ14("#");
         else {
             user.setJ14(j14.getText().toString().trim());
             total_jogador++;
+            jogador.add(new Jogador(j14.getText().toString().trim(),nome_time.getText().toString().trim(),0));
         }
         if(TextUtils.isEmpty(j15.getText().toString().trim())) user.setJ15("#");
         else {
             user.setJ15(j15.getText().toString().trim());
             total_jogador++;
+            jogador.add(new Jogador(j15.getText().toString().trim(),nome_time.getText().toString().trim(),0));
         }
 
         if(total_jogador < 4){

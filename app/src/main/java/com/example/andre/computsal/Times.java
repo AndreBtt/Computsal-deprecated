@@ -10,11 +10,11 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +25,7 @@ public class Times extends AppCompatActivity {
 
     private TimesAdapter adapter;
     private ListView time_listview;
-    private List<Time> times;
+    private List<Time> times = new ArrayList<Time>();
     private ProgressDialog mDialog;
 
     @Override
@@ -39,31 +39,42 @@ public class Times extends AppCompatActivity {
 
         mDialog.show();
 
-        times = new ArrayList<Time>();
+        time_listview = (ListView) findViewById(R.id.lista);
 
-        DatabaseReference mBanco = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference mBanco = FirebaseDatabase.getInstance().getReference("Times");
 
-        mBanco.child("Times").addValueEventListener(new ValueEventListener() {
+        adapter = new TimesAdapter(this, times);
+        time_listview.setAdapter(adapter);
+
+        mBanco.addChildEventListener(new ChildEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                Iterable<DataSnapshot> filhos = dataSnapshot.getChildren();
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                Time novo = dataSnapshot.getValue(Time.class);
+                times.add(novo);
+                adapter.notifyDataSetChanged();
+                mDialog.dismiss();
+            }
 
-
-                for (DataSnapshot filho: filhos){
-                    Time novo = filho.getValue(Time.class);
-                    times.add(novo);
-                }
-
-                gerar_tela();
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
 
             }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
             }
         });
-
-        time_listview = (ListView) findViewById(R.id.lista);
 
         time_listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
@@ -72,21 +83,16 @@ public class Times extends AppCompatActivity {
 
                 Time time_atual = adapter.getItem(position);
 
-                String nome_time = time_atual.getNome_time();
-
+                Bundle b=new Bundle();
+                b.putString("time", time_atual.getNome_time());
                 Intent proxima_pagina = new Intent(Times.this,Time_jogador.class);
 
-                proxima_pagina.putExtra("nome",nome_time);
+                proxima_pagina.putExtras(b);
 
                 startActivity(proxima_pagina);
             }
         });
-    }
 
-    public void gerar_tela(){
-        adapter = new TimesAdapter(this, times);
-        time_listview.setAdapter(adapter);
-        mDialog.dismiss();
     }
 
     @Override

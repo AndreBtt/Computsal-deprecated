@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.andre.computsal">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
@@ -31,9 +31,11 @@
             android:name=".Times"
             android:label="@string/title_activity_times" />
         <activity
+            android:name=".Time_jogador"
+            android:label="Jogadores e Gols" />
+        <activity
             android:name=".Criar_time"
             android:label="@string/criar_time" />
-        <activity android:name=".Time_jogador"></activity>
     </application>
 
 </manifest>

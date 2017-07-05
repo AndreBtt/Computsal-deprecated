@@ -46,8 +46,6 @@ public class Criar_logar extends AppCompatActivity {
 
         mEsqueci = (Button) findViewById(R.id.esqueci_senha);
 
-        //FirebaseAuth.getInstance().signOut();
-
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
