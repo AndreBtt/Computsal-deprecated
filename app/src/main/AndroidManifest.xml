@@ -2,25 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.andre.computsal">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-
-    <activity
-        android:name="com.facebook.FacebookActivity"
-        android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
-        android:label="@string/app_name" />
-    <activity
-        android:name="com.facebook.CustomTabActivity"
-        android:exported="true">
-        <intent-filter>
-            <action android:name="android.intent.action.VIEW" />
-
-            <category android:name="android.intent.category.DEFAULT" />
-            <category android:name="android.intent.category.BROWSABLE" />
-
-            <data android:scheme="@string/fb_login_protocol_scheme" />
-        </intent-filter>
-    </activity>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -49,7 +32,8 @@
             android:label="@string/title_activity_times" />
         <activity
             android:name=".Criar_time"
-            android:label="@string/criar_time"/>
+            android:label="@string/criar_time" />
+        <activity android:name=".Time_jogador"></activity>
     </application>
 
 </manifest>

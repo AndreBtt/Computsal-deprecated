@@ -5,36 +5,49 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
 
-import com.google.firebase.database.FirebaseDatabase;
+import java.util.ArrayList;
+
+import DAO.Ler_times;
+import Model.Time;
 
 public class Times extends AppCompatActivity {
 
-    FirebaseDatabase database = FirebaseDatabase.getInstance();
 
-    //DatabaseReference myRef = database.getReference("Times");
+    private ArrayList<Time> Times;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tela_times);
 
-        /*myRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-                String value = dataSnapshot.getValue(String.class);
-                Log.d("Nome", "Value is: " + value);
-            }
+        Times = Ler_times.extrair_time();
+
+        ListView time_listview = (ListView) findViewById(R.id.lista);
+
+        final TimesAdapter adapter = new TimesAdapter(this, Times);
+
+        time_listview.setAdapter(adapter);
+
+        time_listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
-            public void onCancelled(DatabaseError error) {
-                // Failed to read value
-                Log.w("Falha", "Failed to read value.", error.toException());
-            }
-        });*/
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
 
+                Time time_atual = adapter.getItem(position);
+
+                String nome_time = time_atual.getNome_time();
+
+                Intent proxima_pagina = new Intent(Times.this,Time_jogador.class);
+
+                proxima_pagina.putExtra("nome",nome_time);
+
+                startActivity(proxima_pagina);
+            }
+        });
     }
 
     @Override
