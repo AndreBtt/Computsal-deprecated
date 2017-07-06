@@ -31,7 +31,7 @@ public class TimesAdapter extends ArrayAdapter<Time> {
 
         if (null == listItemView) {
             listItemView = LayoutInflater.from(getContext()).inflate(
-                    R.layout.lista_times, parent, false);
+                    R.layout.tela_times, parent, false);
         }
 
         Time atual = getItem(position);

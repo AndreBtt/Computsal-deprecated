@@ -13,7 +13,6 @@ public class Jogador {
         this.nome = nome;
         this.time = time;
         this.gol = gol;
-
     }
 
     public String getNome() {
@@ -40,3 +39,4 @@ public class Jogador {
         this.gol = gol;
     }
 }
+

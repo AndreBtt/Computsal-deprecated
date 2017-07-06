@@ -225,4 +225,10 @@ public class Criar_logar extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(Criar_logar.this,Criar_logar.class));
+        super.onBackPressed();
+    }
+
 }

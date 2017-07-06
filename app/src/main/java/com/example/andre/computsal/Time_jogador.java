@@ -11,6 +11,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import Model.Jogador;
@@ -42,6 +44,12 @@ public class Time_jogador extends AppCompatActivity {
                 Jogador novo = dataSnapshot.getValue(Jogador.class);
                 if(novo.getTime().equals(time)) {
                     jogadores.add(novo);
+                    Collections.sort(jogadores, new Comparator<Jogador>() {
+                        public int compare(Jogador c1, Jogador c2) {
+                            if (c1.getGol() > c2.getGol()) return -1;
+                            if (c1.getGol() < c2.getGol()) return 1;
+                            return 0;
+                        }});
                     adapter.notifyDataSetChanged();
                 }
             }

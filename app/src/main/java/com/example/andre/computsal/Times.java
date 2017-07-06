@@ -31,7 +31,7 @@ public class Times extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.tela_times);
+        setContentView(R.layout.lista_times);
 
         mDialog = new ProgressDialog(this);
 
