@@ -13,13 +13,12 @@ import java.util.List;
 
 import Model.Jogador;
 
-public class JogadorAdapter extends ArrayAdapter<Jogador> {
+public class Time_jogadorAdapter extends ArrayAdapter<Jogador> {
 
-    private Context context;
+    Context context;
 
-    public JogadorAdapter(Context context, List<Jogador> jogadores){
+    public Time_jogadorAdapter(Context context, List<Jogador> jogadores){
         super(context,0,jogadores);
-
         this.context = context;
     }
 
@@ -31,18 +30,26 @@ public class JogadorAdapter extends ArrayAdapter<Jogador> {
 
         if (null == listItemView) {
             listItemView = LayoutInflater.from(getContext()).inflate(
-                    R.layout.lista_jogadores, parent, false);
+                    R.layout.tela_time_jogador, parent, false);
         }
 
-        String nome_atual = getItem(position).getNome();
-        int gol_atual = getItem(position).getGol();
+        Jogador atual = getItem(position);
 
-        TextView nome = (TextView) listItemView.findViewById(R.id.jogador);
-        TextView gols = (TextView) listItemView.findViewById(R.id.gols);
+        TextView nome = (TextView) listItemView.findViewById(R.id.nome_jogador);
+        TextView gols = (TextView) listItemView.findViewById(R.id.gols_jogador);
 
-        gols.setText(0);
-        nome.setText("andre");
+
+        int gol = atual.getGol();
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("");
+        sb.append(gol);
+        String strI = sb.toString();
+
+        gols.setText(sb);
+        nome.setText(atual.getNome());
 
         return listItemView;
+
     }
 }

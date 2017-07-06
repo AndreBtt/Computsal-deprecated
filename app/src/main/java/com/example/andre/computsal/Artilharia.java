@@ -1,6 +1,7 @@
 package com.example.andre.computsal;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
 
@@ -15,35 +16,30 @@ import java.util.List;
 
 import Model.Jogador;
 
-public class Time_jogador extends AppCompatActivity {
+public class Artilharia extends AppCompatActivity{
 
-    private Time_jogadorAdapter adapter;
-    private ListView listview;
+    private ArtilhariaAdapter adapter;
+    private ListView artilharia_listview;
     private List<Jogador> jogadores = new ArrayList<Jogador>();
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.lista_time_jogador);
+        setContentView(R.layout.lista_artilharia);
 
-        Bundle b = this.getIntent().getExtras();
-        final String time = b.getString("time");
-
-        listview = (ListView) findViewById(R.id.lista_time_jogador);
+        artilharia_listview = (ListView) findViewById(R.id.lista_artilharia);
 
         DatabaseReference mBanco = FirebaseDatabase.getInstance().getReference("Jogadores");
 
-        adapter = new Time_jogadorAdapter(this,jogadores);
-        listview.setAdapter(adapter);
+        adapter = new ArtilhariaAdapter(this,jogadores);
+        artilharia_listview.setAdapter(adapter);
 
         mBanco.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 Jogador novo = dataSnapshot.getValue(Jogador.class);
-                if(novo.getTime().equals(time)) {
-                    jogadores.add(novo);
-                    adapter.notifyDataSetChanged();
-                }
+                jogadores.add(novo);
+                adapter.notifyDataSetChanged();
             }
 
             @Override
@@ -66,7 +62,7 @@ public class Time_jogador extends AppCompatActivity {
 
             }
         });
-
-
     }
+
+
 }

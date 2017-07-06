@@ -39,7 +39,7 @@ public class Times extends AppCompatActivity {
 
         mDialog.show();
 
-        time_listview = (ListView) findViewById(R.id.lista);
+        time_listview = (ListView) findViewById(R.id.lista_times);
 
         DatabaseReference mBanco = FirebaseDatabase.getInstance().getReference("Times");
 

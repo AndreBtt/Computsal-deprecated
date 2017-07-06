@@ -36,6 +36,9 @@
         <activity
             android:name=".Criar_time"
             android:label="@string/criar_time" />
+        <activity
+            android:name=".Artilharia"
+            android:label="Artilharia" />
     </application>
 
 </manifest>

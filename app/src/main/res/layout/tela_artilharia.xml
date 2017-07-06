@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingTop="20dp"
-    android:paddingLeft="50dp"
+    android:paddingLeft="25dp"
     android:paddingBottom="15dp"
     android:background="@color/colorPrimary">
 
@@ -14,22 +14,33 @@
         android:textColor="@color/branco"
         android:layout_width="0dp"
         android:layout_weight="1"
-        android:layout_height="wrap_content"
-        android:height="50dp"
-        android:paddingBottom="15dp"
+        android:layout_height="50dp"
+        tools:text="Andre"
         android:textSize="25dp"
-        tools:text="TIME"
+        android:gravity="center"
+        />
+
+    <TextView
+        android:id="@+id/time_jogador"
+        android:textColor="@color/branco"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="50dp"
+        tools:text="Gol++"
+        android:textSize="20dp"
+        android:gravity="center"
         />
 
     <TextView
         android:id="@+id/gols_jogador"
-        android:layout_width="0dp"
         android:textColor="@color/branco"
-        android:layout_height="50dp"
+        android:layout_width="0dp"
         android:layout_weight="1"
+        android:layout_height="50dp"
+        tools:text="5"
         android:textSize="25dp"
         android:gravity="center"
-        tools:text="5"
         />
+
 
 </LinearLayout>

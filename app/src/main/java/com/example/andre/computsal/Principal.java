@@ -12,6 +12,7 @@ public class Principal extends AppCompatActivity {
 
     private ImageView mTimes;
     private ImageView mSair;
+    private ImageView mArtilheiro;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +22,8 @@ public class Principal extends AppCompatActivity {
         mTimes = (ImageView) findViewById(R.id.Times_jogadores);
 
         mSair = (ImageView) findViewById(R.id.sair);
+
+        mArtilheiro = (ImageView) findViewById(R.id.Artilheiro);
 
         mTimes.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,6 +39,14 @@ public class Principal extends AppCompatActivity {
                 startActivity(new Intent(Principal.this,Criar_logar.class));
             }
         });
+
+        mArtilheiro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Principal.this,Artilharia.class));
+            }
+        });
+
     }
 
 //    @Override
