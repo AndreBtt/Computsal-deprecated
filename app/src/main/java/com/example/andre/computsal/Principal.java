@@ -14,6 +14,7 @@ public class Principal extends AppCompatActivity {
     private ImageView mSair;
     private ImageView mArtilheiro;
     private ImageView mGerenciar;
+    private ImageView mGrupo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +26,8 @@ public class Principal extends AppCompatActivity {
         mSair = (ImageView) findViewById(R.id.sair);
 
         mArtilheiro = (ImageView) findViewById(R.id.Artilheiro);
+
+        mGrupo = (ImageView) findViewById(R.id.grupos);
 
         mGerenciar = (ImageView) findViewById(R.id.gerenciar);
 
@@ -54,6 +57,13 @@ public class Principal extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(Principal.this,Gerenciar.class));
+            }
+        });
+
+        mGrupo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Principal.this,Grupos_usuario.class));
             }
         });
 

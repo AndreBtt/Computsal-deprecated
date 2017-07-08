@@ -1,9 +1,9 @@
 package com.example.andre.computsal;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
+import android.widget.ListView;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -16,36 +16,43 @@ import java.util.List;
 
 import Model.Time;
 
-public class Adicionar_grupo extends AppCompatActivity {
+public class Time_grupo extends AppCompatActivity {
+
+    private TimesAdapter adapter;
+    private ListView time_listview;
+    private List<Time> times = new ArrayList<Time>();
+    private ProgressDialog mDialog;
+    String t1,t2,t3,t4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.tela_adicionar_grupo);
+        setContentView(R.layout.lista_times);
+
+        time_listview = (ListView) findViewById(R.id.lista_times);
 
         DatabaseReference mBanco = FirebaseDatabase.getInstance().getReference("Times");
 
-        final List<String> areas = new ArrayList<String>();
 
-        Spinner primeiro = (Spinner) findViewById(R.id.primeiro);
-        Spinner segundo = (Spinner) findViewById(R.id.segundo);
-        Spinner terceiro = (Spinner) findViewById(R.id.terceiro);
-        Spinner quarto = (Spinner) findViewById(R.id.quarto);
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            t1 = extras.getString("time1");
+            t2 = extras.getString("time2");
+            t3 = extras.getString("time3");
+            t4 = extras.getString("time4");
+        }
 
-        final ArrayAdapter<String> areasAdapter = new ArrayAdapter<String>(Adicionar_grupo.this, R.layout.spinner_item, areas);
-        areasAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        primeiro.setAdapter(areasAdapter);
-        segundo.setAdapter(areasAdapter);
-        terceiro.setAdapter(areasAdapter);
-        quarto.setAdapter(areasAdapter);
+        adapter = new TimesAdapter(this, times);
+        time_listview.setAdapter(adapter);
 
         mBanco.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 Time novo = dataSnapshot.getValue(Time.class);
-                areas.add(novo.getNome_time());
-                areasAdapter.notifyDataSetChanged();
-
+                if(novo.getNome_time().equals(t1) || novo.getNome_time().equals(t2) ||novo.getNome_time().equals(t3) ||novo.getNome_time().equals(t4)){
+                    times.add(novo);
+                    adapter.notifyDataSetChanged();
+                }
             }
 
             @Override
@@ -68,7 +75,5 @@ public class Adicionar_grupo extends AppCompatActivity {
 
             }
         });
-
-
     }
 }

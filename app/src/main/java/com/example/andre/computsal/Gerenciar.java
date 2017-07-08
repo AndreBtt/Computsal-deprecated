@@ -20,7 +20,7 @@ public class Gerenciar extends AppCompatActivity {
         grupo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Gerenciar.this,Adicionar_grupo.class));
+                startActivity(new Intent(Gerenciar.this,Grupos_usuario.class));
             }
         });
 

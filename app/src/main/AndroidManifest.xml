@@ -36,7 +36,10 @@
             android:name=".Artilharia"
             android:label="Artilharia" />
         <activity android:name=".Gerenciar" />
-        <activity android:name=".Adicionar_grupo" />
+        <activity android:name=".Criar_grupo" />
+        <activity android:name=".Grupos" />
+        <activity android:name=".Time_grupo"/>
+        <activity android:name=".Grupos_usuario"/>
     </application>
 
 </manifest>

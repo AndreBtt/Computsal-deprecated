@@ -16,6 +16,16 @@
         android:orientation="vertical"
         android:layout_marginTop="15dp">
 
+        <TextView
+            android:id="@+id/texto_inicial"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:textColor="@color/branco"
+            android:textSize="30dp"
+            android:gravity="center"
+            />
+
         <Spinner
             android:id="@+id/primeiro"
             android:layout_width="match_parent"
@@ -47,6 +57,18 @@
             android:backgroundTint="@color/branco"
             android:layout_weight="1"
             />
+
+        <Button
+            android:id="@+id/criar_grupo"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/butao_pagina_inicial"
+            android:textSize="20dp"
+            android:textColor="@color/secundaria"
+            android:text="Criar Grupo"
+            />
+
 
     </LinearLayout>
 
