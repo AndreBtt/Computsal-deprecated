@@ -5,4 +5,10 @@
     <string name="title_activity_principal">Principal</string>
     <string name="title_activity_times">Times</string>
     <string name="criar_time">Criar Time</string>
+    <string-array name="grupos_nomes">
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+        <item>D</item>
+    </string-array>
 </resources>

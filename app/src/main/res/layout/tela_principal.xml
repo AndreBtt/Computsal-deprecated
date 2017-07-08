@@ -44,6 +44,16 @@
         android:layout_height="wrap_content"
         android:src="@drawable/chuteira"/>
 
+        <ImageView
+            android:id="@+id/gerenciar"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="15dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/chuteira"/>
+
+
+
     </LinearLayout>
 
 </LinearLayout>
