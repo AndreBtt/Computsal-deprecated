@@ -5,8 +5,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class Principal extends AppCompatActivity {
 
@@ -66,7 +68,13 @@ public class Principal extends AppCompatActivity {
         mGerenciar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Principal.this,Gerenciar.class));
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                if(user.getEmail().equals("bittencourtandre@hotmail.com")) {
+                    startActivity(new Intent(Principal.this, Gerenciar.class));
+                }
+                else{
+                    Toast.makeText(Principal.this, "Você não possui permissão para acessar essa área.", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
