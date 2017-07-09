@@ -4,14 +4,16 @@ public class Jogo {
 
     String t1,t2;
     int g1,g2;
+    Boolean fim;
 
     Jogo(){}
 
-    public Jogo(String t1, String t2, int g1, int g2) {
+    public Jogo(String t1, String t2, int g1, int g2, Boolean fim) {
         this.t1 = t1;
         this.t2 = t2;
         this.g1 = g1;
         this.g2 = g2;
+        this.fim = fim;
     }
 
     public String getT1() {
@@ -44,5 +46,13 @@ public class Jogo {
 
     public void setG2(int g2) {
         this.g2 = g2;
+    }
+
+    public Boolean getFim() {
+        return fim;
+    }
+
+    public void setFim(Boolean fim) {
+        this.fim = fim;
     }
 }

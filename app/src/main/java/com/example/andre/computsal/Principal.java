@@ -70,10 +70,9 @@ public class Principal extends AppCompatActivity {
 
     }
 
-//    @Override
-//    public void onBackPressed() {
-//        FirebaseAuth.getInstance().signOut();
-//        startActivity(new Intent(Principal.this,Criar_logar.class));
-//        super.onBackPressed();
-//    }
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(Principal.this,Principal.class));
+        super.onBackPressed();
+    }
 }

@@ -8,22 +8,36 @@ import android.widget.ImageView;
 
 public class Gerenciar extends AppCompatActivity {
 
-    private ImageView grupo;
+    private ImageView mGrupo;
+    private ImageView mTodos_jogos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tela_gerenciar);
 
-        grupo = (ImageView) findViewById(R.id.Add_grupo);
+        mGrupo = (ImageView) findViewById(R.id.Add_grupo);
 
-        grupo.setOnClickListener(new View.OnClickListener() {
+        mTodos_jogos = (ImageView) findViewById(R.id.todos_jogos);
+
+        mGrupo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Gerenciar.this,Grupos_usuario.class));
+                startActivity(new Intent(Gerenciar.this,Grupos.class));
             }
         });
 
+        mTodos_jogos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Gerenciar.this,Todos_jogos.class));
+            }
+        });
+    }
 
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(Gerenciar.this,Principal.class));
+        super.onBackPressed();
     }
 }

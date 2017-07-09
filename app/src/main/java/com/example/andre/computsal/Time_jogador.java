@@ -74,7 +74,5 @@ public class Time_jogador extends AppCompatActivity {
 
             }
         });
-
-
     }
 }

@@ -1,5 +1,10 @@
 package Model;
 
+import com.google.firebase.database.Exclude;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class Jogador {
 
     private String nome;
@@ -38,5 +43,16 @@ public class Jogador {
     public void setGol(int gol) {
         this.gol = gol;
     }
+
+    @Exclude
+    public Map<String, Object> toMap() {
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("nome", time);
+        result.put("time", nome);
+        result.put("gol", gol);
+
+        return result;
+    }
+
 }
 

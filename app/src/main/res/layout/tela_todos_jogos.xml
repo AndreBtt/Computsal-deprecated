@@ -5,39 +5,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingTop="20dp"
-    android:paddingLeft="25dp"
     android:paddingBottom="15dp"
     android:background="@color/colorPrimary">
 
     <TextView
-        android:id="@+id/nome_jogador"
-        android:textColor="@color/branco"
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:layout_height="50dp"
-        tools:text="Andre"
-        android:textSize="20dp"
-        android:gravity="center"
-        />
-
-    <TextView
-        android:id="@+id/time_jogador"
+        android:id="@+id/t1"
         android:textColor="@color/secundaria"
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="50dp"
         tools:text="Gol++"
-        android:textSize="20dp"
+        android:textSize="25dp"
         android:gravity="center"
         />
 
     <TextView
-        android:id="@+id/gols_jogador"
+        android:id="@+id/placar"
         android:textColor="@color/branco"
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="50dp"
-        tools:text="5"
+        tools:text="0 x 0"
+        android:textSize="30dp"
+        android:gravity="center"
+        />
+
+    <TextView
+        android:id="@+id/t2"
+        android:textColor="@color/secundaria"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="50dp"
+        tools:text="Gol++"
         android:textSize="25dp"
         android:gravity="center"
         />

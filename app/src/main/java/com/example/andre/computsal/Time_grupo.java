@@ -1,8 +1,11 @@
 package com.example.andre.computsal;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.google.firebase.database.ChildEventListener;
@@ -75,5 +78,23 @@ public class Time_grupo extends AppCompatActivity {
 
             }
         });
+
+        time_listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+
+                Time time_atual = adapter.getItem(position);
+
+                Bundle b=new Bundle();
+                b.putString("time", time_atual.getNome_time());
+                Intent proxima_pagina = new Intent(Time_grupo.this,Time_jogador.class);
+
+                proxima_pagina.putExtras(b);
+
+                startActivity(proxima_pagina);
+            }
+        });
     }
+
 }

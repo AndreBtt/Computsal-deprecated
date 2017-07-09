@@ -1,5 +1,6 @@
 package com.example.andre.computsal;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -71,4 +72,11 @@ public class Artilharia extends AppCompatActivity{
             }
         });
     }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(Artilharia.this,Principal.class));
+        super.onBackPressed();
+    }
+
 }

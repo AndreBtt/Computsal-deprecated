@@ -301,4 +301,10 @@ public class Criar_time extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(Criar_time.this,Times.class));
+        super.onBackPressed();
+    }
+
 }

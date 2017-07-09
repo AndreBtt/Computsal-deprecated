@@ -16,13 +16,14 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 import java.util.List;
 
-import Model.Grupo;
+import Model.Jogo;
 
-public class Grupos_usuario extends AppCompatActivity {
+public class Todos_jogos extends AppCompatActivity {
 
-    private ListaGrupoAdapter adapter;
-    private ListView time_listview;
-    private List<Grupo> grupos = new ArrayList<Grupo>();
+    private JogosAdapter adapter;
+    private ListView listview;
+    private List<Jogo> jogos = new ArrayList<Jogo>();
+
     private DatabaseReference mBanco;
 
     @Override
@@ -30,18 +31,18 @@ public class Grupos_usuario extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lista_times);
 
-        time_listview = (ListView) findViewById(R.id.lista_times);
+        mBanco = FirebaseDatabase.getInstance().getReference("Jogos");
 
-        mBanco = FirebaseDatabase.getInstance().getReference("Grupos");
+        listview = (ListView) findViewById(R.id.lista_times);
 
-        adapter = new ListaGrupoAdapter(this,grupos);
-        time_listview.setAdapter(adapter);
+        adapter = new JogosAdapter(this,jogos);
+        listview.setAdapter(adapter);
 
         mBanco.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                Grupo novo = dataSnapshot.getValue(Grupo.class);
-                grupos.add(novo);
+                Jogo novo = dataSnapshot.getValue(Jogo.class);
+                jogos.add(novo);
                 adapter.notifyDataSetChanged();
             }
 
@@ -66,32 +67,38 @@ public class Grupos_usuario extends AppCompatActivity {
             }
         });
 
-        time_listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-                Grupo atual = adapter.getItem(position);
+                Jogo atual = adapter.getItem(i);
 
-                Bundle b = new Bundle();
-                b.putString("time1", atual.getT1());
-                b.putString("time2", atual.getT2());
-                b.putString("time3", atual.getT3());
-                b.putString("time4", atual.getT4());
+                StringBuilder sb = new StringBuilder();
+                sb.append("");
+                sb.append(atual.getG1());
+                String g1 = sb.toString();
 
-                Intent proxima_pagina = new Intent(Grupos_usuario.this,Time_grupo.class);
+                sb = new StringBuilder();
+                sb.append("");
+                sb.append(atual.getG2());
+                String g2 = sb.toString();
 
-                proxima_pagina.putExtras(b);
+                Intent proxima_pagina = new Intent(Todos_jogos.this,Jogo_config.class);
+
+                proxima_pagina.putExtra("t1",atual.getT1());
+                proxima_pagina.putExtra("t2",atual.getT2());
+                proxima_pagina.putExtra("g1",g1);
+                proxima_pagina.putExtra("g2",g2);
 
                 startActivity(proxima_pagina);
+
             }
         });
     }
 
     @Override
     public void onBackPressed() {
-        startActivity(new Intent(Grupos_usuario.this,Principal.class));
+        startActivity(new Intent(Todos_jogos.this,Gerenciar.class));
         super.onBackPressed();
     }
-
 }

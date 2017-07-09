@@ -38,8 +38,10 @@
         <activity android:name=".Gerenciar" />
         <activity android:name=".Criar_grupo" />
         <activity android:name=".Grupos" />
-        <activity android:name=".Time_grupo"/>
-        <activity android:name=".Grupos_usuario"/>
+        <activity android:name=".Time_grupo" />
+        <activity android:name=".Grupos_usuario" />
+        <activity android:name=".Todos_jogos" />
+        <activity android:name=".Jogo_config"></activity>
     </application>
 
 </manifest>

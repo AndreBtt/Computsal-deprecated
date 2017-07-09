@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Model.Grupo;
+import Model.Jogo;
 import Model.Time;
 
 public class Criar_grupo extends AppCompatActivity {
@@ -110,11 +111,43 @@ public class Criar_grupo extends AppCompatActivity {
 
                 newPost.setValue(g);
 
+                Banco = FirebaseDatabase.getInstance().getReference("Jogos");
+
+                Jogo j1 = new Jogo(t1,t2,0,0,false);
+                Jogo j2 = new Jogo(t1,t3,0,0,false);
+                Jogo j3 = new Jogo(t1,t4,0,0,false);
+                Jogo j4 = new Jogo(t2,t3,0,0,false);
+                Jogo j5 = new Jogo(t2,t4,0,0,false);
+                Jogo j6 = new Jogo(t3,t4,0,0,false);
+
+                newPost = Banco.push();
+                newPost.setValue(j1);
+
+                newPost = Banco.push();
+                newPost.setValue(j2);
+
+                newPost = Banco.push();
+                newPost.setValue(j3);
+
+                newPost = Banco.push();
+                newPost.setValue(j4);
+
+                newPost = Banco.push();
+                newPost.setValue(j5);
+
+                newPost = Banco.push();
+                newPost.setValue(j6);
+
                 startActivity(new Intent(Criar_grupo.this,Grupos.class));
 
             }
         });
-
-
     }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(Criar_grupo.this,Grupos.class));
+        super.onBackPressed();
+    }
+
 }

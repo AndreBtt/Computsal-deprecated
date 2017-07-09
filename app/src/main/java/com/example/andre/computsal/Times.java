@@ -1,6 +1,5 @@
 package com.example.andre.computsal;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -26,18 +25,11 @@ public class Times extends AppCompatActivity {
     private TimesAdapter adapter;
     private ListView time_listview;
     private List<Time> times = new ArrayList<Time>();
-    private ProgressDialog mDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lista_times);
-
-        mDialog = new ProgressDialog(this);
-
-        mDialog.setMessage("Gerando lista de times...");
-
-        mDialog.show();
 
         time_listview = (ListView) findViewById(R.id.lista_times);
 
@@ -52,7 +44,6 @@ public class Times extends AppCompatActivity {
                 Time novo = dataSnapshot.getValue(Time.class);
                 times.add(novo);
                 adapter.notifyDataSetChanged();
-                mDialog.dismiss();
             }
 
             @Override
