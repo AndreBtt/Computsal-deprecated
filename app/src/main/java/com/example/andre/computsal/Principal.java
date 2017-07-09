@@ -15,6 +15,7 @@ public class Principal extends AppCompatActivity {
     private ImageView mArtilheiro;
     private ImageView mGerenciar;
     private ImageView mGrupo;
+    private ImageView mJogos_passados;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,15 @@ public class Principal extends AppCompatActivity {
         mGrupo = (ImageView) findViewById(R.id.grupos);
 
         mGerenciar = (ImageView) findViewById(R.id.gerenciar);
+
+        mJogos_passados = (ImageView) findViewById(R.id.jogos_passados);
+
+        mJogos_passados.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Principal.this,Jogos_anteriores.class));
+            }
+        });
 
         mTimes.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,7 +76,6 @@ public class Principal extends AppCompatActivity {
                 startActivity(new Intent(Principal.this,Grupos_usuario.class));
             }
         });
-
 
     }
 

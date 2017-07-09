@@ -41,7 +41,8 @@
         <activity android:name=".Time_grupo" />
         <activity android:name=".Grupos_usuario" />
         <activity android:name=".Todos_jogos" />
-        <activity android:name=".Jogo_config"></activity>
+        <activity android:name=".Jogo_config" />
+        <activity android:name=".Jogos_anteriores"></activity>
     </application>
 
 </manifest>
