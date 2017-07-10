@@ -18,11 +18,14 @@ public class Principal extends AppCompatActivity {
     private LinearLayout mGerenciar;
     private LinearLayout mGrupo;
     private LinearLayout mJogos_passados;
+    private LinearLayout mSobre_autor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tela_principal);
+
+        mSobre_autor = (LinearLayout) findViewById(R.id.sobre);
 
         mTimes = (LinearLayout) findViewById(R.id.Times_jogadores);
 
@@ -82,6 +85,13 @@ public class Principal extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(Principal.this,Grupos_usuario.class));
+            }
+        });
+
+        mSobre_autor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Principal.this,Sobre_autor.class));
             }
         });
 

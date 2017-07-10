@@ -7,13 +7,13 @@
 
 <LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/colorPrimary">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="130dp"
+        android:layout_height="match_parent"
         android:orientation="horizontal"
         android:layout_marginTop="50dp">
 
@@ -23,20 +23,20 @@
             android:layout_weight="1"
             android:layout_height="130dp"
             android:orientation="vertical">
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:src="@drawable/coach"/>
-        <TextView
-            android:paddingBottom="25dp"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:textSize="20sp"
-            android:gravity="center"
-            android:textColor="@color/branco"
-            android:text="Times e Jogadores"/>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:src="@drawable/coach"/>
+            <TextView
+                android:paddingBottom="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:textColor="@color/branco"
+                android:text="Times e jogadores"/>
         </LinearLayout>
 
         <LinearLayout
@@ -65,7 +65,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="130dp"
+        android:layout_height="match_parent"
         android:orientation="horizontal"
         android:layout_marginTop="50dp">
 
@@ -117,7 +117,111 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="130dp"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginTop="50dp">
+
+        <LinearLayout
+            android:id="@+id/tabelas"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="130dp"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:src="@drawable/board"/>
+            <TextView
+                android:paddingBottom="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:textColor="@color/branco"
+                android:text="Tabelas"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/horario"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="130dp"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_height="0dp"
+                android:src="@drawable/stopwatch"/>
+            <TextView
+                android:paddingBottom="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:textColor="@color/branco"
+                android:text="Agendar horario"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginTop="50dp">
+
+        <LinearLayout
+            android:id="@+id/regulamento"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="130dp"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:src="@drawable/book"/>
+            <TextView
+                android:paddingBottom="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:textColor="@color/branco"
+                android:text="Regulamento"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/sobre"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="130dp"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_height="0dp"
+                android:src="@drawable/jogador"/>
+            <TextView
+                android:paddingBottom="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:textColor="@color/branco"
+                android:text="Sobre o autor"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="horizontal"
         android:layout_marginTop="50dp">
 
@@ -166,6 +270,8 @@
         </LinearLayout>
 
     </LinearLayout>
+
+
 
 </LinearLayout>
 

@@ -21,8 +21,7 @@
         </activity>
         <activity
             android:name=".Principal"
-            android:label="@string/title_activity_principal"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:label="Menu" />
         <activity
             android:name=".Times"
             android:label="@string/title_activity_times" />
@@ -35,14 +34,31 @@
         <activity
             android:name=".Artilharia"
             android:label="Artilharia" />
-        <activity android:name=".Gerenciar" />
-        <activity android:name=".Criar_grupo" />
-        <activity android:name=".Grupos" />
-        <activity android:name=".Time_grupo" />
-        <activity android:name=".Grupos_usuario" />
-        <activity android:name=".Todos_jogos" />
-        <activity android:name=".Jogo_config" />
-        <activity android:name=".Jogos_anteriores"></activity>
+        <activity
+            android:name=".Gerenciar"
+            android:label="Gerenciamento" />
+        <activity
+            android:name=".Criar_grupo"
+            android:label="Criar grupo" />
+        <activity
+            android:name=".Grupos"
+            android:label="Grupos" />
+        <activity
+            android:name=".Time_grupo"
+            android:label="Times" />
+        <activity
+            android:name=".Grupos_usuario"
+            android:label="Grupos" />
+        <activity
+            android:name=".Todos_jogos"
+            android:label="Todos os jogos" />
+        <activity
+            android:name=".Jogo_config"
+            android:label="Partida" />
+        <activity
+            android:name=".Jogos_anteriores"
+            android:label="Jogos anteriores" />
+        <activity android:name=".Sobre_autor"></activity>
     </application>
 
 </manifest>
