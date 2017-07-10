@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -12,29 +12,29 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class Principal extends AppCompatActivity {
 
-    private ImageView mTimes;
-    private ImageView mSair;
-    private ImageView mArtilheiro;
-    private ImageView mGerenciar;
-    private ImageView mGrupo;
-    private ImageView mJogos_passados;
+    private LinearLayout mTimes;
+    private LinearLayout mSair;
+    private LinearLayout mArtilheiro;
+    private LinearLayout mGerenciar;
+    private LinearLayout mGrupo;
+    private LinearLayout mJogos_passados;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tela_principal);
 
-        mTimes = (ImageView) findViewById(R.id.Times_jogadores);
+        mTimes = (LinearLayout) findViewById(R.id.Times_jogadores);
 
-        mSair = (ImageView) findViewById(R.id.sair);
+        mSair = (LinearLayout) findViewById(R.id.sair);
 
-        mArtilheiro = (ImageView) findViewById(R.id.Artilheiro);
+        mArtilheiro = (LinearLayout) findViewById(R.id.Artilheiro);
 
-        mGrupo = (ImageView) findViewById(R.id.grupos);
+        mGrupo = (LinearLayout) findViewById(R.id.grupos);
 
-        mGerenciar = (ImageView) findViewById(R.id.gerenciar);
+        mGerenciar = (LinearLayout) findViewById(R.id.gerenciar);
 
-        mJogos_passados = (ImageView) findViewById(R.id.jogos_passados);
+        mJogos_passados = (LinearLayout) findViewById(R.id.jogos_passados);
 
         mJogos_passados.setOnClickListener(new View.OnClickListener() {
             @Override

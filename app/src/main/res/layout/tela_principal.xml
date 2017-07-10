@@ -1,81 +1,172 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     android:background="@color/colorPrimary">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="130dp"
         android:orientation="horizontal"
         android:layout_marginTop="50dp">
 
-        <ImageView
+        <LinearLayout
             android:id="@+id/Times_jogadores"
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:layout_marginLeft="15dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/logo"/>
-
+            android:layout_height="130dp"
+            android:orientation="vertical">
         <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:src="@drawable/coach"/>
+        <TextView
+            android:paddingBottom="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:textColor="@color/branco"
+            android:text="Times e Jogadores"/>
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/Artilheiro"
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:layout_marginLeft="15dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/chuteira"/>
+            android:layout_height="130dp"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_height="0dp"
+                android:src="@drawable/shoes"/>
+            <TextView
+                android:paddingBottom="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:textColor="@color/branco"
+                android:text="Artilharia"/>
+        </LinearLayout>
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="130dp"
         android:orientation="horizontal"
         android:layout_marginTop="50dp">
 
-        <ImageView
-        android:id="@+id/sair"
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:layout_marginLeft="15dp"
-        android:layout_height="wrap_content"
-        android:src="@drawable/chuteira"/>
-
-        <ImageView
-            android:id="@+id/gerenciar"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_marginLeft="15dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/chuteira"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:orientation="horizontal"
-        android:layout_marginTop="50dp">
-
-        <ImageView
-            android:id="@+id/grupos"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_marginLeft="15dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/chuteira"/>
-
-        <ImageView
+        <LinearLayout
             android:id="@+id/jogos_passados"
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:layout_marginLeft="15dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/chuteira"/>
+            android:layout_height="130dp"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:src="@drawable/calendar"/>
+            <TextView
+                android:paddingBottom="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:textColor="@color/branco"
+                android:text="Jogos passados"/>
+        </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/grupos"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="130dp"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_height="0dp"
+                android:src="@drawable/group"/>
+            <TextView
+                android:paddingBottom="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:textColor="@color/branco"
+                android:text="Grupos"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="50dp">
+
+        <LinearLayout
+            android:id="@+id/gerenciar"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="130dp"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:src="@drawable/settings"/>
+            <TextView
+                android:paddingBottom="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:textColor="@color/branco"
+                android:text="Gerenciar"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/sair"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="130dp"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_height="0dp"
+                android:src="@drawable/logout"/>
+            <TextView
+                android:paddingBottom="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:textColor="@color/branco"
+                android:text="Sair"/>
+        </LinearLayout>
 
     </LinearLayout>
 
 </LinearLayout>
+
+</ScrollView>
