@@ -812,6 +812,8 @@ public class Jogo_config extends AppCompatActivity {
                     }
                 });
 
+                // DELETAR TIMES E ADD NOVOS TIMES
+
                 startActivity(new Intent(Jogo_config.this,Todos_jogos.class));
 
             }

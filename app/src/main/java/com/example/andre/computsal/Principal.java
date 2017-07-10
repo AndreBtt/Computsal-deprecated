@@ -19,11 +19,14 @@ public class Principal extends AppCompatActivity {
     private LinearLayout mGrupo;
     private LinearLayout mJogos_passados;
     private LinearLayout mSobre_autor;
+    private LinearLayout mTabelas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tela_principal);
+
+        mTabelas = (LinearLayout) findViewById(R.id.tabelas);
 
         mSobre_autor = (LinearLayout) findViewById(R.id.sobre);
 
@@ -38,6 +41,13 @@ public class Principal extends AppCompatActivity {
         mGerenciar = (LinearLayout) findViewById(R.id.gerenciar);
 
         mJogos_passados = (LinearLayout) findViewById(R.id.jogos_passados);
+
+        mTabelas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Principal.this,Grupos_tabela.class));
+            }
+        });
 
         mJogos_passados.setOnClickListener(new View.OnClickListener() {
             @Override

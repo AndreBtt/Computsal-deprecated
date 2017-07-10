@@ -58,7 +58,9 @@
         <activity
             android:name=".Jogos_anteriores"
             android:label="Jogos anteriores" />
-        <activity android:name=".Sobre_autor"></activity>
+        <activity android:name=".Sobre_autor" />
+        <activity android:name=".Grupos_tabela" />
+        <activity android:name=".Tabelas"></activity>
     </application>
 
 </manifest>
