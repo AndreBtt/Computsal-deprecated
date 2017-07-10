@@ -94,7 +94,7 @@ public class Principal extends AppCompatActivity {
         mGrupo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Principal.this,Grupos_usuario.class));
+                startActivity(new Intent(Principal.this,Grupos.class));
             }
         });
 

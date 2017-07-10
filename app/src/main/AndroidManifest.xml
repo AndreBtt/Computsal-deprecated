@@ -47,9 +47,6 @@
             android:name=".Time_grupo"
             android:label="Times" />
         <activity
-            android:name=".Grupos_usuario"
-            android:label="Grupos" />
-        <activity
             android:name=".Todos_jogos"
             android:label="Todos os jogos" />
         <activity

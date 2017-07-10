@@ -8,7 +8,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -101,20 +104,27 @@ public class Grupos extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if(item.getItemId() == R.id.butao_add){
-            Intent intent = new Intent(Grupos.this, Criar_grupo.class);
-            String s = "";
-            int dif = grupos.size();
-            mLetra = (char) ('A' + dif);
-            s += mLetra;
-            intent.putExtra("grupo",s);
-            startActivity(intent);
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            if(user.getEmail().equals("bittencourtandre@hotmail.com")) {
+                Intent intent = new Intent(Grupos.this, Criar_grupo.class);
+                String s = "";
+                int dif = grupos.size();
+                mLetra = (char) ('A' + dif);
+                s += mLetra;
+                intent.putExtra("grupo",s);
+                startActivity(intent);
+            }
+            else{
+                Toast.makeText(Grupos.this, "Você não possui permissão para acessar essa área.", Toast.LENGTH_SHORT).show();
+            }
+
         }
         return super.onOptionsItemSelected(item);
     }
 
     @Override
     public void onBackPressed() {
-        startActivity(new Intent(Grupos.this,Gerenciar.class));
+        startActivity(new Intent(Grupos.this,Principal.class));
         super.onBackPressed();
     }
 }
