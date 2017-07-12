@@ -5,30 +5,78 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimary">
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
+<LinearLayout
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:paddingTop="20dp"
-    android:paddingBottom="15dp">
+    android:paddingBottom="15dp"
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp"
+    >
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:textColor="@color/branco"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
         android:textSize="20dp"
-        android:text="Olá,
-    Muito Prazer, me chamo André e sou o desenvolvedor do Aplicativo do Computsal.
-    Sou estudante de Ciência da Computação na Universidade de Brasília (UnB) desde 2014.
-    Além disso, jogo futsal desde que me entendo por gente... Era daqueles moleques que estava onde tivesse uma partida de futsal, tudo que precisava era no máximo uma bola e dois chinelos. Assim ,naturalmente , Ao ingressar na Universidade me interessei pelo campeonato Computsal, participando pela primeira vez em 2015.
-    Pensando em juntar essas duas paixões, desenvolvi o aplicativo, especialmente para o Computsal, para que ele fique cada vez melhor. No Aplicativo, você poderá acompanhar tudo que ocorre nas quadras estando distante delas, informações como o placar de todos os jogos até a artilharia do campeonato estarão disponíveis a qualquer hora!!
-    Por favor, se tiver alguma sugestão, dúvida ou reclamação a respeitar do Aplicativo, fale comigo através do meu e-mail ()
-    Espero que aproveite o aplicativo!
-    André"/>
+        android:text="Olá,"
+    />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/branco"
+        android:layout_marginTop="20dp"
+        android:textSize="20dp"
+        android:text="   Muito Prazer, me chamo André e sou o desenvolvedor do Aplicativo Computsal."
+        />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/branco"
+        android:layout_marginTop="20dp"
+        android:textSize="20dp"
+        android:text="   Sou estudante de Ciência da Computação na Universidade de Brasília (UnB) desde 2014."
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/branco"
+        android:layout_marginTop="20dp"
+        android:textSize="20dp"
+        android:text="   Jogo futsal desde que me entendo por gente... Era daqueles moleques que estava onde tivesse uma bola e dois chinelos. Assim, naturalmente, ao ingressar na Universidade me interessei pelo campeonato Computsal, participando pela primeira vez em 2015. "
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/branco"
+        android:layout_marginTop="20dp"
+        android:textSize="20dp"
+        android:text="   Pensando em juntar essas duas paixões, desenvolvi o aplicativo, especialmente para o Computsal, para que ele fique cada vez melhor. No Aplicativo, você poderá acompanhar tudo que ocorre nas quadras mesmo estando distante delas. Informações como o placar de todos os jogos até a artilharia do campeonato estarão disponíveis a qualquer hora!!"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/branco"
+        android:layout_marginTop="20dp"
+        android:textSize="20dp"
+        android:text="   Por favor, se tiver alguma sugestão, dúvida ou reclamação a respeito do Aplicativo, fale comigo por meio do meu e-mail (bittencourtandre@hotmail.com)"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/branco"
+        android:layout_marginTop="20dp"
+        android:textSize="20dp"
+        android:text="   Espero que aproveite!
+   André"
+        />
 
 </LinearLayout>
 

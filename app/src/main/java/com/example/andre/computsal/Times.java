@@ -7,8 +7,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -25,6 +29,7 @@ public class Times extends AppCompatActivity {
     private TimesAdapter adapter;
     private ListView time_listview;
     private List<Time> times = new ArrayList<Time>();
+    private LinearLayout layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +37,10 @@ public class Times extends AppCompatActivity {
         setContentView(R.layout.lista_times);
 
         time_listview = (ListView) findViewById(R.id.lista_times);
+
+        layout = (LinearLayout) findViewById(R.id.progressbar_view);
+        layout.setVisibility(View.VISIBLE);
+        time_listview.setVisibility(View.GONE);
 
         DatabaseReference mBanco = FirebaseDatabase.getInstance().getReference("Times");
 
@@ -44,6 +53,8 @@ public class Times extends AppCompatActivity {
                 Time novo = dataSnapshot.getValue(Time.class);
                 times.add(novo);
                 adapter.notifyDataSetChanged();
+                layout.setVisibility(View.GONE);
+                time_listview.setVisibility(View.VISIBLE);
             }
 
             @Override
@@ -83,7 +94,6 @@ public class Times extends AppCompatActivity {
                 startActivity(proxima_pagina);
             }
         });
-
     }
 
     @Override
@@ -95,7 +105,13 @@ public class Times extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if(item.getItemId() == R.id.butao_add){
-            startActivity(new Intent(Times.this, Criar_time.class));
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            if(user.getEmail().equals("bittencourtandre@hotmail.com") || user.getEmail().equals("pedrocastro.coutinho@gmail.com") || user.getEmail().equals("igorbonomo@hotmail.com") || user.getEmail().equals("brenoriosfe@hotmail.com")) {
+                startActivity(new Intent(Times.this, Criar_time.class));
+            }
+            else{
+                Toast.makeText(Times.this, "Você não possui permissão para criar time.", Toast.LENGTH_SHORT).show();
+            }
         }
         return super.onOptionsItemSelected(item);
     }

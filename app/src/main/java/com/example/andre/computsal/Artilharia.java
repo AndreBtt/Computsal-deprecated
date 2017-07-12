@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import com.google.firebase.database.ChildEventListener;
@@ -24,13 +26,19 @@ public class Artilharia extends AppCompatActivity{
     private ArtilhariaAdapter adapter;
     private ListView artilharia_listview;
     private List<Jogador> jogadores = new ArrayList<Jogador>();
+    private LinearLayout layout;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lista_artilharia);
 
+        layout = (LinearLayout) findViewById(R.id.progressbar_view);
+
         artilharia_listview = (ListView) findViewById(R.id.lista_artilharia);
+
+        layout.setVisibility(View.VISIBLE);
+        artilharia_listview.setVisibility(View.GONE);
 
         DatabaseReference mBanco = FirebaseDatabase.getInstance().getReference("Jogadores");
 
@@ -49,11 +57,12 @@ public class Artilharia extends AppCompatActivity{
                         return 0;
                     }});
                 adapter.notifyDataSetChanged();
+                layout.setVisibility(View.GONE);
+                artilharia_listview.setVisibility(View.VISIBLE);
             }
 
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-                // MUDAR AQUI UPDATE (eu acho)
             }
 
             @Override

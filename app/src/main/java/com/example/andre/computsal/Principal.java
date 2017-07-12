@@ -82,7 +82,7 @@ public class Principal extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                if(user.getEmail().equals("bittencourtandre@hotmail.com")) {
+                if(user.getEmail().equals("bittencourtandre@hotmail.com") || user.getEmail().equals("pedrocastro.coutinho@gmail.com") || user.getEmail().equals("igorbonomo@hotmail.com") || user.getEmail().equals("brenoriosfe@hotmail.com")) {
                     startActivity(new Intent(Principal.this, Gerenciar.class));
                 }
                 else{

@@ -7,7 +7,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -30,13 +32,23 @@ public class Grupos extends AppCompatActivity {
     private List<Grupo> grupos = new ArrayList<Grupo>();
     private DatabaseReference mBanco;
     private char mLetra;
+    private LinearLayout layout;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lista_times);
 
+        TextView textinho = (TextView) findViewById(R.id.textinho);
+
+        textinho.setText("Carregando Grupos");
+
         time_listview = (ListView) findViewById(R.id.lista_times);
+
+        layout = (LinearLayout) findViewById(R.id.progressbar_view);
+        layout.setVisibility(View.VISIBLE);
+        time_listview.setVisibility(View.GONE);
 
         mBanco = FirebaseDatabase.getInstance().getReference("Grupos");
 
@@ -49,6 +61,8 @@ public class Grupos extends AppCompatActivity {
                 Grupo novo = dataSnapshot.getValue(Grupo.class);
                 grupos.add(novo);
                 adapter.notifyDataSetChanged();
+                layout.setVisibility(View.GONE);
+                time_listview.setVisibility(View.VISIBLE);
             }
 
             @Override
@@ -105,7 +119,7 @@ public class Grupos extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         if(item.getItemId() == R.id.butao_add){
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-            if(user.getEmail().equals("bittencourtandre@hotmail.com")) {
+            if(user.getEmail().equals("bittencourtandre@hotmail.com") || user.getEmail().equals("pedrocastro.coutinho@gmail.com") || user.getEmail().equals("igorbonomo@hotmail.com") || user.getEmail().equals("brenoriosfe@hotmail.com")) {
                 Intent intent = new Intent(Grupos.this, Criar_grupo.class);
                 String s = "";
                 int dif = grupos.size();
@@ -115,7 +129,7 @@ public class Grupos extends AppCompatActivity {
                 startActivity(intent);
             }
             else{
-                Toast.makeText(Grupos.this, "Você não possui permissão para acessar essa área.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Grupos.this, "Você não possui permissão para criar grupo.", Toast.LENGTH_SHORT).show();
             }
 
         }

@@ -1,6 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ListView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+     >
+
+<LinearLayout
+    android:id="@+id/progressbar_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            />
+
+        <TextView
+            android:id="@+id/textinho"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/branco"
+            android:textSize="20dp"
+            android:text="Carregando times"
+            android:paddingLeft="15dp"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorPrimary" />
+</LinearLayout>
+
+<ListView
 android:background="@color/colorPrimary"
 android:id="@+id/lista_times"
 android:orientation="vertical"
@@ -8,3 +51,5 @@ android:divider="@color/branco"
 android:dividerHeight="2px"
 android:layout_width="match_parent"
 android:layout_height="match_parent"/>
+
+</RelativeLayout>

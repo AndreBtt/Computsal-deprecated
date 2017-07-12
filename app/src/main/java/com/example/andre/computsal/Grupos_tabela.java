@@ -5,7 +5,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -24,13 +26,22 @@ public class Grupos_tabela extends AppCompatActivity {
     private ListView time_listview;
     private List<Grupo> grupos = new ArrayList<Grupo>();
     private DatabaseReference mBanco;
+    private LinearLayout layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lista_times);
 
+        TextView textinho = (TextView) findViewById(R.id.textinho);
+
+        textinho.setText("Carregando Tabelas");
+
         time_listview = (ListView) findViewById(R.id.lista_times);
+
+        layout = (LinearLayout) findViewById(R.id.progressbar_view);
+        layout.setVisibility(View.VISIBLE);
+        time_listview.setVisibility(View.GONE);
 
         mBanco = FirebaseDatabase.getInstance().getReference("Grupos");
 
@@ -43,6 +54,8 @@ public class Grupos_tabela extends AppCompatActivity {
                 Grupo novo = dataSnapshot.getValue(Grupo.class);
                 grupos.add(novo);
                 adapter.notifyDataSetChanged();
+                layout.setVisibility(View.GONE);
+                time_listview.setVisibility(View.VISIBLE);
             }
 
             @Override
@@ -73,13 +86,11 @@ public class Grupos_tabela extends AppCompatActivity {
 
                 Grupo atual = adapter.getItem(position);
 
-                StringBuilder sb = new StringBuilder();
-                sb.append("");
-                sb.append(position);
-                String strI = sb.toString();
-
                 Bundle b = new Bundle();
-                b.putString("pos",strI );
+                b.putString("time1", atual.getT1());
+                b.putString("time2", atual.getT2());
+                b.putString("time3", atual.getT3());
+                b.putString("time4", atual.getT4());
 
                 Intent proxima_pagina = new Intent(Grupos_tabela.this,Tabelas.class);
 

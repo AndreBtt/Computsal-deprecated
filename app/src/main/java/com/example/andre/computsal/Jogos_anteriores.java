@@ -2,7 +2,10 @@ package com.example.andre.computsal;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -20,6 +23,7 @@ public class Jogos_anteriores extends AppCompatActivity {
     private JogosAdapter adapter;
     private ListView listview;
     private List<Jogo> jogos = new ArrayList<Jogo>();
+    private LinearLayout layout;
 
     private DatabaseReference mBanco;
 
@@ -30,7 +34,15 @@ public class Jogos_anteriores extends AppCompatActivity {
 
         mBanco = FirebaseDatabase.getInstance().getReference("Jogos");
 
+        TextView textinho = (TextView) findViewById(R.id.textinho);
+
+        textinho.setText("Carregando Jogos");
+
         listview = (ListView) findViewById(R.id.lista_times);
+
+        layout = (LinearLayout) findViewById(R.id.progressbar_view);
+        layout.setVisibility(View.VISIBLE);
+        listview.setVisibility(View.GONE);
 
         adapter = new JogosAdapter(this,jogos);
         listview.setAdapter(adapter);
@@ -42,6 +54,8 @@ public class Jogos_anteriores extends AppCompatActivity {
                 if(novo.getFim()) {
                     jogos.add(novo);
                     adapter.notifyDataSetChanged();
+                    layout.setVisibility(View.GONE);
+                    listview.setVisibility(View.VISIBLE);
                 }
             }
 
