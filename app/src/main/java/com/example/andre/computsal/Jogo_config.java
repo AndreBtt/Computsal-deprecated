@@ -129,6 +129,7 @@ public class Jogo_config extends AppCompatActivity {
     private String gol1,gol2,time1,time2;
 
     private DatabaseReference Banco;
+    private DatabaseReference Banco3;
 
     private Time t1;
     private Time t2;
@@ -142,6 +143,7 @@ public class Jogo_config extends AppCompatActivity {
     private int cont;
     private int cont1 = 0;
     private int cont2 = 0;
+    private int cont3 = 0;
 
     private HashMap<String,Integer> mapa_gols = new HashMap<String,Integer>();
 
@@ -150,6 +152,9 @@ public class Jogo_config extends AppCompatActivity {
 
     private int mGol1;
     private int mGol2;
+
+    private String chave_time1;
+    private String chave_time2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -279,11 +284,13 @@ public class Jogo_config extends AppCompatActivity {
 
                 if(novo.getNome_time().equals(time1)){
                     t1 = novo;
+                    chave_time1 = dataSnapshot.getKey();
                     criar_jogadores1();
                     cont++;
                 }
                 else if(novo.getNome_time().equals(time2)){
                     t2 = novo;
+                    chave_time2 = dataSnapshot.getKey();
                     criar_jogadores2();
                     cont++;
                 }
@@ -812,7 +819,55 @@ public class Jogo_config extends AppCompatActivity {
                     }
                 });
 
-                // DELETAR TIMES E ADD NOVOS TIMES
+                Banco3 = FirebaseDatabase.getInstance().getReference("Times");
+
+                String del = "Times/" + chave_time1;
+                String del2 = "Times/" + chave_time2;
+                DatabaseReference deletar = FirebaseDatabase.getInstance().getReference(del);
+                deletar.removeValue();
+                deletar = FirebaseDatabase.getInstance().getReference(del2);
+                deletar.removeValue();
+
+                int empate = 0;
+                int derrota1 = 0;
+                int vitoria1 = 0;
+
+                int pnt1 = 0;
+                int pnt2 = 0;
+
+                if(mGol1 > mGol2){
+                    vitoria1 = 1;
+                    pnt1 = 3;
+                }
+                else if(mGol1 < mGol2) {
+                    pnt2 = 3;
+                    derrota1 = 1;
+                }
+                else if(mGol2 == mGol1){
+                    pnt1 = 1;
+                    pnt2 = 1;
+                    empate = 1;
+                }
+
+                t1.setPontos(t1.getPontos() + pnt1);
+                t1.setVitorias(t1.getVitorias() + vitoria1);
+                t1.setDerrotas(t1.getDerrotas() + derrota1);
+                t1.setEmpates(t1.getEmpates() + empate);
+                t1.setGols_feitos(t1.getGols_feitos() + mGol1);
+                t1.setGols_recebidos(t1.getGols_recebidos() + mGol2);
+
+                t2.setPontos(t2.getPontos() + pnt2);
+                t2.setVitorias(t2.getVitorias() + derrota1);
+                t2.setDerrotas(t2.getDerrotas() + vitoria1);
+                t2.setEmpates(t2.getEmpates() + empate);
+                t2.setGols_feitos(t2.getGols_feitos() + mGol2);
+                t2.setGols_recebidos(t2.getGols_recebidos() + mGol1);
+
+                DatabaseReference newPost = Banco3.push();
+                newPost.setValue(t2);
+
+                newPost = Banco3.push();
+                newPost.setValue(t1);
 
                 startActivity(new Intent(Jogo_config.this,Todos_jogos.class));
 

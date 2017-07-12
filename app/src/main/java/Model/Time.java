@@ -5,8 +5,13 @@ public class Time {
     private String logo;
     private String j1,j2,j3,j4,j5,j6,j7,j8,j9,j10,j11,j12,j13,j14,j15,nome_time;
     private Boolean pago;
+    private int gols_feitos,gols_recebidos;
+    private int vitorias,empates,derrotas;
+    private int pontos;
 
-    public Time(String logo, String j1, String j2, String j3, String j4, String j5, String j6, String j7, String j8, String j9, String j10, String j11, String j12, String j13, String j14, String j15, String nome_time, Boolean pago) {
+    public Time(){}
+
+    public Time(String logo, String j1, String j2, String j3, String j4, String j5, String j6, String j7, String j8, String j9, String j10, String j11, String j12, String j13, String j14, String j15, String nome_time, Boolean pago, int gols_feitos, int gols_recebidos, int vitorias, int empates, int derrotas, int pontos) {
         this.logo = logo;
         this.j1 = j1;
         this.j2 = j2;
@@ -25,9 +30,13 @@ public class Time {
         this.j15 = j15;
         this.nome_time = nome_time;
         this.pago = pago;
+        this.gols_feitos = gols_feitos;
+        this.gols_recebidos = gols_recebidos;
+        this.vitorias = vitorias;
+        this.empates = empates;
+        this.derrotas = derrotas;
+        this.pontos = pontos;
     }
-
-    public Time(){}
 
     public String getLogo() {
         return logo;
@@ -171,5 +180,53 @@ public class Time {
 
     public void setPago(Boolean pago) {
         this.pago = pago;
+    }
+
+    public int getGols_feitos() {
+        return gols_feitos;
+    }
+
+    public void setGols_feitos(int gols_feitos) {
+        this.gols_feitos = gols_feitos;
+    }
+
+    public int getGols_recebidos() {
+        return gols_recebidos;
+    }
+
+    public void setGols_recebidos(int gols_recebidos) {
+        this.gols_recebidos = gols_recebidos;
+    }
+
+    public int getVitorias() {
+        return vitorias;
+    }
+
+    public void setVitorias(int vitorias) {
+        this.vitorias = vitorias;
+    }
+
+    public int getEmpates() {
+        return empates;
+    }
+
+    public void setEmpates(int empates) {
+        this.empates = empates;
+    }
+
+    public int getDerrotas() {
+        return derrotas;
+    }
+
+    public void setDerrotas(int derrotas) {
+        this.derrotas = derrotas;
+    }
+
+    public int getPontos() {
+        return pontos;
+    }
+
+    public void setPontos(int pontos) {
+        this.pontos = pontos;
     }
 }

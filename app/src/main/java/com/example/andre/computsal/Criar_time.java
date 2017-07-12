@@ -1,6 +1,5 @@
 package com.example.andre.computsal;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -44,7 +43,6 @@ public class Criar_time extends AppCompatActivity {
 
     private StorageReference mStorage;
 
-    private ProgressDialog mProgressDialog;
 
     private static final int GALLERY_REQUEST = 1;
 
@@ -92,7 +90,6 @@ public class Criar_time extends AppCompatActivity {
             }
         });
 
-        mProgressDialog = new ProgressDialog(this);
 
         enviar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -115,10 +112,6 @@ public class Criar_time extends AppCompatActivity {
 
         if(user == null) return false;
 
-        mProgressDialog.setMessage("Criando seu time...");
-
-        mProgressDialog.show();
-
         if(!ja_foi_inserida) {
             //the imageView is empty
             String img_padrao = "https://firebasestorage.googleapis.com/v0/b/computsal-70e30.appspot.com/o/Logo_times%2Flogo.png?alt=media&token=64856c56-bc24-4380-8904-88acc82654c4";
@@ -131,7 +124,6 @@ public class Criar_time extends AppCompatActivity {
 
             newPost.setValue(user);
 
-            mProgressDialog.dismiss();
         }
         else if(ja_foi_inserida){
             // there is an image
@@ -152,7 +144,6 @@ public class Criar_time extends AppCompatActivity {
 
                     newPost.setValue(user);
 
-                    mProgressDialog.dismiss();
 
                 }
             }).addOnFailureListener(new OnFailureListener() {
@@ -286,6 +277,12 @@ public class Criar_time extends AppCompatActivity {
         }
 
         user.setPago(false);
+        user.setVitorias(0);
+        user.setDerrotas(0);
+        user.setEmpates(0);
+        user.setGols_feitos(0);
+        user.setGols_recebidos(0);
+        user.setPontos(0);
 
         return user;
     }

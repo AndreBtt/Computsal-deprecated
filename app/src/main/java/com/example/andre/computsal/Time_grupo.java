@@ -1,6 +1,5 @@
 package com.example.andre.computsal;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -24,7 +23,6 @@ public class Time_grupo extends AppCompatActivity {
     private TimesAdapter adapter;
     private ListView time_listview;
     private List<Time> times = new ArrayList<Time>();
-    private ProgressDialog mDialog;
     String t1,t2,t3,t4;
 
     @Override
@@ -35,7 +33,6 @@ public class Time_grupo extends AppCompatActivity {
         time_listview = (ListView) findViewById(R.id.lista_times);
 
         DatabaseReference mBanco = FirebaseDatabase.getInstance().getReference("Times");
-
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {

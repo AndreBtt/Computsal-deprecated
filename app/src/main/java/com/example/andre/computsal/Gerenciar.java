@@ -8,7 +8,6 @@ import android.widget.ImageView;
 
 public class Gerenciar extends AppCompatActivity {
 
-    private ImageView mGrupo;
     private ImageView mTodos_jogos;
 
     @Override
@@ -16,16 +15,7 @@ public class Gerenciar extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tela_gerenciar);
 
-        mGrupo = (ImageView) findViewById(R.id.Add_grupo);
-
         mTodos_jogos = (ImageView) findViewById(R.id.todos_jogos);
-
-        mGrupo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(Gerenciar.this,Grupos.class));
-            }
-        });
 
         mTodos_jogos.setOnClickListener(new View.OnClickListener() {
             @Override
