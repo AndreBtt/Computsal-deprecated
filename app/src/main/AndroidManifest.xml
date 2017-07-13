@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.bittencourt.andre.computsal.Criar_logar">
+        <activity android:name=".Criar_logar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,44 +20,45 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.bittencourt.andre.computsal.Principal"
+            android:name=".Principal"
             android:label="Menu" />
         <activity
-            android:name="com.bittencourt.andre.computsal.Times"
+            android:name=".Times"
             android:label="@string/title_activity_times" />
         <activity
-            android:name="com.bittencourt.andre.computsal.Time_jogador"
+            android:name=".Time_jogador"
             android:label="Jogadores e Gols" />
         <activity
-            android:name="com.bittencourt.andre.computsal.Criar_time"
+            android:name=".Criar_time"
             android:label="@string/criar_time" />
         <activity
-            android:name="com.bittencourt.andre.computsal.Artilharia"
+            android:name=".Artilharia"
             android:label="Artilharia" />
         <activity
-            android:name="com.bittencourt.andre.computsal.Gerenciar"
+            android:name=".Gerenciar"
             android:label="Gerenciamento" />
         <activity
-            android:name="com.bittencourt.andre.computsal.Criar_grupo"
+            android:name=".Criar_grupo"
             android:label="Criar grupo" />
         <activity
-            android:name="com.bittencourt.andre.computsal.Grupos"
+            android:name=".Grupos"
             android:label="Grupos" />
         <activity
-            android:name="com.bittencourt.andre.computsal.Time_grupo"
+            android:name=".Time_grupo"
             android:label="Times" />
         <activity
-            android:name="com.bittencourt.andre.computsal.Todos_jogos"
+            android:name=".Todos_jogos"
             android:label="Todos os jogos" />
         <activity
-            android:name="com.bittencourt.andre.computsal.Jogo_config"
+            android:name=".Jogo_config"
             android:label="Partida" />
         <activity
-            android:name="com.bittencourt.andre.computsal.Jogos_anteriores"
+            android:name=".Jogos_anteriores"
             android:label="Jogos anteriores" />
-        <activity android:name="com.bittencourt.andre.computsal.Sobre_autor" />
-        <activity android:name="com.bittencourt.andre.computsal.Grupos_tabela" />
-        <activity android:name="com.bittencourt.andre.computsal.Tabelas"></activity>
+        <activity android:name=".Sobre_autor" />
+        <activity android:name=".Grupos_tabela" />
+        <activity android:name=".Tabelas" />
+        <activity android:name=".Criar_conta"></activity>
     </application>
 
 </manifest>

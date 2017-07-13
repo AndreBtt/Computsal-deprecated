@@ -56,7 +56,7 @@ public class Criar_logar extends AppCompatActivity {
                         startActivity(new Intent(Criar_logar.this, Principal.class));
                     }
                     else {
-                        Toast.makeText(Criar_logar.this,"Confime o email...",Toast.LENGTH_LONG).show();
+                        Toast.makeText(Criar_logar.this,"Email de confirmação nao confirmado...",Toast.LENGTH_LONG).show();
                     }
                 }
             }
@@ -79,14 +79,7 @@ public class Criar_logar extends AppCompatActivity {
         mCreate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String email = mEmail.getText().toString().trim();
-                String senha = mSenha.getText().toString().trim();
-
-
-                if(valido()){
-                    Criar_usuario(email,senha);
-                }
-
+                startActivity(new Intent(Criar_logar.this, Criar_conta.class));
             }
         });
 
@@ -148,28 +141,6 @@ public class Criar_logar extends AppCompatActivity {
         return valid;
     }
 
-    private void Criar_usuario(String email, String senha){
-
-        mAuth.createUserWithEmailAndPassword(email, senha)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-
-                        // If sign in succeeds
-                        // the auth state listener will be notified and logic to handle the
-                        // signed in user can be handled in the listener.
-                        if(task.isSuccessful()){
-                            sendEmailVerification();
-                        }
-                        // If sign in fails, display a message to the user.
-                        else {
-                            Toast.makeText(Criar_logar.this, "Email inválido ou já cadastrado.",
-                                    Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
-    }
-
     private void SignIn(String email, String password) {
 
         mProgressDialog = new ProgressDialog(this);
@@ -193,21 +164,6 @@ public class Criar_logar extends AppCompatActivity {
                         }
 
                         mProgressDialog.dismiss();
-                    }
-                });
-    }
-
-    private void sendEmailVerification() {
-
-        final FirebaseUser user = mAuth.getCurrentUser();
-        user.sendEmailVerification()
-                .addOnCompleteListener(this, new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-
-                        if (!task.isSuccessful()){
-                            Toast.makeText(Criar_logar.this, "Falha ao enviar email de confirmação.", Toast.LENGTH_SHORT).show();
-                        }
                     }
                 });
     }

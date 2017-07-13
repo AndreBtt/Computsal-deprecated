@@ -27,8 +27,6 @@ import Model.Time;
 
 public class Criar_grupo extends AppCompatActivity {
 
-    DatabaseReference mBanco;
-
     String grupo;
 
     TextView texto_inicial;
