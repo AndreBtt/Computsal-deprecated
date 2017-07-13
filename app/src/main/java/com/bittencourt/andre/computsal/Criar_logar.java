@@ -82,6 +82,7 @@ public class Criar_logar extends AppCompatActivity {
                 String email = mEmail.getText().toString().trim();
                 String senha = mSenha.getText().toString().trim();
 
+
                 if(valido()){
                     Criar_usuario(email,senha);
                 }

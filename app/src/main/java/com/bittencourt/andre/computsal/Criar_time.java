@@ -14,6 +14,8 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -24,6 +26,8 @@ import java.util.ArrayList;
 
 import Model.Jogador;
 import Model.Time;
+
+import static com.bittencourt.andre.computsal.R.id.mostrar_imagem;
 
 public class Criar_time extends AppCompatActivity {
 
@@ -57,7 +61,7 @@ public class Criar_time extends AppCompatActivity {
 
         mImage = (Button) findViewById(R.id.imagem);
 
-        mMostrar = (ImageView) findViewById(R.id.mostrar_imagem);
+        mMostrar = (ImageView) findViewById(mostrar_imagem);
 
         mStorage = FirebaseStorage.getInstance().getReference();
 
@@ -87,21 +91,29 @@ public class Criar_time extends AppCompatActivity {
                 Intent galleryIntent = new Intent(Intent.ACTION_GET_CONTENT);
                 galleryIntent.setType("image/*");
                 startActivityForResult(galleryIntent,GALLERY_REQUEST);
+
+                mMostrar.setVisibility(View.VISIBLE);
             }
         });
-
 
         enviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                if(user.getEmail().equals("bittencourtandre@hotmail.com") || user.getEmail().equals("pedrocastro.coutinho@gmail.com") || user.getEmail().equals("igorbonomo@hotmail.com") || user.getEmail().equals("brenoriosfe@hotmail.com")) {
 
-                Boolean correto = armazenar();
+                    Boolean correto = armazenar();
 
-                Intent intent = new Intent(Criar_time.this,Times.class);
+                    Intent intent = new Intent(Criar_time.this, Times.class);
 
-                intent.putExtra("criar","criado");
-
-                if(correto) startActivity(intent);
+                    intent.putExtra("criar", "criado");
+                    if (correto) {
+                        startActivity(intent);
+                    }
+                }
+                else {
+                    Toast.makeText(Criar_time.this, "Você não possui permissão para criar time.", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

@@ -10,10 +10,7 @@ import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -118,20 +115,13 @@ public class Grupos extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if(item.getItemId() == R.id.butao_add){
-            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-            if(user.getEmail().equals("bittencourtandre@hotmail.com") || user.getEmail().equals("pedrocastro.coutinho@gmail.com") || user.getEmail().equals("igorbonomo@hotmail.com") || user.getEmail().equals("brenoriosfe@hotmail.com")) {
-                Intent intent = new Intent(Grupos.this, Criar_grupo.class);
-                String s = "";
-                int dif = grupos.size();
-                mLetra = (char) ('A' + dif);
-                s += mLetra;
-                intent.putExtra("grupo",s);
-                startActivity(intent);
-            }
-            else{
-                Toast.makeText(Grupos.this, "Você não possui permissão para criar grupo.", Toast.LENGTH_SHORT).show();
-            }
-
+           Intent intent = new Intent(Grupos.this, Criar_grupo.class);
+            String s = "";
+            int dif = grupos.size();
+            mLetra = (char) ('A' + dif);
+            s += mLetra;
+            intent.putExtra("grupo",s);
+            startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }

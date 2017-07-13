@@ -38,7 +38,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
         android:orientation="horizontal"
         android:layout_marginTop="35dp">
 
@@ -48,7 +48,8 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:textColor="@color/secundaria"
-            android:text="Create"
+            android:gravity="center"
+            android:text="Criar conta"
             android:textSize="20dp"
             android:background="@drawable/butao_pagina_inicial"
             />
@@ -59,6 +60,7 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:textColor="@color/secundaria"
+            android:gravity="center"
             android:text="Log In"
             android:textSize="20dp"
             android:background="@drawable/butao_pagina_inicial"

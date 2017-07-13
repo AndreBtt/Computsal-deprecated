@@ -8,7 +8,10 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -96,50 +99,57 @@ public class Criar_grupo extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                DatabaseReference Banco = FirebaseDatabase.getInstance().getReference("Grupos");
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-                String t1,t2,t3,t4;
+                if(user.getEmail().equals("bittencourtandre@hotmail.com") || user.getEmail().equals("pedrocastro.coutinho@gmail.com") || user.getEmail().equals("igorbonomo@hotmail.com") || user.getEmail().equals("brenoriosfe@hotmail.com")) {
 
-                t1 = primeiro.getSelectedItem().toString();
-                t2 = segundo.getSelectedItem().toString();
-                t3 = terceiro.getSelectedItem().toString();
-                t4 = quarto.getSelectedItem().toString();
+                    DatabaseReference Banco = FirebaseDatabase.getInstance().getReference("Grupos");
 
-                Grupo g = new Grupo(t1,t2,t3,t4,grupo);
+                    String t1,t2,t3,t4;
 
-                DatabaseReference newPost = Banco.push();
+                    t1 = primeiro.getSelectedItem().toString();
+                    t2 = segundo.getSelectedItem().toString();
+                    t3 = terceiro.getSelectedItem().toString();
+                    t4 = quarto.getSelectedItem().toString();
 
-                newPost.setValue(g);
+                    Grupo g = new Grupo(t1,t2,t3,t4,grupo);
 
-                Banco = FirebaseDatabase.getInstance().getReference("Jogos");
+                    DatabaseReference newPost = Banco.push();
 
-                Jogo j1 = new Jogo(t1,t2,0,0,false);
-                Jogo j2 = new Jogo(t1,t3,0,0,false);
-                Jogo j3 = new Jogo(t1,t4,0,0,false);
-                Jogo j4 = new Jogo(t2,t3,0,0,false);
-                Jogo j5 = new Jogo(t2,t4,0,0,false);
-                Jogo j6 = new Jogo(t3,t4,0,0,false);
+                    newPost.setValue(g);
 
-                newPost = Banco.push();
-                newPost.setValue(j1);
+                    Banco = FirebaseDatabase.getInstance().getReference("Jogos");
 
-                newPost = Banco.push();
-                newPost.setValue(j2);
+                    Jogo j1 = new Jogo(t1,t2,0,0,false);
+                    Jogo j2 = new Jogo(t1,t3,0,0,false);
+                    Jogo j3 = new Jogo(t1,t4,0,0,false);
+                    Jogo j4 = new Jogo(t2,t3,0,0,false);
+                    Jogo j5 = new Jogo(t2,t4,0,0,false);
+                    Jogo j6 = new Jogo(t3,t4,0,0,false);
 
-                newPost = Banco.push();
-                newPost.setValue(j3);
+                    newPost = Banco.push();
+                    newPost.setValue(j1);
 
-                newPost = Banco.push();
-                newPost.setValue(j4);
+                    newPost = Banco.push();
+                    newPost.setValue(j2);
 
-                newPost = Banco.push();
-                newPost.setValue(j5);
+                    newPost = Banco.push();
+                    newPost.setValue(j3);
 
-                newPost = Banco.push();
-                newPost.setValue(j6);
+                    newPost = Banco.push();
+                    newPost.setValue(j4);
 
-                startActivity(new Intent(Criar_grupo.this,Grupos.class));
+                    newPost = Banco.push();
+                    newPost.setValue(j5);
 
+                    newPost = Banco.push();
+                    newPost.setValue(j6);
+
+                    startActivity(new Intent(Criar_grupo.this,Grupos.class));
+                }
+                else{
+                    Toast.makeText(Criar_grupo.this, "Você não possui permissão para criar time.", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
