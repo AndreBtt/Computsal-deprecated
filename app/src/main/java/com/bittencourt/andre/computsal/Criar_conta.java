@@ -1,5 +1,6 @@
 package com.bittencourt.andre.computsal;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -104,5 +105,11 @@ public class Criar_conta extends AppCompatActivity {
         }
 
         return valid;
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(Criar_conta.this,Criar_logar.class));
+        super.onBackPressed();
     }
 }

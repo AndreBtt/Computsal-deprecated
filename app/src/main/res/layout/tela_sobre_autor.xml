@@ -29,7 +29,7 @@
         android:textColor="@color/branco"
         android:layout_marginTop="20dp"
         android:textSize="20dp"
-        android:text="   Muito Prazer, me chamo André e sou o desenvolvedor do Aplicativo Computsal."
+        android:text="   Muito Prazer, me chamo André Luiz Bittencourt e sou o desenvolvedor do Aplicativo Computsal."
         />
 
     <TextView
@@ -74,8 +74,16 @@
         android:textColor="@color/branco"
         android:layout_marginTop="20dp"
         android:textSize="20dp"
-        android:text="   Espero que aproveite!
-   André"
+        android:text="   Espero que aproveite!"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/branco"
+        android:layout_marginTop="20dp"
+        android:textSize="20dp"
+        android:text="   André"
         />
 
 </LinearLayout>
