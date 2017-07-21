@@ -28,7 +28,7 @@ public class Principal extends AppCompatActivity {
     private LinearLayout mSobre_autor;
     private LinearLayout mTabelas;
 
-    private ArrayList<String> mAdm = new ArrayList<String>();
+    private ArrayList<String> mAdm = new ArrayList<>();
     DatabaseReference mBanco = FirebaseDatabase.getInstance().getReference("Adm");
 
     @Override
@@ -120,22 +120,12 @@ public class Principal extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                if(user == null){
+                if(user == null)
                     Toast.makeText(Principal.this, "Você não possui permissão para acessar essa área.", Toast.LENGTH_SHORT).show();
-                }
-                else {
-
-                    boolean achei = false;
-
-                    for(String it: mAdm){
-                        if(it.equals(user.getEmail())) achei = true;
-                    }
-
-                    if(achei)
+                else if(mAdm.contains(user.getEmail()))
                         startActivity(new Intent(Principal.this, Gerenciar.class));
-                    else
-                        Toast.makeText(Principal.this, "Você não possui permissão para acessar essa área.", Toast.LENGTH_SHORT).show();
-                }
+                else
+                    Toast.makeText(Principal.this, "Você não possui permissão para acessar essa área.", Toast.LENGTH_SHORT).show();
             }
         });
 

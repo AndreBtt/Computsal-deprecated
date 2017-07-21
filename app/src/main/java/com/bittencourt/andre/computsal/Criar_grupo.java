@@ -31,6 +31,10 @@ public class Criar_grupo extends AppCompatActivity {
 
     TextView texto_inicial;
 
+    private ArrayList<String> mAdm = new ArrayList<>();
+    DatabaseReference mBancoAdm = FirebaseDatabase.getInstance().getReference("Adm");
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,6 +97,34 @@ public class Criar_grupo extends AppCompatActivity {
 
         Button criar = (Button) findViewById(R.id.criar_grupo);
 
+        mBancoAdm.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                String novo = dataSnapshot.getValue(String.class);
+                mAdm.add(novo);
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
         criar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -102,7 +134,7 @@ public class Criar_grupo extends AppCompatActivity {
                 if(user == null){
                     Toast.makeText(Criar_grupo.this, "Você não possui permissão para criar grupo.", Toast.LENGTH_SHORT).show();
                 }
-                else if(user.getEmail().equals("bittencourtandre@hotmail.com") || user.getEmail().equals("pedrocastro.coutinho@gmail.com") || user.getEmail().equals("igorbonomo@hotmail.com") || user.getEmail().equals("brenoriosfe@hotmail.com")) {
+                else if(mAdm.contains(user.getEmail())){
 
                     DatabaseReference Banco = FirebaseDatabase.getInstance().getReference("Grupos");
 

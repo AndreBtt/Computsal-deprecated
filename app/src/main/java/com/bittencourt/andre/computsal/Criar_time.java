@@ -138,29 +138,20 @@ public class Criar_time extends AppCompatActivity {
                 if(user == null){
                     Toast.makeText(Criar_time.this, "Você não possui permissão para criar time.", Toast.LENGTH_SHORT).show();
                 }
+                else if(capitaes.contains(user.getEmail())){
+
+                    Boolean correto = armazenar();
+
+                    Intent intent = new Intent(Criar_time.this, Times.class);
+
+                    intent.putExtra("criar", "criado");
+
+                    if (correto) {
+                        startActivity(intent);
+                    }
+                }
                 else {
-
-                    boolean achei = false;
-
-                    for(String it: capitaes){
-                        if(it.equals(user.getEmail())) achei = true;
-                    }
-
-                    if(achei) {
-
-                        Boolean correto = armazenar();
-
-                        Intent intent = new Intent(Criar_time.this, Times.class);
-
-                        intent.putExtra("criar", "criado");
-
-                        if (correto) {
-                            startActivity(intent);
-                        }
-                    }
-                    else {
-                        Toast.makeText(Criar_time.this, "Você não possui permissão para criar time.", Toast.LENGTH_SHORT).show();
-                    }
+                    Toast.makeText(Criar_time.this, "Você não possui permissão para criar time.", Toast.LENGTH_SHORT).show();
                 }
             }
         });
