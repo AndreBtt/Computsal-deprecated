@@ -16,6 +16,9 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -37,6 +40,8 @@ public class Criar_time extends AppCompatActivity {
 
     private DatabaseReference mDataBase;
 
+    private DatabaseReference mDataBaseCapitao = FirebaseDatabase.getInstance().getReference("Capitao");
+
     private Button mImage,enviar;
 
     private ImageView mMostrar;
@@ -47,6 +52,7 @@ public class Criar_time extends AppCompatActivity {
 
     private StorageReference mStorage;
 
+    private ArrayList<String> capitaes = new ArrayList<String>();
 
     private static final int GALLERY_REQUEST = 1;
 
@@ -56,6 +62,34 @@ public class Criar_time extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tela_criar_time);
+
+        mDataBaseCapitao.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                String novo = dataSnapshot.getValue(String.class);
+                capitaes.add(novo);
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
         jogador = new ArrayList<>();
 
@@ -100,19 +134,33 @@ public class Criar_time extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                if(user.getEmail().equals("bittencourtandre@hotmail.com") || user.getEmail().equals("pedrocastro.coutinho@gmail.com") || user.getEmail().equals("igorbonomo@hotmail.com") || user.getEmail().equals("brenoriosfe@hotmail.com")) {
 
-                    Boolean correto = armazenar();
-
-                    Intent intent = new Intent(Criar_time.this, Times.class);
-
-                    intent.putExtra("criar", "criado");
-                    if (correto) {
-                        startActivity(intent);
-                    }
+                if(user == null){
+                    Toast.makeText(Criar_time.this, "Você não possui permissão para criar time.", Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    Toast.makeText(Criar_time.this, "Você não possui permissão para criar time.", Toast.LENGTH_SHORT).show();
+
+                    boolean achei = false;
+
+                    for(String it: capitaes){
+                        if(it.equals(user.getEmail())) achei = true;
+                    }
+
+                    if(achei) {
+
+                        Boolean correto = armazenar();
+
+                        Intent intent = new Intent(Criar_time.this, Times.class);
+
+                        intent.putExtra("criar", "criado");
+
+                        if (correto) {
+                            startActivity(intent);
+                        }
+                    }
+                    else {
+                        Toast.makeText(Criar_time.this, "Você não possui permissão para criar time.", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });
@@ -126,7 +174,7 @@ public class Criar_time extends AppCompatActivity {
 
         if(!ja_foi_inserida) {
             //the imageView is empty
-            String img_padrao = "https://firebasestorage.googleapis.com/v0/b/computsal-70e30.appspot.com/o/Logo_times%2Flogo.png?alt=media&token=64856c56-bc24-4380-8904-88acc82654c4";
+            String img_padrao = "https://firebasestorage.googleapis.com/v0/b/computsal-70e30.appspot.com/o/Logo_times%2FlogoTime.jpeg?alt=media&token=73acb400-3682-471a-bb40-6b705feb2960";
 
             user.setLogo(img_padrao);
 

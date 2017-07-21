@@ -9,6 +9,13 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.ArrayList;
 
 public class Principal extends AppCompatActivity {
 
@@ -21,10 +28,41 @@ public class Principal extends AppCompatActivity {
     private LinearLayout mSobre_autor;
     private LinearLayout mTabelas;
 
+    private ArrayList<String> mAdm = new ArrayList<String>();
+    DatabaseReference mBanco = FirebaseDatabase.getInstance().getReference("Adm");
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tela_principal);
+
+        mBanco.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                String novo = dataSnapshot.getValue(String.class);
+                mAdm.add(novo);
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
         mTabelas = (LinearLayout) findViewById(R.id.tabelas);
 
@@ -82,11 +120,21 @@ public class Principal extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                if(user.getEmail().equals("bittencourtandre@hotmail.com") || user.getEmail().equals("pedrocastro.coutinho@gmail.com") || user.getEmail().equals("igorbonomo@hotmail.com") || user.getEmail().equals("brenoriosfe@hotmail.com")) {
-                    startActivity(new Intent(Principal.this, Gerenciar.class));
-                }
-                else{
+                if(user == null){
                     Toast.makeText(Principal.this, "Você não possui permissão para acessar essa área.", Toast.LENGTH_SHORT).show();
+                }
+                else {
+
+                    boolean achei = false;
+
+                    for(String it: mAdm){
+                        if(it.equals(user.getEmail())) achei = true;
+                    }
+
+                    if(achei)
+                        startActivity(new Intent(Principal.this, Gerenciar.class));
+                    else
+                        Toast.makeText(Principal.this, "Você não possui permissão para acessar essa área.", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -109,7 +157,11 @@ public class Principal extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        startActivity(new Intent(Principal.this,Principal.class));
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if(user == null){
+            startActivity(new Intent(Principal.this,Criar_logar.class));
+        }
+        else startActivity(new Intent(Principal.this,Principal.class));
         super.onBackPressed();
     }
 }

@@ -99,7 +99,10 @@ public class Criar_grupo extends AppCompatActivity {
 
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-                if(user.getEmail().equals("bittencourtandre@hotmail.com") || user.getEmail().equals("pedrocastro.coutinho@gmail.com") || user.getEmail().equals("igorbonomo@hotmail.com") || user.getEmail().equals("brenoriosfe@hotmail.com")) {
+                if(user == null){
+                    Toast.makeText(Criar_grupo.this, "Você não possui permissão para criar grupo.", Toast.LENGTH_SHORT).show();
+                }
+                else if(user.getEmail().equals("bittencourtandre@hotmail.com") || user.getEmail().equals("pedrocastro.coutinho@gmail.com") || user.getEmail().equals("igorbonomo@hotmail.com") || user.getEmail().equals("brenoriosfe@hotmail.com")) {
 
                     DatabaseReference Banco = FirebaseDatabase.getInstance().getReference("Grupos");
 
@@ -146,7 +149,7 @@ public class Criar_grupo extends AppCompatActivity {
                     startActivity(new Intent(Criar_grupo.this,Grupos.class));
                 }
                 else{
-                    Toast.makeText(Criar_grupo.this, "Você não possui permissão para criar time.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Criar_grupo.this, "Você não possui permissão para criar grupo.", Toast.LENGTH_SHORT).show();
                 }
             }
         });

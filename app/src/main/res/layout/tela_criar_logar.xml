@@ -61,23 +61,48 @@
             android:layout_height="wrap_content"
             android:textColor="@color/secundaria"
             android:gravity="center"
-            android:text="Log In"
+            android:text="Entrar"
             android:textSize="20dp"
             android:background="@drawable/butao_pagina_inicial"
             />
 
     </LinearLayout>
 
-    <Button
-        android:layout_marginTop="10dp"
-        android:id="@+id/esqueci_senha"
+    <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="horizontal"
+        >
+
+        <Button
+        android:layout_marginTop="10dp"
+        android:id="@+id/entrar"
+        android:layout_width="0dp"
+        android:layout_weight="1"
         android:layout_height="wrap_content"
         android:textColor="@color/secundaria"
-        android:text="Esqueci minha senha"
+        android:text="Entrar sem conta"
         android:textSize="15dp"
         android:background="@drawable/butao_pagina_inicial"
         />
+
+        <Button
+            android:layout_marginTop="10dp"
+            android:id="@+id/esqueci_senha"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textColor="@color/secundaria"
+            android:text="Esqueci minha senha"
+            android:textSize="15dp"
+            android:background="@drawable/butao_pagina_inicial"
+            />
+
+    </LinearLayout>
+
+
+
+
 
 </LinearLayout>
 

@@ -65,9 +65,26 @@
         android:textColor="@color/branco"
         android:layout_marginTop="20dp"
         android:textSize="20dp"
-        android:text="   Por favor, se tiver alguma sugestão, dúvida ou reclamação a respeito do Aplicativo, fale comigo por meio do meu e-mail (bittencourtandre@hotmail.com)"
+        android:text="   Por favor, se tiver alguma sugestão, dúvida ou reclamação a respeito do Aplicativo, fale comigo por meio do meu e-mail ou LinkedIn."
         />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/secundaria"
+        android:layout_marginTop="20dp"
+        android:textSize="20dp"
+        android:text="   https://www.linkedin.com/in/andré-luiz-bittencourt-21aa0bb8/"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/secundaria"
+        android:layout_marginTop="20dp"
+        android:textSize="20dp"
+        android:text="   Bittencourtandre@homail.com"
+        />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

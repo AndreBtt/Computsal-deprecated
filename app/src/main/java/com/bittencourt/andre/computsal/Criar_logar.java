@@ -31,6 +31,8 @@ public class Criar_logar extends AppCompatActivity {
 
     private Button mEsqueci;
 
+    private Button mEntrar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +42,8 @@ public class Criar_logar extends AppCompatActivity {
 
         mLogin = (Button) findViewById(R.id.login);
         mCreate = (Button) findViewById(R.id.create_acount);
+
+        mEntrar = (Button) findViewById(R.id.entrar);
 
         mEmail = (EditText) findViewById(R.id.user_email);
         mSenha = (EditText) findViewById(R.id.user_senha);
@@ -61,6 +65,13 @@ public class Criar_logar extends AppCompatActivity {
                 }
             }
         };
+
+        mEntrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Criar_logar.this, Principal.class));
+            }
+        });
 
         mLogin.setOnClickListener(new View.OnClickListener() {
             @Override
