@@ -27,6 +27,7 @@ public class Principal extends AppCompatActivity {
     private LinearLayout mJogos_passados;
     private LinearLayout mSobre_autor;
     private LinearLayout mTabelas;
+    private LinearLayout mAgendar;
 
     private ArrayList<String> mAdm = new ArrayList<>();
     DatabaseReference mBanco = FirebaseDatabase.getInstance().getReference("Adm");
@@ -79,6 +80,15 @@ public class Principal extends AppCompatActivity {
         mGerenciar = (LinearLayout) findViewById(R.id.gerenciar);
 
         mJogos_passados = (LinearLayout) findViewById(R.id.jogos_passados);
+
+        mAgendar = (LinearLayout) findViewById(R.id.horario);
+
+        mAgendar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Principal.this, AgendarHorario.class));
+            }
+        });
 
         mTabelas.setOnClickListener(new View.OnClickListener() {
             @Override

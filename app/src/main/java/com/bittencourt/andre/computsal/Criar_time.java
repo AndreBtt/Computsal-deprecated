@@ -27,6 +27,7 @@ import com.google.firebase.storage.UploadTask;
 
 import java.util.ArrayList;
 
+import Model.Horario;
 import Model.Jogador;
 import Model.Time;
 
@@ -211,6 +212,16 @@ public class Criar_time extends AppCompatActivity {
             DatabaseReference newPost = mDataBase.push();
             newPost.setValue(j);
         }
+
+        FirebaseUser usuario_logado = FirebaseAuth.getInstance().getCurrentUser();
+
+        DatabaseReference DataHorario = FirebaseDatabase.getInstance().getReference().child("Horarios");
+
+        Horario novo_horario = new Horario(usuario_logado.getEmail(),nome_time.getText().toString().trim());
+
+        DataHorario = DataHorario.push();
+
+        DataHorario.setValue(novo_horario);
 
         return true;
 
