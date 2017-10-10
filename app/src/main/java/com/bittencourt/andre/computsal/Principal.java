@@ -86,6 +86,7 @@ public class Principal extends AppCompatActivity {
         mAgendar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // PASSAR SE É CAPITAO
                 startActivity(new Intent(Principal.this, AgendarHorario.class));
             }
         });

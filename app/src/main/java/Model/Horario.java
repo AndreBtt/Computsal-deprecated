@@ -14,14 +14,14 @@ public class Horario {
 
     public Horario(String email, String time) {
         this.email = email;
-        this.h1 = false;
-        this.h2 = false;
-        this.h3 = false;
-        this.h4 = false;
-        this.h5 = false;
-        this.h6 = false;
-        this.h7 = false;
-        this.h8 = false;
+        this.h1 = true;
+        this.h2 = true;
+        this.h3 = true;
+        this.h4 = true;
+        this.h5 = true;
+        this.h6 = true;
+        this.h7 = true;
+        this.h8 = true;
         this.time = time;
     }
 
