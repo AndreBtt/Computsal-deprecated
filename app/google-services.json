@@ -8,56 +8,20 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:975711119123:android:3dddfefb07b82466",
-        "android_client_info": {
-          "package_name": "com.example.andre.computsal"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "975711119123-9o2vhq9ehop7v61l322rn624u0qjqmo3.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.andre.computsal",
-            "certificate_hash": "6728236f1d9e36f31c0d6d96710ce32f067222a1"
-          }
-        },
-        {
-          "client_id": "975711119123-d89mftr2a4ph9eusl3ar059g1vtsi4dc.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyDlljpyKupAwqFt3ctVPjdoKTtJMxm-EZ0"
-        }
-      ],
-      "services": {
-        "analytics_service": {
-          "status": 1
-        },
-        "appinvite_service": {
-          "status": 2,
-          "other_platform_oauth_client": [
-            {
-              "client_id": "975711119123-d89mftr2a4ph9eusl3ar059g1vtsi4dc.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        },
-        "ads_service": {
-          "status": 2
-        }
-      }
-    },
-    {
-      "client_info": {
         "mobilesdk_app_id": "1:975711119123:android:735b99f1b4d98bde",
         "android_client_info": {
           "package_name": "com.bittencourt.andre.computsal"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "975711119123-mn6pbd08sd3ikr8kj3njifau6hrk8ob6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bittencourt.andre.computsal",
+            "certificate_hash": "2506aeeac86d6e0399295daa494d96f79a1479a9"
+          }
+        },
         {
           "client_id": "975711119123-q25otij0ppchbr7d4n6f7p7nbqtjf3eb.apps.googleusercontent.com",
           "client_type": 1,

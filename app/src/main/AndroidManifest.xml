@@ -58,7 +58,8 @@
         <activity android:name=".Sobre_autor" />
         <activity android:name=".Grupos_tabela" />
         <activity android:name=".Tabelas" />
-        <activity android:name=".Criar_conta"></activity>
+        <activity android:name=".Criar_conta" />
+        <activity android:name=".AgendarHorario"></activity>
     </application>
 
 </manifest>

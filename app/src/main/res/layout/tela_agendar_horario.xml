@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:gravity="center"
+            android:text="Capitão, escolha os horários que seu time deseja jogar:"
+            android:textColor="@color/branco"
+            />
+
+        <CheckBox
+            android:id="@+id/horario_12"
+            android:layout_marginTop="35dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="   12 h"
+            android:textColor="@color/colorAccent"
+            android:buttonTint="@color/branco"
+            android:scaleX="1.5" android:scaleY="1.5"/>
+
+        <CheckBox
+            android:id="@+id/horario_13"
+            android:layout_marginTop="35dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="   13 h"
+            android:textColor="@color/colorAccent"
+            android:buttonTint="@color/branco"
+            android:scaleX="1.5" android:scaleY="1.5"/>
+
+        <CheckBox
+            android:id="@+id/horario_14"
+            android:layout_marginTop="35dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="   14 h"
+            android:textColor="@color/colorAccent"
+            android:buttonTint="@color/branco"
+            android:scaleX="1.5" android:scaleY="1.5"/>
+
+        <CheckBox
+            android:id="@+id/horario_15"
+            android:layout_marginTop="35dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="   15 h"
+            android:textColor="@color/colorAccent"
+            android:buttonTint="@color/branco"
+            android:scaleX="1.5" android:scaleY="1.5"/>
+
+        <CheckBox
+            android:id="@+id/horario_16"
+            android:layout_marginTop="35dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="   16 h"
+            android:textColor="@color/colorAccent"
+            android:buttonTint="@color/branco"
+            android:scaleX="1.5" android:scaleY="1.5"/>
+
+        <CheckBox
+            android:id="@+id/horario_17"
+            android:layout_marginTop="35dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="   17 h"
+            android:textColor="@color/colorAccent"
+            android:buttonTint="@color/branco"
+            android:scaleX="1.5" android:scaleY="1.5"/>
+
+        <CheckBox
+            android:id="@+id/horario_18"
+            android:layout_marginTop="35dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="   18 h"
+            android:textColor="@color/colorAccent"
+            android:buttonTint="@color/branco"
+            android:scaleX="1.5" android:scaleY="1.5"/>
+
+        <Button
+            android:id="@+id/enviar"
+            android:layout_marginTop="35dp"
+            android:textColor="@color/secundaria"
+            android:background="@color/colorPrimary"
+            android:text="Enviar"
+            android:textSize="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="30dp"
+
+            />
+
+    </LinearLayout>
+
+</ScrollView>
