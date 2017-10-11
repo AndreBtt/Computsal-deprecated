@@ -35,94 +35,125 @@ public class Jogo_config extends AppCompatActivity {
 
     private TextView mNomej1_t1;
     private Button maddj1_t1;
+    private TextView mgol1_t1;
+
 
     private TextView mNomej2_t1;
     private Button maddj2_t1;
+    private TextView mgol2_t1;
 
     private TextView mNomej3_t1;
     private Button maddj3_t1;
+    private TextView mgol3_t1;
 
     private TextView mNomej4_t1;
     private Button maddj4_t1;
+    private TextView mgol4_t1;
 
     private TextView mNomej5_t1;
     private Button maddj5_t1;
+    private TextView mgol5_t1;
 
     private TextView mNomej6_t1;
     private Button maddj6_t1;
+    private TextView mgol6_t1;
 
     private TextView mNomej7_t1;
     private Button maddj7_t1;
+    private TextView mgol7_t1;
 
     private TextView mNomej8_t1;
     private Button maddj8_t1;
+    private TextView mgol8_t1;
 
     private TextView mNomej9_t1;
     private Button maddj9_t1;
+    private TextView mgol9_t1;
 
     private TextView mNomej10_t1;
     private Button maddj10_t1;
+    private TextView mgol10_t1;
 
     private TextView mNomej11_t1;
     private Button maddj11_t1;
+    private TextView mgol11_t1;
 
     private TextView mNomej12_t1;
     private Button maddj12_t1;
+    private TextView mgol12_t1;
 
     private TextView mNomej13_t1;
     private Button maddj13_t1;
+    private TextView mgol13_t1;
 
     private TextView mNomej14_t1;
     private Button maddj14_t1;
+    private TextView mgol14_t1;
 
     private TextView mNomej15_t1;
     private Button maddj15_t1;
+    private TextView mgol15_t1;
 
 
     private TextView mNomej1_t2;
     private Button maddj1_t2;
+    private TextView mgol1_t2;
 
     private TextView mNomej2_t2;
     private Button maddj2_t2;
+    private TextView mgol2_t2;
 
     private TextView mNomej3_t2;
     private Button maddj3_t2;
+    private TextView mgol3_t2;
 
     private TextView mNomej4_t2;
     private Button maddj4_t2;
+    private TextView mgol4_t2;
 
     private TextView mNomej5_t2;
     private Button maddj5_t2;
+    private TextView mgol5_t2;
 
     private TextView mNomej6_t2;
     private Button maddj6_t2;
+    private TextView mgol6_t2;
 
     private TextView mNomej7_t2;
     private Button maddj7_t2;
+    private TextView mgol7_t2;
 
     private TextView mNomej8_t2;
     private Button maddj8_t2;
+    private TextView mgol8_t2;
 
     private TextView mNomej9_t2;
     private Button maddj9_t2;
+    private TextView mgol9_t2;
 
     private TextView mNomej10_t2;
     private Button maddj10_t2;
+    private TextView mgol10_t2;
 
     private TextView mNomej11_t2;
     private Button maddj11_t2;
+    private TextView mgol11_t2;
 
     private TextView mNomej12_t2;
     private Button maddj12_t2;
+    private TextView mgol12_t2;
 
     private TextView mNomej13_t2;
     private Button maddj13_t2;
+    private TextView mgol13_t2;
 
     private TextView mNomej14_t2;
     private Button maddj14_t2;
+    private TextView mgol14_t2;
 
     private TextView mNomej15_t2;
     private Button maddj15_t2;
+    private TextView mgol15_t2;
 
     private Button mEnviar;
 
@@ -133,6 +164,9 @@ public class Jogo_config extends AppCompatActivity {
 
     private Time t1;
     private Time t2;
+
+    private int[] jogador1_gol = new int [15];
+    private int[] jogador2_gol = new int [15];
 
     private ArrayList<String> jogadores_t1 = new ArrayList<String>();
     private ArrayList<String> jogadores_t2 = new ArrayList<String>();
@@ -172,93 +206,123 @@ public class Jogo_config extends AppCompatActivity {
 
         mNomej1_t1 = (TextView) findViewById(R.id.t1_j1);
         maddj1_t1 = (Button) findViewById(R.id.addt1_j1);
+        mgol1_t1 = (TextView) findViewById(R.id.t1_g1);
 
         mNomej2_t1 = (TextView) findViewById(R.id.t1_j2);
         maddj2_t1 = (Button) findViewById(R.id.addt1_j2);
+        mgol2_t1 = (TextView) findViewById(R.id.t1_g2);
 
         mNomej3_t1 = (TextView) findViewById(R.id.t1_j3);
         maddj3_t1 = (Button) findViewById(R.id.addt1_j3);
+        mgol3_t1 = (TextView) findViewById(R.id.t1_g3);
 
         mNomej4_t1 = (TextView) findViewById(R.id.t1_j4);
         maddj4_t1 = (Button) findViewById(R.id.addt1_j4);
+        mgol4_t1 = (TextView) findViewById(R.id.t1_g4);
 
         mNomej5_t1 = (TextView) findViewById(R.id.t1_j5);
         maddj5_t1 = (Button) findViewById(R.id.addt1_j5);
+        mgol5_t1 = (TextView) findViewById(R.id.t1_g5);
 
         mNomej6_t1 = (TextView) findViewById(R.id.t1_j6);
         maddj6_t1 = (Button) findViewById(R.id.addt1_j6);
+        mgol6_t1 = (TextView) findViewById(R.id.t1_g6);
 
         mNomej7_t1 = (TextView) findViewById(R.id.t1_j7);
         maddj7_t1 = (Button) findViewById(R.id.addt1_j7);
+        mgol7_t1 = (TextView) findViewById(R.id.t1_g7);
 
         mNomej8_t1 = (TextView) findViewById(R.id.t1_j8);
         maddj8_t1 = (Button) findViewById(R.id.addt1_j8);
+        mgol8_t1 = (TextView) findViewById(R.id.t1_g8);
 
         mNomej9_t1 = (TextView) findViewById(R.id.t1_j9);
         maddj9_t1 = (Button) findViewById(R.id.addt1_j9);
+        mgol9_t1 = (TextView) findViewById(R.id.t1_g9);
 
         mNomej10_t1 =(TextView) findViewById(R.id.t1_j10);
         maddj10_t1 =(Button) findViewById(R.id.addt1_j10);
+        mgol10_t1 = (TextView) findViewById(R.id.t1_g10);
 
         mNomej11_t1 =(TextView) findViewById(R.id.t1_j11);
         maddj11_t1 =(Button) findViewById(R.id.addt1_j11);
+        mgol11_t1 = (TextView) findViewById(R.id.t1_g11);
 
         mNomej12_t1 =(TextView) findViewById(R.id.t1_j12);
         maddj12_t1 =(Button) findViewById(R.id.addt1_j12);
+        mgol12_t1 = (TextView) findViewById(R.id.t1_g12);
 
         mNomej13_t1 =(TextView) findViewById(R.id.t1_j13);
         maddj13_t1 =(Button) findViewById(R.id.addt1_j13);
+        mgol13_t1 = (TextView) findViewById(R.id.t1_g13);
 
         mNomej14_t1 =(TextView) findViewById(R.id.t1_j14);
         maddj14_t1 =(Button) findViewById(R.id.addt1_j14);
+        mgol14_t1 = (TextView) findViewById(R.id.t1_g14);
 
         mNomej15_t1 =(TextView) findViewById(R.id.t1_j15);
         maddj15_t1 =(Button) findViewById(R.id.addt1_j15);
+        mgol15_t1 = (TextView) findViewById(R.id.t1_g15);
 
         mNomej1_t2 = (TextView) findViewById(R.id.t2_j1);
         maddj1_t2 = (Button) findViewById(R.id.addt2_j1);
+        mgol1_t2 = (TextView) findViewById(R.id.t2_g1);
 
         mNomej2_t2 = (TextView) findViewById(R.id.t2_j2);
         maddj2_t2 = (Button) findViewById(R.id.addt2_j2);
+        mgol2_t2 = (TextView) findViewById(R.id.t2_g2);
 
         mNomej3_t2 = (TextView) findViewById(R.id.t2_j3);
         maddj3_t2 = (Button) findViewById(R.id.addt2_j3);
+        mgol3_t2 = (TextView) findViewById(R.id.t2_g3);
 
         mNomej4_t2 = (TextView) findViewById(R.id.t2_j4);
         maddj4_t2 = (Button) findViewById(R.id.addt2_j4);
+        mgol4_t2 = (TextView) findViewById(R.id.t2_g4);
 
         mNomej5_t2 = (TextView) findViewById(R.id.t2_j5);
         maddj5_t2 = (Button) findViewById(R.id.addt2_j5);
+        mgol5_t2 = (TextView) findViewById(R.id.t2_g5);
 
         mNomej6_t2 = (TextView) findViewById(R.id.t2_j6);
         maddj6_t2 = (Button) findViewById(R.id.addt2_j6);
+        mgol6_t2 = (TextView) findViewById(R.id.t2_g6);
 
         mNomej7_t2 = (TextView) findViewById(R.id.t2_j7);
         maddj7_t2 = (Button) findViewById(R.id.addt2_j7);
+        mgol7_t2 = (TextView) findViewById(R.id.t2_g7);
 
         mNomej8_t2 = (TextView) findViewById(R.id.t2_j8);
         maddj8_t2 = (Button) findViewById(R.id.addt2_j8);
+        mgol8_t2 = (TextView) findViewById(R.id.t2_g8);
 
         mNomej9_t2 = (TextView) findViewById(R.id.t2_j9);
         maddj9_t2 = (Button) findViewById(R.id.addt2_j9);
+        mgol9_t2 = (TextView) findViewById(R.id.t2_g9);
 
         mNomej10_t2 =(TextView) findViewById(R.id.t2_j10);
         maddj10_t2 =(Button) findViewById(R.id.addt2_j10);
+        mgol10_t2 = (TextView) findViewById(R.id.t2_g10);
 
         mNomej11_t2 =(TextView) findViewById(R.id.t2_j11);
         maddj11_t2 =(Button) findViewById(R.id.addt2_j11);
+        mgol11_t2 = (TextView) findViewById(R.id.t2_g11);
 
         mNomej12_t2 =(TextView) findViewById(R.id.t2_j12);
         maddj12_t2 =(Button) findViewById(R.id.addt2_j12);
+        mgol12_t2 = (TextView) findViewById(R.id.t2_g12);
 
         mNomej13_t2 =(TextView) findViewById(R.id.t2_j13);
         maddj13_t2 =(Button) findViewById(R.id.addt2_j13);
+        mgol13_t2 = (TextView) findViewById(R.id.t2_g13);
 
         mNomej14_t2 =(TextView) findViewById(R.id.t2_j14);
         maddj14_t2 =(Button) findViewById(R.id.addt2_j14);
+        mgol14_t2 = (TextView) findViewById(R.id.t2_g14);
 
         mNomej15_t2 =(TextView) findViewById(R.id.t2_j15);
         maddj15_t2 =(Button) findViewById(R.id.addt2_j15);
+        mgol15_t2 = (TextView) findViewById(R.id.t2_g15);
 
         mEnviar = (Button) findViewById(R.id.enviar);
 
@@ -331,6 +395,7 @@ public class Jogo_config extends AppCompatActivity {
                     mJogadores_t1.get(0).setGol(gol);
                     mGol1++;
                     ajustaGol();
+                    mgol1_t1.setText(ajustaGolJogadorSoma(0,1));
                 }
             }
         });
@@ -344,6 +409,7 @@ public class Jogo_config extends AppCompatActivity {
                     mJogadores_t1.get(1).setGol(gol);
                     mGol1++;
                     ajustaGol();
+                    mgol2_t1.setText(ajustaGolJogadorSoma(1,1));
                 }
             }
         });
@@ -356,6 +422,7 @@ public class Jogo_config extends AppCompatActivity {
                     mJogadores_t1.get(2).setGol(gol);
                     mGol1++;
                     ajustaGol();
+                    mgol3_t1.setText(ajustaGolJogadorSoma(2,1));
                 }
             }
         });
@@ -368,6 +435,7 @@ public class Jogo_config extends AppCompatActivity {
                     mJogadores_t1.get(3).setGol(gol);
                     mGol1++;
                     ajustaGol();
+                    mgol4_t1.setText(ajustaGolJogadorSoma(3,1));
                 }
             }
         });
@@ -380,6 +448,7 @@ public class Jogo_config extends AppCompatActivity {
                     mJogadores_t1.get(4).setGol(gol);
                     mGol1++;
                     ajustaGol();
+                    mgol5_t1.setText(ajustaGolJogadorSoma(4,1));
                 }
             }
         });
@@ -392,6 +461,7 @@ public class Jogo_config extends AppCompatActivity {
                     mJogadores_t1.get(5).setGol(gol);
                     mGol1++;
                     ajustaGol();
+                    mgol6_t1.setText(ajustaGolJogadorSoma(5,1));
                 }
             }
         });
@@ -404,6 +474,7 @@ public class Jogo_config extends AppCompatActivity {
                     mJogadores_t1.get(6).setGol(gol);
                     mGol1++;
                     ajustaGol();
+                    mgol7_t1.setText(ajustaGolJogadorSoma(6,1));
                 }
             }
         });
@@ -416,6 +487,7 @@ public class Jogo_config extends AppCompatActivity {
                     mJogadores_t1.get(7).setGol(gol);
                     mGol1++;
                     ajustaGol();
+                    mgol8_t1.setText(ajustaGolJogadorSoma(7,1));
                 }
             }
         });
@@ -428,6 +500,7 @@ public class Jogo_config extends AppCompatActivity {
                     mJogadores_t1.get(8).setGol(gol);
                     mGol1++;
                     ajustaGol();
+                    mgol9_t1.setText(ajustaGolJogadorSoma(8,1));
                 }
             }
         });
@@ -440,6 +513,7 @@ public class Jogo_config extends AppCompatActivity {
                     mJogadores_t1.get(9).setGol(gol);
                     mGol1++;
                     ajustaGol();
+                    mgol10_t1.setText(ajustaGolJogadorSoma(9,1));
                 }
             }
         });
@@ -452,6 +526,7 @@ public class Jogo_config extends AppCompatActivity {
                     mJogadores_t1.get(10).setGol(gol);
                     mGol1++;
                     ajustaGol();
+                    mgol11_t1.setText(ajustaGolJogadorSoma(10,1));
                 }
             }
         });
@@ -464,6 +539,7 @@ public class Jogo_config extends AppCompatActivity {
                     mJogadores_t1.get(11).setGol(gol);
                     mGol1++;
                     ajustaGol();
+                    mgol12_t1.setText(ajustaGolJogadorSoma(11,1));
                 }
             }
         });
@@ -476,6 +552,7 @@ public class Jogo_config extends AppCompatActivity {
                     mJogadores_t1.get(12).setGol(gol);
                     mGol1++;
                     ajustaGol();
+                    mgol13_t1.setText(ajustaGolJogadorSoma(12,1));
                 }
             }
         });
@@ -488,6 +565,7 @@ public class Jogo_config extends AppCompatActivity {
                     mJogadores_t1.get(13).setGol(gol);
                     mGol1++;
                     ajustaGol();
+                    mgol14_t1.setText(ajustaGolJogadorSoma(13,1));
                 }
             }
         });
@@ -500,6 +578,7 @@ public class Jogo_config extends AppCompatActivity {
                     mJogadores_t1.get(14).setGol(gol);
                     mGol1++;
                     ajustaGol();
+                    mgol15_t1.setText(ajustaGolJogadorSoma(14,1));
                 }
             }
         });
@@ -514,6 +593,7 @@ public class Jogo_config extends AppCompatActivity {
                     mJogadores_t2.get(0).setGol(gol);
                     mGol2++;
                     ajustaGol();
+                    mgol1_t2.setText(ajustaGolJogadorSoma(0,2));
                 }
             }
         });
@@ -527,6 +607,8 @@ public class Jogo_config extends AppCompatActivity {
                     mJogadores_t2.get(1).setGol(gol);
                     mGol2++;
                     ajustaGol();
+                    mgol2_t2.setText(ajustaGolJogadorSoma(1,2));
+
                 }
             }
         });
@@ -539,6 +621,8 @@ public class Jogo_config extends AppCompatActivity {
                     mJogadores_t2.get(2).setGol(gol);
                     mGol2++;
                     ajustaGol();
+                    mgol3_t2.setText(ajustaGolJogadorSoma(2,2));
+
                 }
             }
         });
@@ -551,6 +635,8 @@ public class Jogo_config extends AppCompatActivity {
                     mJogadores_t2.get(3).setGol(gol);
                     mGol2++;
                     ajustaGol();
+                    mgol4_t2.setText(ajustaGolJogadorSoma(3,2));
+
                 }
             }
         });
@@ -563,6 +649,8 @@ public class Jogo_config extends AppCompatActivity {
                     mJogadores_t2.get(4).setGol(gol);
                     mGol2++;
                     ajustaGol();
+                    mgol5_t2.setText(ajustaGolJogadorSoma(4,2));
+
                 }
             }
         });
@@ -575,6 +663,8 @@ public class Jogo_config extends AppCompatActivity {
                     mJogadores_t2.get(5).setGol(gol);
                     mGol2++;
                     ajustaGol();
+                    mgol6_t2.setText(ajustaGolJogadorSoma(5,2));
+
                 }
             }
         });
@@ -587,6 +677,8 @@ public class Jogo_config extends AppCompatActivity {
                     mJogadores_t2.get(6).setGol(gol);
                     mGol2++;
                     ajustaGol();
+                    mgol7_t2.setText(ajustaGolJogadorSoma(6,2));
+
                 }
             }
         });
@@ -599,6 +691,8 @@ public class Jogo_config extends AppCompatActivity {
                     mJogadores_t2.get(7).setGol(gol);
                     mGol2++;
                     ajustaGol();
+                    mgol8_t2.setText(ajustaGolJogadorSoma(7,2));
+
                 }
             }
         });
@@ -611,6 +705,8 @@ public class Jogo_config extends AppCompatActivity {
                     mJogadores_t2.get(8).setGol(gol);
                     mGol2++;
                     ajustaGol();
+                    mgol9_t2.setText(ajustaGolJogadorSoma(8,2));
+
                 }
             }
         });
@@ -623,6 +719,8 @@ public class Jogo_config extends AppCompatActivity {
                     mJogadores_t2.get(9).setGol(gol);
                     mGol2++;
                     ajustaGol();
+                    mgol10_t2.setText(ajustaGolJogadorSoma(9,2));
+
                 }
             }
         });
@@ -635,6 +733,8 @@ public class Jogo_config extends AppCompatActivity {
                     mJogadores_t2.get(10).setGol(gol);
                     mGol2++;
                     ajustaGol();
+                    mgol11_t2.setText(ajustaGolJogadorSoma(10,2));
+
                 }
             }
         });
@@ -647,6 +747,8 @@ public class Jogo_config extends AppCompatActivity {
                     mJogadores_t2.get(11).setGol(gol);
                     mGol2++;
                     ajustaGol();
+                    mgol12_t2.setText(ajustaGolJogadorSoma(11,2));
+
                 }
             }
         });
@@ -659,6 +761,8 @@ public class Jogo_config extends AppCompatActivity {
                     mJogadores_t2.get(12).setGol(gol);
                     mGol2++;
                     ajustaGol();
+                    mgol13_t2.setText(ajustaGolJogadorSoma(12,2));
+
                 }
             }
         });
@@ -671,6 +775,8 @@ public class Jogo_config extends AppCompatActivity {
                     mJogadores_t2.get(13).setGol(gol);
                     mGol2++;
                     ajustaGol();
+                    mgol14_t2.setText(ajustaGolJogadorSoma(13,2));
+
                 }
             }
         });
@@ -683,6 +789,7 @@ public class Jogo_config extends AppCompatActivity {
                     mJogadores_t2.get(14).setGol(gol);
                     mGol2++;
                     ajustaGol();
+                    mgol15_t2.setText(ajustaGolJogadorSoma(14,2));
                 }
             }
         });
@@ -874,6 +981,22 @@ public class Jogo_config extends AppCompatActivity {
             }
         });
 
+    }
+
+    private String ajustaGolJogadorSoma(int ind, int tipo){
+        StringBuilder aux = new StringBuilder();
+        if(tipo == 1) {
+            jogador1_gol[ind]++;
+            aux.append("");
+            aux.append(jogador1_gol[ind]);
+        }
+        else{
+            jogador2_gol[ind]++;
+            aux.append("");
+            aux.append(jogador2_gol[ind]);
+        }
+
+        return aux.toString();
     }
 
     private void ajustaGol(){
