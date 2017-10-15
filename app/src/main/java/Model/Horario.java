@@ -1,9 +1,5 @@
 package Model;
 
-/**
- * Created by andre on 10/10/17.
- */
-
 public class Horario {
 
     private String email;
