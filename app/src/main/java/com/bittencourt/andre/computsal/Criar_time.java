@@ -134,6 +134,7 @@ public class Criar_time extends AppCompatActivity {
         enviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
                 if(user == null){
@@ -338,6 +339,8 @@ public class Criar_time extends AppCompatActivity {
             return null;
         }
 
+        FirebaseUser usuario_logado = FirebaseAuth.getInstance().getCurrentUser();
+
         user.setPago(false);
         user.setVitorias(0);
         user.setDerrotas(0);
@@ -345,6 +348,7 @@ public class Criar_time extends AppCompatActivity {
         user.setGols_feitos(0);
         user.setGols_recebidos(0);
         user.setPontos(0);
+        user.setEmail(usuario_logado.getEmail());
 
         return user;
     }

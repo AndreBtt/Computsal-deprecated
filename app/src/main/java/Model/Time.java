@@ -8,34 +8,16 @@ public class Time {
     private int gols_feitos,gols_recebidos;
     private int vitorias,empates,derrotas;
     private int pontos;
+    private String email;
 
     public Time(){}
 
-    public Time(String logo, String j1, String j2, String j3, String j4, String j5, String j6, String j7, String j8, String j9, String j10, String j11, String j12, String j13, String j14, String j15, String nome_time, Boolean pago, int gols_feitos, int gols_recebidos, int vitorias, int empates, int derrotas, int pontos) {
-        this.logo = logo;
-        this.j1 = j1;
-        this.j2 = j2;
-        this.j3 = j3;
-        this.j4 = j4;
-        this.j5 = j5;
-        this.j6 = j6;
-        this.j7 = j7;
-        this.j8 = j8;
-        this.j9 = j9;
-        this.j10 = j10;
-        this.j11 = j11;
-        this.j12 = j12;
-        this.j13 = j13;
-        this.j14 = j14;
-        this.j15 = j15;
-        this.nome_time = nome_time;
-        this.pago = pago;
-        this.gols_feitos = gols_feitos;
-        this.gols_recebidos = gols_recebidos;
-        this.vitorias = vitorias;
-        this.empates = empates;
-        this.derrotas = derrotas;
-        this.pontos = pontos;
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getLogo() {
