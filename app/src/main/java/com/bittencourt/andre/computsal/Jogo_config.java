@@ -15,6 +15,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -36,124 +38,153 @@ public class Jogo_config extends AppCompatActivity {
     private TextView mNomej1_t1;
     private Button maddj1_t1;
     private TextView mgol1_t1;
-
+    private Button msubj1_t1;
 
     private TextView mNomej2_t1;
     private Button maddj2_t1;
     private TextView mgol2_t1;
+    private Button msubj2_t1;
 
     private TextView mNomej3_t1;
     private Button maddj3_t1;
     private TextView mgol3_t1;
+    private Button msubj3_t1;
 
     private TextView mNomej4_t1;
     private Button maddj4_t1;
     private TextView mgol4_t1;
+    private Button msubj4_t1;
 
     private TextView mNomej5_t1;
     private Button maddj5_t1;
     private TextView mgol5_t1;
+    private Button msubj5_t1;
 
     private TextView mNomej6_t1;
     private Button maddj6_t1;
     private TextView mgol6_t1;
+    private Button msubj6_t1;
 
     private TextView mNomej7_t1;
     private Button maddj7_t1;
     private TextView mgol7_t1;
+    private Button msubj7_t1;
 
     private TextView mNomej8_t1;
     private Button maddj8_t1;
     private TextView mgol8_t1;
+    private Button msubj8_t1;
 
     private TextView mNomej9_t1;
     private Button maddj9_t1;
     private TextView mgol9_t1;
+    private Button msubj9_t1;
 
     private TextView mNomej10_t1;
     private Button maddj10_t1;
     private TextView mgol10_t1;
+    private Button msubj10_t1;
 
     private TextView mNomej11_t1;
     private Button maddj11_t1;
     private TextView mgol11_t1;
+    private Button msubj11_t1;
 
     private TextView mNomej12_t1;
     private Button maddj12_t1;
     private TextView mgol12_t1;
+    private Button msubj12_t1;
 
     private TextView mNomej13_t1;
     private Button maddj13_t1;
     private TextView mgol13_t1;
+    private Button msubj13_t1;
 
     private TextView mNomej14_t1;
     private Button maddj14_t1;
     private TextView mgol14_t1;
+    private Button msubj14_t1;
 
     private TextView mNomej15_t1;
     private Button maddj15_t1;
     private TextView mgol15_t1;
+    private Button msubj15_t1;
 
 
     private TextView mNomej1_t2;
     private Button maddj1_t2;
     private TextView mgol1_t2;
+    private Button msubj1_t2;
 
     private TextView mNomej2_t2;
     private Button maddj2_t2;
     private TextView mgol2_t2;
+    private Button msubj2_t2;
 
     private TextView mNomej3_t2;
     private Button maddj3_t2;
     private TextView mgol3_t2;
+    private Button msubj3_t2;
 
     private TextView mNomej4_t2;
     private Button maddj4_t2;
     private TextView mgol4_t2;
+    private Button msubj4_t2;
 
     private TextView mNomej5_t2;
     private Button maddj5_t2;
     private TextView mgol5_t2;
+    private Button msubj5_t2;
 
     private TextView mNomej6_t2;
     private Button maddj6_t2;
     private TextView mgol6_t2;
+    private Button msubj6_t2;
 
     private TextView mNomej7_t2;
     private Button maddj7_t2;
     private TextView mgol7_t2;
+    private Button msubj7_t2;
 
     private TextView mNomej8_t2;
     private Button maddj8_t2;
     private TextView mgol8_t2;
+    private Button msubj8_t2;
 
     private TextView mNomej9_t2;
     private Button maddj9_t2;
     private TextView mgol9_t2;
+    private Button msubj9_t2;
 
     private TextView mNomej10_t2;
     private Button maddj10_t2;
     private TextView mgol10_t2;
+    private Button msubj10_t2;
 
     private TextView mNomej11_t2;
     private Button maddj11_t2;
     private TextView mgol11_t2;
+    private Button msubj11_t2;
 
     private TextView mNomej12_t2;
     private Button maddj12_t2;
     private TextView mgol12_t2;
+    private Button msubj12_t2;
 
     private TextView mNomej13_t2;
     private Button maddj13_t2;
     private TextView mgol13_t2;
+    private Button msubj13_t2;
 
     private TextView mNomej14_t2;
     private Button maddj14_t2;
     private TextView mgol14_t2;
+    private Button msubj14_t2;
 
     private TextView mNomej15_t2;
     private Button maddj15_t2;
     private TextView mgol15_t2;
+    private Button msubj15_t2;
 
     private Button mEnviar;
 
@@ -207,122 +238,152 @@ public class Jogo_config extends AppCompatActivity {
         mNomej1_t1 = (TextView) findViewById(R.id.t1_j1);
         maddj1_t1 = (Button) findViewById(R.id.addt1_j1);
         mgol1_t1 = (TextView) findViewById(R.id.t1_g1);
+        msubj1_t1 = (Button) findViewById(R.id.subt1_j1);
 
         mNomej2_t1 = (TextView) findViewById(R.id.t1_j2);
         maddj2_t1 = (Button) findViewById(R.id.addt1_j2);
         mgol2_t1 = (TextView) findViewById(R.id.t1_g2);
+        msubj2_t1 = (Button) findViewById(R.id.subt1_j2);
 
         mNomej3_t1 = (TextView) findViewById(R.id.t1_j3);
         maddj3_t1 = (Button) findViewById(R.id.addt1_j3);
         mgol3_t1 = (TextView) findViewById(R.id.t1_g3);
+        msubj3_t1 = (Button) findViewById(R.id.subt1_j3);
 
         mNomej4_t1 = (TextView) findViewById(R.id.t1_j4);
         maddj4_t1 = (Button) findViewById(R.id.addt1_j4);
         mgol4_t1 = (TextView) findViewById(R.id.t1_g4);
+        msubj4_t1 = (Button) findViewById(R.id.subt1_j4);
 
         mNomej5_t1 = (TextView) findViewById(R.id.t1_j5);
         maddj5_t1 = (Button) findViewById(R.id.addt1_j5);
         mgol5_t1 = (TextView) findViewById(R.id.t1_g5);
+        msubj5_t1 = (Button) findViewById(R.id.subt1_j5);
 
         mNomej6_t1 = (TextView) findViewById(R.id.t1_j6);
         maddj6_t1 = (Button) findViewById(R.id.addt1_j6);
         mgol6_t1 = (TextView) findViewById(R.id.t1_g6);
+        msubj6_t1 = (Button) findViewById(R.id.subt1_j6);
 
         mNomej7_t1 = (TextView) findViewById(R.id.t1_j7);
         maddj7_t1 = (Button) findViewById(R.id.addt1_j7);
         mgol7_t1 = (TextView) findViewById(R.id.t1_g7);
+        msubj7_t1 = (Button) findViewById(R.id.subt1_j7);
 
         mNomej8_t1 = (TextView) findViewById(R.id.t1_j8);
         maddj8_t1 = (Button) findViewById(R.id.addt1_j8);
         mgol8_t1 = (TextView) findViewById(R.id.t1_g8);
+        msubj8_t1 = (Button) findViewById(R.id.subt1_j8);
 
         mNomej9_t1 = (TextView) findViewById(R.id.t1_j9);
         maddj9_t1 = (Button) findViewById(R.id.addt1_j9);
         mgol9_t1 = (TextView) findViewById(R.id.t1_g9);
+        msubj9_t1 = (Button) findViewById(R.id.subt1_j9);
 
         mNomej10_t1 =(TextView) findViewById(R.id.t1_j10);
         maddj10_t1 =(Button) findViewById(R.id.addt1_j10);
         mgol10_t1 = (TextView) findViewById(R.id.t1_g10);
+        msubj10_t1 = (Button) findViewById(R.id.subt1_j10);
 
         mNomej11_t1 =(TextView) findViewById(R.id.t1_j11);
         maddj11_t1 =(Button) findViewById(R.id.addt1_j11);
         mgol11_t1 = (TextView) findViewById(R.id.t1_g11);
+        msubj11_t1 = (Button) findViewById(R.id.subt1_j11);
 
         mNomej12_t1 =(TextView) findViewById(R.id.t1_j12);
         maddj12_t1 =(Button) findViewById(R.id.addt1_j12);
         mgol12_t1 = (TextView) findViewById(R.id.t1_g12);
+        msubj12_t1 = (Button) findViewById(R.id.subt1_j12);
 
         mNomej13_t1 =(TextView) findViewById(R.id.t1_j13);
         maddj13_t1 =(Button) findViewById(R.id.addt1_j13);
         mgol13_t1 = (TextView) findViewById(R.id.t1_g13);
+        msubj13_t1 = (Button) findViewById(R.id.subt1_j13);
 
         mNomej14_t1 =(TextView) findViewById(R.id.t1_j14);
         maddj14_t1 =(Button) findViewById(R.id.addt1_j14);
         mgol14_t1 = (TextView) findViewById(R.id.t1_g14);
+        msubj14_t1 = (Button) findViewById(R.id.subt1_j14);
 
         mNomej15_t1 =(TextView) findViewById(R.id.t1_j15);
         maddj15_t1 =(Button) findViewById(R.id.addt1_j15);
         mgol15_t1 = (TextView) findViewById(R.id.t1_g15);
+        msubj15_t1 = (Button) findViewById(R.id.subt1_j15);
 
         mNomej1_t2 = (TextView) findViewById(R.id.t2_j1);
         maddj1_t2 = (Button) findViewById(R.id.addt2_j1);
         mgol1_t2 = (TextView) findViewById(R.id.t2_g1);
+        msubj1_t2 = (Button) findViewById(R.id.subt2_j1);
 
         mNomej2_t2 = (TextView) findViewById(R.id.t2_j2);
         maddj2_t2 = (Button) findViewById(R.id.addt2_j2);
         mgol2_t2 = (TextView) findViewById(R.id.t2_g2);
+        msubj2_t2 = (Button) findViewById(R.id.subt2_j2);
 
         mNomej3_t2 = (TextView) findViewById(R.id.t2_j3);
         maddj3_t2 = (Button) findViewById(R.id.addt2_j3);
         mgol3_t2 = (TextView) findViewById(R.id.t2_g3);
+        msubj3_t2 = (Button) findViewById(R.id.subt2_j3);
 
         mNomej4_t2 = (TextView) findViewById(R.id.t2_j4);
         maddj4_t2 = (Button) findViewById(R.id.addt2_j4);
         mgol4_t2 = (TextView) findViewById(R.id.t2_g4);
+        msubj4_t2 = (Button) findViewById(R.id.subt2_j4);
 
         mNomej5_t2 = (TextView) findViewById(R.id.t2_j5);
         maddj5_t2 = (Button) findViewById(R.id.addt2_j5);
         mgol5_t2 = (TextView) findViewById(R.id.t2_g5);
+        msubj5_t2 = (Button) findViewById(R.id.subt2_j5);
 
         mNomej6_t2 = (TextView) findViewById(R.id.t2_j6);
         maddj6_t2 = (Button) findViewById(R.id.addt2_j6);
         mgol6_t2 = (TextView) findViewById(R.id.t2_g6);
+        msubj6_t2 = (Button) findViewById(R.id.subt2_j6);
 
         mNomej7_t2 = (TextView) findViewById(R.id.t2_j7);
         maddj7_t2 = (Button) findViewById(R.id.addt2_j7);
         mgol7_t2 = (TextView) findViewById(R.id.t2_g7);
+        msubj7_t2 = (Button) findViewById(R.id.subt2_j7);
 
         mNomej8_t2 = (TextView) findViewById(R.id.t2_j8);
         maddj8_t2 = (Button) findViewById(R.id.addt2_j8);
         mgol8_t2 = (TextView) findViewById(R.id.t2_g8);
+        msubj8_t2 = (Button) findViewById(R.id.subt2_j8);
 
         mNomej9_t2 = (TextView) findViewById(R.id.t2_j9);
         maddj9_t2 = (Button) findViewById(R.id.addt2_j9);
         mgol9_t2 = (TextView) findViewById(R.id.t2_g9);
+        msubj9_t2 = (Button) findViewById(R.id.subt2_j9);
 
         mNomej10_t2 =(TextView) findViewById(R.id.t2_j10);
         maddj10_t2 =(Button) findViewById(R.id.addt2_j10);
         mgol10_t2 = (TextView) findViewById(R.id.t2_g10);
+        msubj10_t2 = (Button) findViewById(R.id.subt2_j10);
 
         mNomej11_t2 =(TextView) findViewById(R.id.t2_j11);
         maddj11_t2 =(Button) findViewById(R.id.addt2_j11);
         mgol11_t2 = (TextView) findViewById(R.id.t2_g11);
+        msubj11_t2 = (Button) findViewById(R.id.subt2_j11);
 
         mNomej12_t2 =(TextView) findViewById(R.id.t2_j12);
         maddj12_t2 =(Button) findViewById(R.id.addt2_j12);
         mgol12_t2 = (TextView) findViewById(R.id.t2_g12);
+        msubj12_t2 = (Button) findViewById(R.id.subt2_j12);
 
         mNomej13_t2 =(TextView) findViewById(R.id.t2_j13);
         maddj13_t2 =(Button) findViewById(R.id.addt2_j13);
         mgol13_t2 = (TextView) findViewById(R.id.t2_g13);
+        msubj13_t2 = (Button) findViewById(R.id.subt2_j13);
 
         mNomej14_t2 =(TextView) findViewById(R.id.t2_j14);
         maddj14_t2 =(Button) findViewById(R.id.addt2_j14);
         mgol14_t2 = (TextView) findViewById(R.id.t2_g14);
+        msubj14_t2 = (Button) findViewById(R.id.subt2_j14);
 
         mNomej15_t2 =(TextView) findViewById(R.id.t2_j15);
         maddj15_t2 =(Button) findViewById(R.id.addt2_j15);
         mgol15_t2 = (TextView) findViewById(R.id.t2_g15);
+        msubj15_t2 = (Button) findViewById(R.id.subt2_j15);
 
         mEnviar = (Button) findViewById(R.id.enviar);
 
@@ -413,6 +474,7 @@ public class Jogo_config extends AppCompatActivity {
                 }
             }
         });
+
         maddj3_t1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -583,6 +645,436 @@ public class Jogo_config extends AppCompatActivity {
             }
         });
 
+        msubj1_t1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mJogadores_t1.size() > 0) {
+                    int gol = mJogadores_t1.get(0).getGol();
+                    gol--;
+                    mJogadores_t1.get(0).setGol(gol);
+                    mGol1--;
+                    ajustaGol();
+                    mgol1_t1.setText(ajustaGolJogadorSub(0,1));
+                }
+            }
+        });
+
+
+        msubj2_t1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mJogadores_t1.size() > 1) {
+                    int gol = mJogadores_t1.get(1).getGol();
+                    gol--;
+                    mJogadores_t1.get(1).setGol(gol);
+                    mGol1--;
+                    ajustaGol();
+                    mgol1_t1.setText(ajustaGolJogadorSub(1,1));
+                }
+            }
+        });
+
+
+        msubj3_t1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mJogadores_t1.size() > 2) {
+                    int gol = mJogadores_t1.get(2).getGol();
+                    gol--;
+                    mJogadores_t1.get(2).setGol(gol);
+                    mGol1--;
+                    ajustaGol();
+                    mgol1_t1.setText(ajustaGolJogadorSub(2,1));
+                }
+            }
+        });
+
+
+        msubj4_t1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mJogadores_t1.size() > 3) {
+                    int gol = mJogadores_t1.get(3).getGol();
+                    gol--;
+                    mJogadores_t1.get(3).setGol(gol);
+                    mGol1--;
+                    ajustaGol();
+                    mgol1_t1.setText(ajustaGolJogadorSub(3,1));
+                }
+            }
+        });
+
+
+        msubj5_t1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mJogadores_t1.size() > 4) {
+                    int gol = mJogadores_t1.get(4).getGol();
+                    gol--;
+                    mJogadores_t1.get(4).setGol(gol);
+                    mGol1--;
+                    ajustaGol();
+                    mgol1_t1.setText(ajustaGolJogadorSub(4,1));
+                }
+            }
+        });
+
+
+
+        msubj6_t1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mJogadores_t1.size() > 5) {
+                    int gol = mJogadores_t1.get(5).getGol();
+                    gol--;
+                    mJogadores_t1.get(5).setGol(gol);
+                    mGol1--;
+                    ajustaGol();
+                    mgol1_t1.setText(ajustaGolJogadorSub(5,1));
+                }
+            }
+        });
+
+
+        msubj7_t1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mJogadores_t1.size() > 6) {
+                    int gol = mJogadores_t1.get(6).getGol();
+                    gol--;
+                    mJogadores_t1.get(6).setGol(gol);
+                    mGol1--;
+                    ajustaGol();
+                    mgol1_t1.setText(ajustaGolJogadorSub(6,1));
+                }
+            }
+        });
+
+        msubj8_t1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mJogadores_t1.size() > 7) {
+                    int gol = mJogadores_t1.get(7).getGol();
+                    gol--;
+                    mJogadores_t1.get(7).setGol(gol);
+                    mGol1--;
+                    ajustaGol();
+                    mgol1_t1.setText(ajustaGolJogadorSub(7,1));
+                }
+            }
+        });
+
+        msubj9_t1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mJogadores_t1.size() > 8) {
+                    int gol = mJogadores_t1.get(8).getGol();
+                    gol--;
+                    mJogadores_t1.get(8).setGol(gol);
+                    mGol1--;
+                    ajustaGol();
+                    mgol1_t1.setText(ajustaGolJogadorSub(8,1));
+                }
+            }
+        });
+
+        msubj10_t1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mJogadores_t1.size() > 9) {
+                    int gol = mJogadores_t1.get(9).getGol();
+                    gol--;
+                    mJogadores_t1.get(9).setGol(gol);
+                    mGol1--;
+                    ajustaGol();
+                    mgol1_t1.setText(ajustaGolJogadorSub(9,1));
+                }
+            }
+        });
+
+        msubj11_t1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mJogadores_t1.size() > 10) {
+                    int gol = mJogadores_t1.get(10).getGol();
+                    gol--;
+                    mJogadores_t1.get(10).setGol(gol);
+                    mGol1--;
+                    ajustaGol();
+                    mgol1_t1.setText(ajustaGolJogadorSub(10,1));
+                }
+            }
+        });
+
+        msubj12_t1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mJogadores_t1.size() > 11) {
+                    int gol = mJogadores_t1.get(11).getGol();
+                    gol--;
+                    mJogadores_t1.get(11).setGol(gol);
+                    mGol1--;
+                    ajustaGol();
+                    mgol1_t1.setText(ajustaGolJogadorSub(11,1));
+                }
+            }
+        });
+
+        msubj13_t1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mJogadores_t1.size() > 12) {
+                    int gol = mJogadores_t1.get(12).getGol();
+                    gol--;
+                    mJogadores_t1.get(12).setGol(gol);
+                    mGol1--;
+                    ajustaGol();
+                    mgol1_t1.setText(ajustaGolJogadorSub(12,1));
+                }
+            }
+        });
+
+        msubj14_t1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mJogadores_t1.size() > 13) {
+                    int gol = mJogadores_t1.get(13).getGol();
+                    gol--;
+                    mJogadores_t1.get(13).setGol(gol);
+                    mGol1--;
+                    ajustaGol();
+                    mgol1_t1.setText(ajustaGolJogadorSub(13,1));
+                }
+            }
+        });
+
+        msubj15_t1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mJogadores_t1.size() > 14) {
+                    int gol = mJogadores_t1.get(14).getGol();
+                    gol--;
+                    mJogadores_t1.get(14).setGol(gol);
+                    mGol1--;
+                    ajustaGol();
+                    mgol1_t1.setText(ajustaGolJogadorSub(14,1));
+                }
+            }
+        });
+
+
+        msubj1_t2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mJogadores_t2.size() > 0) {
+                    int gol = mJogadores_t2.get(0).getGol();
+                    gol--;
+                    mJogadores_t2.get(0).setGol(gol);
+                    mGol2--;
+                    ajustaGol();
+                    mgol1_t2.setText(ajustaGolJogadorSub(0,2));
+                }
+            }
+        });
+
+
+        msubj2_t2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mJogadores_t2.size() > 1) {
+                    int gol = mJogadores_t2.get(1).getGol();
+                    gol--;
+                    mJogadores_t2.get(1).setGol(gol);
+                    mGol2--;
+                    ajustaGol();
+                    mgol1_t2.setText(ajustaGolJogadorSub(1,2));
+                }
+            }
+        });
+
+        msubj3_t2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mJogadores_t2.size() > 2) {
+                    int gol = mJogadores_t2.get(2).getGol();
+                    gol--;
+                    mJogadores_t2.get(2).setGol(gol);
+                    mGol2--;
+                    ajustaGol();
+                    mgol1_t2.setText(ajustaGolJogadorSub(2,2));
+                }
+            }
+        });
+
+
+        msubj4_t2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mJogadores_t2.size() > 3) {
+                    int gol = mJogadores_t2.get(3).getGol();
+                    gol--;
+                    mJogadores_t2.get(3).setGol(gol);
+                    mGol2--;
+                    ajustaGol();
+                    mgol1_t2.setText(ajustaGolJogadorSub(3,2));
+                }
+            }
+        });
+
+
+        msubj5_t2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mJogadores_t2.size() > 4) {
+                    int gol = mJogadores_t2.get(4).getGol();
+                    gol--;
+                    mJogadores_t2.get(4).setGol(gol);
+                    mGol2--;
+                    ajustaGol();
+                    mgol1_t2.setText(ajustaGolJogadorSub(4,2));
+                }
+            }
+        });
+
+        msubj6_t2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mJogadores_t2.size() > 5) {
+                    int gol = mJogadores_t2.get(5).getGol();
+                    gol--;
+                    mJogadores_t2.get(5).setGol(gol);
+                    mGol2--;
+                    ajustaGol();
+                    mgol1_t2.setText(ajustaGolJogadorSub(5,2));
+                }
+            }
+        });
+
+        msubj7_t2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mJogadores_t2.size() > 6) {
+                    int gol = mJogadores_t2.get(6).getGol();
+                    gol--;
+                    mJogadores_t2.get(6).setGol(gol);
+                    mGol2--;
+                    ajustaGol();
+                    mgol1_t2.setText(ajustaGolJogadorSub(6,2));
+                }
+            }
+        });
+
+        msubj8_t2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mJogadores_t2.size() > 7) {
+                    int gol = mJogadores_t2.get(7).getGol();
+                    gol--;
+                    mJogadores_t2.get(7).setGol(gol);
+                    mGol2--;
+                    ajustaGol();
+                    mgol1_t2.setText(ajustaGolJogadorSub(7,2));
+                }
+            }
+        });
+
+        msubj9_t2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mJogadores_t2.size() > 8) {
+                    int gol = mJogadores_t2.get(8).getGol();
+                    gol--;
+                    mJogadores_t2.get(8).setGol(gol);
+                    mGol2--;
+                    ajustaGol();
+                    mgol1_t2.setText(ajustaGolJogadorSub(8,2));
+                }
+            }
+        });
+
+        msubj10_t2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mJogadores_t2.size() > 9) {
+                    int gol = mJogadores_t2.get(9).getGol();
+                    gol--;
+                    mJogadores_t2.get(9).setGol(gol);
+                    mGol2--;
+                    ajustaGol();
+                    mgol1_t2.setText(ajustaGolJogadorSub(9,2));
+                }
+            }
+        });
+
+        msubj11_t2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mJogadores_t2.size() > 10) {
+                    int gol = mJogadores_t2.get(10).getGol();
+                    gol--;
+                    mJogadores_t2.get(10).setGol(gol);
+                    mGol2--;
+                    ajustaGol();
+                    mgol1_t2.setText(ajustaGolJogadorSub(10,2));
+                }
+            }
+        });
+
+        msubj12_t2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mJogadores_t2.size() > 11) {
+                    int gol = mJogadores_t2.get(11).getGol();
+                    gol--;
+                    mJogadores_t2.get(11).setGol(gol);
+                    mGol2--;
+                    ajustaGol();
+                    mgol1_t2.setText(ajustaGolJogadorSub(11,2));
+                }
+            }
+        });
+
+        msubj13_t2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mJogadores_t2.size() > 12) {
+                    int gol = mJogadores_t2.get(12).getGol();
+                    gol--;
+                    mJogadores_t2.get(12).setGol(gol);
+                    mGol2--;
+                    ajustaGol();
+                    mgol1_t2.setText(ajustaGolJogadorSub(12,2));
+                }
+            }
+        });
+
+        msubj14_t2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mJogadores_t2.size() > 13) {
+                    int gol = mJogadores_t2.get(13).getGol();
+                    gol--;
+                    mJogadores_t2.get(13).setGol(gol);
+                    mGol2--;
+                    ajustaGol();
+                    mgol1_t2.setText(ajustaGolJogadorSub(13,2));
+                }
+            }
+        });
+
+        msubj15_t2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mJogadores_t2.size() > 14) {
+                    int gol = mJogadores_t2.get(14).getGol();
+                    gol--;
+                    mJogadores_t2.get(14).setGol(gol);
+                    mGol2--;
+                    ajustaGol();
+                    mgol1_t2.setText(ajustaGolJogadorSub(14,2));
+                }
+            }
+        });
 
         maddj1_t2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -992,6 +1484,22 @@ public class Jogo_config extends AppCompatActivity {
         }
         else{
             jogador2_gol[ind]++;
+            aux.append("");
+            aux.append(jogador2_gol[ind]);
+        }
+
+        return aux.toString();
+    }
+
+    private String ajustaGolJogadorSub(int ind, int tipo){
+        StringBuilder aux = new StringBuilder();
+        if(tipo == 1) {
+            jogador1_gol[ind]--;
+            aux.append("");
+            aux.append(jogador1_gol[ind]);
+        }
+        else{
+            jogador2_gol[ind]--;
             aux.append("");
             aux.append(jogador2_gol[ind]);
         }
