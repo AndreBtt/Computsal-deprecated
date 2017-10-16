@@ -650,6 +650,7 @@ public class Jogo_config extends AppCompatActivity {
             public void onClick(View view) {
                 if(mJogadores_t1.size() > 0) {
                     int gol = mJogadores_t1.get(0).getGol();
+                    if(gol == 0) return;
                     gol--;
                     mJogadores_t1.get(0).setGol(gol);
                     mGol1--;
@@ -665,11 +666,12 @@ public class Jogo_config extends AppCompatActivity {
             public void onClick(View view) {
                 if(mJogadores_t1.size() > 1) {
                     int gol = mJogadores_t1.get(1).getGol();
+                    if(gol == 0) return;
                     gol--;
                     mJogadores_t1.get(1).setGol(gol);
                     mGol1--;
                     ajustaGol();
-                    mgol1_t1.setText(ajustaGolJogadorSub(1,1));
+                    mgol2_t1.setText(ajustaGolJogadorSub(1,1));
                 }
             }
         });
@@ -680,11 +682,12 @@ public class Jogo_config extends AppCompatActivity {
             public void onClick(View view) {
                 if(mJogadores_t1.size() > 2) {
                     int gol = mJogadores_t1.get(2).getGol();
+                    if(gol == 0) return;
                     gol--;
                     mJogadores_t1.get(2).setGol(gol);
                     mGol1--;
                     ajustaGol();
-                    mgol1_t1.setText(ajustaGolJogadorSub(2,1));
+                    mgol3_t1.setText(ajustaGolJogadorSub(2,1));
                 }
             }
         });
@@ -695,11 +698,12 @@ public class Jogo_config extends AppCompatActivity {
             public void onClick(View view) {
                 if(mJogadores_t1.size() > 3) {
                     int gol = mJogadores_t1.get(3).getGol();
+                    if(gol == 0) return;
                     gol--;
                     mJogadores_t1.get(3).setGol(gol);
                     mGol1--;
                     ajustaGol();
-                    mgol1_t1.setText(ajustaGolJogadorSub(3,1));
+                    mgol4_t1.setText(ajustaGolJogadorSub(3,1));
                 }
             }
         });
@@ -710,11 +714,12 @@ public class Jogo_config extends AppCompatActivity {
             public void onClick(View view) {
                 if(mJogadores_t1.size() > 4) {
                     int gol = mJogadores_t1.get(4).getGol();
+                    if(gol == 0) return;
                     gol--;
                     mJogadores_t1.get(4).setGol(gol);
                     mGol1--;
                     ajustaGol();
-                    mgol1_t1.setText(ajustaGolJogadorSub(4,1));
+                    mgol5_t1.setText(ajustaGolJogadorSub(4,1));
                 }
             }
         });
@@ -726,11 +731,12 @@ public class Jogo_config extends AppCompatActivity {
             public void onClick(View view) {
                 if(mJogadores_t1.size() > 5) {
                     int gol = mJogadores_t1.get(5).getGol();
+                    if(gol == 0) return;
                     gol--;
                     mJogadores_t1.get(5).setGol(gol);
                     mGol1--;
                     ajustaGol();
-                    mgol1_t1.setText(ajustaGolJogadorSub(5,1));
+                    mgol6_t1.setText(ajustaGolJogadorSub(5,1));
                 }
             }
         });
@@ -741,11 +747,12 @@ public class Jogo_config extends AppCompatActivity {
             public void onClick(View view) {
                 if(mJogadores_t1.size() > 6) {
                     int gol = mJogadores_t1.get(6).getGol();
+                    if(gol == 0) return;
                     gol--;
                     mJogadores_t1.get(6).setGol(gol);
                     mGol1--;
                     ajustaGol();
-                    mgol1_t1.setText(ajustaGolJogadorSub(6,1));
+                    mgol7_t1.setText(ajustaGolJogadorSub(6,1));
                 }
             }
         });
@@ -755,11 +762,12 @@ public class Jogo_config extends AppCompatActivity {
             public void onClick(View view) {
                 if(mJogadores_t1.size() > 7) {
                     int gol = mJogadores_t1.get(7).getGol();
+                    if(gol == 0) return;
                     gol--;
                     mJogadores_t1.get(7).setGol(gol);
                     mGol1--;
                     ajustaGol();
-                    mgol1_t1.setText(ajustaGolJogadorSub(7,1));
+                    mgol8_t1.setText(ajustaGolJogadorSub(7,1));
                 }
             }
         });
@@ -769,11 +777,12 @@ public class Jogo_config extends AppCompatActivity {
             public void onClick(View view) {
                 if(mJogadores_t1.size() > 8) {
                     int gol = mJogadores_t1.get(8).getGol();
+                    if(gol == 0) return;
                     gol--;
                     mJogadores_t1.get(8).setGol(gol);
                     mGol1--;
                     ajustaGol();
-                    mgol1_t1.setText(ajustaGolJogadorSub(8,1));
+                    mgol9_t1.setText(ajustaGolJogadorSub(8,1));
                 }
             }
         });
@@ -783,11 +792,12 @@ public class Jogo_config extends AppCompatActivity {
             public void onClick(View view) {
                 if(mJogadores_t1.size() > 9) {
                     int gol = mJogadores_t1.get(9).getGol();
+                    if(gol == 0) return;
                     gol--;
                     mJogadores_t1.get(9).setGol(gol);
                     mGol1--;
                     ajustaGol();
-                    mgol1_t1.setText(ajustaGolJogadorSub(9,1));
+                    mgol10_t1.setText(ajustaGolJogadorSub(9,1));
                 }
             }
         });
@@ -797,11 +807,12 @@ public class Jogo_config extends AppCompatActivity {
             public void onClick(View view) {
                 if(mJogadores_t1.size() > 10) {
                     int gol = mJogadores_t1.get(10).getGol();
+                    if(gol == 0) return;
                     gol--;
                     mJogadores_t1.get(10).setGol(gol);
                     mGol1--;
                     ajustaGol();
-                    mgol1_t1.setText(ajustaGolJogadorSub(10,1));
+                    mgol11_t1.setText(ajustaGolJogadorSub(10,1));
                 }
             }
         });
@@ -811,11 +822,12 @@ public class Jogo_config extends AppCompatActivity {
             public void onClick(View view) {
                 if(mJogadores_t1.size() > 11) {
                     int gol = mJogadores_t1.get(11).getGol();
+                    if(gol == 0) return;
                     gol--;
                     mJogadores_t1.get(11).setGol(gol);
                     mGol1--;
                     ajustaGol();
-                    mgol1_t1.setText(ajustaGolJogadorSub(11,1));
+                    mgol12_t1.setText(ajustaGolJogadorSub(11,1));
                 }
             }
         });
@@ -825,11 +837,12 @@ public class Jogo_config extends AppCompatActivity {
             public void onClick(View view) {
                 if(mJogadores_t1.size() > 12) {
                     int gol = mJogadores_t1.get(12).getGol();
+                    if(gol == 0) return;
                     gol--;
                     mJogadores_t1.get(12).setGol(gol);
                     mGol1--;
                     ajustaGol();
-                    mgol1_t1.setText(ajustaGolJogadorSub(12,1));
+                    mgol13_t1.setText(ajustaGolJogadorSub(12,1));
                 }
             }
         });
@@ -839,11 +852,12 @@ public class Jogo_config extends AppCompatActivity {
             public void onClick(View view) {
                 if(mJogadores_t1.size() > 13) {
                     int gol = mJogadores_t1.get(13).getGol();
+                    if(gol == 0) return;
                     gol--;
                     mJogadores_t1.get(13).setGol(gol);
                     mGol1--;
                     ajustaGol();
-                    mgol1_t1.setText(ajustaGolJogadorSub(13,1));
+                    mgol14_t1.setText(ajustaGolJogadorSub(13,1));
                 }
             }
         });
@@ -853,11 +867,12 @@ public class Jogo_config extends AppCompatActivity {
             public void onClick(View view) {
                 if(mJogadores_t1.size() > 14) {
                     int gol = mJogadores_t1.get(14).getGol();
+                    if(gol == 0) return;
                     gol--;
                     mJogadores_t1.get(14).setGol(gol);
                     mGol1--;
                     ajustaGol();
-                    mgol1_t1.setText(ajustaGolJogadorSub(14,1));
+                    mgol15_t1.setText(ajustaGolJogadorSub(14,1));
                 }
             }
         });
@@ -868,6 +883,7 @@ public class Jogo_config extends AppCompatActivity {
             public void onClick(View view) {
                 if(mJogadores_t2.size() > 0) {
                     int gol = mJogadores_t2.get(0).getGol();
+                    if(gol == 0) return;
                     gol--;
                     mJogadores_t2.get(0).setGol(gol);
                     mGol2--;
@@ -883,11 +899,12 @@ public class Jogo_config extends AppCompatActivity {
             public void onClick(View view) {
                 if(mJogadores_t2.size() > 1) {
                     int gol = mJogadores_t2.get(1).getGol();
+                    if(gol == 0) return;
                     gol--;
                     mJogadores_t2.get(1).setGol(gol);
                     mGol2--;
                     ajustaGol();
-                    mgol1_t2.setText(ajustaGolJogadorSub(1,2));
+                    mgol2_t2.setText(ajustaGolJogadorSub(1,2));
                 }
             }
         });
@@ -897,11 +914,12 @@ public class Jogo_config extends AppCompatActivity {
             public void onClick(View view) {
                 if(mJogadores_t2.size() > 2) {
                     int gol = mJogadores_t2.get(2).getGol();
+                    if(gol == 0) return;
                     gol--;
                     mJogadores_t2.get(2).setGol(gol);
                     mGol2--;
                     ajustaGol();
-                    mgol1_t2.setText(ajustaGolJogadorSub(2,2));
+                    mgol3_t2.setText(ajustaGolJogadorSub(2,2));
                 }
             }
         });
@@ -912,11 +930,12 @@ public class Jogo_config extends AppCompatActivity {
             public void onClick(View view) {
                 if(mJogadores_t2.size() > 3) {
                     int gol = mJogadores_t2.get(3).getGol();
+                    if(gol == 0) return;
                     gol--;
                     mJogadores_t2.get(3).setGol(gol);
                     mGol2--;
                     ajustaGol();
-                    mgol1_t2.setText(ajustaGolJogadorSub(3,2));
+                    mgol4_t2.setText(ajustaGolJogadorSub(3,2));
                 }
             }
         });
@@ -927,11 +946,12 @@ public class Jogo_config extends AppCompatActivity {
             public void onClick(View view) {
                 if(mJogadores_t2.size() > 4) {
                     int gol = mJogadores_t2.get(4).getGol();
+                    if(gol == 0) return;
                     gol--;
                     mJogadores_t2.get(4).setGol(gol);
                     mGol2--;
                     ajustaGol();
-                    mgol1_t2.setText(ajustaGolJogadorSub(4,2));
+                    mgol5_t2.setText(ajustaGolJogadorSub(4,2));
                 }
             }
         });
@@ -941,11 +961,12 @@ public class Jogo_config extends AppCompatActivity {
             public void onClick(View view) {
                 if(mJogadores_t2.size() > 5) {
                     int gol = mJogadores_t2.get(5).getGol();
+                    if(gol == 0) return;
                     gol--;
                     mJogadores_t2.get(5).setGol(gol);
                     mGol2--;
                     ajustaGol();
-                    mgol1_t2.setText(ajustaGolJogadorSub(5,2));
+                    mgol6_t2.setText(ajustaGolJogadorSub(5,2));
                 }
             }
         });
@@ -955,11 +976,12 @@ public class Jogo_config extends AppCompatActivity {
             public void onClick(View view) {
                 if(mJogadores_t2.size() > 6) {
                     int gol = mJogadores_t2.get(6).getGol();
+                    if(gol == 0) return;
                     gol--;
                     mJogadores_t2.get(6).setGol(gol);
                     mGol2--;
                     ajustaGol();
-                    mgol1_t2.setText(ajustaGolJogadorSub(6,2));
+                    mgol7_t2.setText(ajustaGolJogadorSub(6,2));
                 }
             }
         });
@@ -969,11 +991,12 @@ public class Jogo_config extends AppCompatActivity {
             public void onClick(View view) {
                 if(mJogadores_t2.size() > 7) {
                     int gol = mJogadores_t2.get(7).getGol();
+                    if(gol == 0) return;
                     gol--;
                     mJogadores_t2.get(7).setGol(gol);
                     mGol2--;
                     ajustaGol();
-                    mgol1_t2.setText(ajustaGolJogadorSub(7,2));
+                    mgol8_t2.setText(ajustaGolJogadorSub(7,2));
                 }
             }
         });
@@ -983,11 +1006,12 @@ public class Jogo_config extends AppCompatActivity {
             public void onClick(View view) {
                 if(mJogadores_t2.size() > 8) {
                     int gol = mJogadores_t2.get(8).getGol();
+                    if(gol == 0) return;
                     gol--;
                     mJogadores_t2.get(8).setGol(gol);
                     mGol2--;
                     ajustaGol();
-                    mgol1_t2.setText(ajustaGolJogadorSub(8,2));
+                    mgol9_t2.setText(ajustaGolJogadorSub(8,2));
                 }
             }
         });
@@ -997,11 +1021,12 @@ public class Jogo_config extends AppCompatActivity {
             public void onClick(View view) {
                 if(mJogadores_t2.size() > 9) {
                     int gol = mJogadores_t2.get(9).getGol();
+                    if(gol == 0) return;
                     gol--;
                     mJogadores_t2.get(9).setGol(gol);
                     mGol2--;
                     ajustaGol();
-                    mgol1_t2.setText(ajustaGolJogadorSub(9,2));
+                    mgol10_t2.setText(ajustaGolJogadorSub(9,2));
                 }
             }
         });
@@ -1011,11 +1036,12 @@ public class Jogo_config extends AppCompatActivity {
             public void onClick(View view) {
                 if(mJogadores_t2.size() > 10) {
                     int gol = mJogadores_t2.get(10).getGol();
+                    if(gol == 0) return;
                     gol--;
                     mJogadores_t2.get(10).setGol(gol);
                     mGol2--;
                     ajustaGol();
-                    mgol1_t2.setText(ajustaGolJogadorSub(10,2));
+                    mgol11_t2.setText(ajustaGolJogadorSub(10,2));
                 }
             }
         });
@@ -1025,11 +1051,12 @@ public class Jogo_config extends AppCompatActivity {
             public void onClick(View view) {
                 if(mJogadores_t2.size() > 11) {
                     int gol = mJogadores_t2.get(11).getGol();
+                    if(gol == 0) return;
                     gol--;
                     mJogadores_t2.get(11).setGol(gol);
                     mGol2--;
                     ajustaGol();
-                    mgol1_t2.setText(ajustaGolJogadorSub(11,2));
+                    mgol12_t2.setText(ajustaGolJogadorSub(11,2));
                 }
             }
         });
@@ -1039,11 +1066,12 @@ public class Jogo_config extends AppCompatActivity {
             public void onClick(View view) {
                 if(mJogadores_t2.size() > 12) {
                     int gol = mJogadores_t2.get(12).getGol();
+                    if(gol == 0) return;
                     gol--;
                     mJogadores_t2.get(12).setGol(gol);
                     mGol2--;
                     ajustaGol();
-                    mgol1_t2.setText(ajustaGolJogadorSub(12,2));
+                    mgol13_t2.setText(ajustaGolJogadorSub(12,2));
                 }
             }
         });
@@ -1053,11 +1081,12 @@ public class Jogo_config extends AppCompatActivity {
             public void onClick(View view) {
                 if(mJogadores_t2.size() > 13) {
                     int gol = mJogadores_t2.get(13).getGol();
+                    if(gol == 0) return;
                     gol--;
                     mJogadores_t2.get(13).setGol(gol);
                     mGol2--;
                     ajustaGol();
-                    mgol1_t2.setText(ajustaGolJogadorSub(13,2));
+                    mgol14_t2.setText(ajustaGolJogadorSub(13,2));
                 }
             }
         });
@@ -1067,11 +1096,12 @@ public class Jogo_config extends AppCompatActivity {
             public void onClick(View view) {
                 if(mJogadores_t2.size() > 14) {
                     int gol = mJogadores_t2.get(14).getGol();
+                    if(gol == 0) return;
                     gol--;
                     mJogadores_t2.get(14).setGol(gol);
                     mGol2--;
                     ajustaGol();
-                    mgol1_t2.setText(ajustaGolJogadorSub(14,2));
+                    mgol15_t2.setText(ajustaGolJogadorSub(14,2));
                 }
             }
         });
