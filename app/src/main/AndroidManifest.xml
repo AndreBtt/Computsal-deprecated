@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.bittencourt.andre.computsal">
+    package="com.bit.andre.computsal">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Criar_logar">
+        <activity android:name="com.bit.andre.computsal.Criar_logar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,46 +20,46 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Principal"
+            android:name="com.bit.andre.computsal.Principal"
             android:label="Menu" />
         <activity
-            android:name=".Times"
+            android:name="com.bit.andre.computsal.Times"
             android:label="@string/title_activity_times" />
         <activity
-            android:name=".Time_jogador"
+            android:name="com.bit.andre.computsal.Time_jogador"
             android:label="Jogadores e Gols" />
         <activity
-            android:name=".Criar_time"
+            android:name="com.bit.andre.computsal.Criar_time"
             android:label="@string/criar_time" />
         <activity
-            android:name=".Artilharia"
+            android:name="com.bit.andre.computsal.Artilharia"
             android:label="Artilharia" />
         <activity
-            android:name=".Gerenciar"
+            android:name="com.bit.andre.computsal.Gerenciar"
             android:label="Gerenciamento" />
         <activity
-            android:name=".Criar_grupo"
+            android:name="com.bit.andre.computsal.Criar_grupo"
             android:label="Criar grupo" />
         <activity
-            android:name=".Grupos"
+            android:name="com.bit.andre.computsal.Grupos"
             android:label="Grupos" />
         <activity
-            android:name=".Time_grupo"
+            android:name="com.bit.andre.computsal.Time_grupo"
             android:label="Times" />
         <activity
-            android:name=".Todos_jogos"
+            android:name="com.bit.andre.computsal.Todos_jogos"
             android:label="Todos os jogos" />
         <activity
-            android:name=".Jogo_config"
+            android:name="com.bit.andre.computsal.Jogo_config"
             android:label="Partida" />
         <activity
-            android:name=".Jogos_anteriores"
+            android:name="com.bit.andre.computsal.Jogos_anteriores"
             android:label="Jogos anteriores" />
-        <activity android:name=".Sobre_autor" />
-        <activity android:name=".Grupos_tabela" />
-        <activity android:name=".Tabelas" />
-        <activity android:name=".Criar_conta" />
-        <activity android:name=".AgendarHorario"></activity>
+        <activity android:name="com.bit.andre.computsal.Sobre_autor" />
+        <activity android:name="com.bit.andre.computsal.Grupos_tabela" />
+        <activity android:name="com.bit.andre.computsal.Tabelas" />
+        <activity android:name="com.bit.andre.computsal.Criar_conta" />
+        <activity android:name="com.bit.andre.computsal.AgendarHorario"></activity>
     </application>
 
 </manifest>
