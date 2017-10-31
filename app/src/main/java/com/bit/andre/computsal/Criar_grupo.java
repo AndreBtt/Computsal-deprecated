@@ -71,7 +71,6 @@ public class Criar_grupo extends AppCompatActivity {
                 Time novo = dataSnapshot.getValue(Time.class);
                 areas.add(novo.getNome_time());
                 areasAdapter.notifyDataSetChanged();
-
             }
 
             @Override

@@ -85,6 +85,7 @@ public class Time_grupo extends AppCompatActivity {
 
                 Bundle b=new Bundle();
                 b.putString("time", time_atual.getNome_time());
+                b.putString("email", time_atual.getEmail());
                 Intent proxima_pagina = new Intent(Time_grupo.this,Time_jogador.class);
 
                 proxima_pagina.putExtras(b);

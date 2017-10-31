@@ -26,6 +26,9 @@
             android:name="com.bit.andre.computsal.Times"
             android:label="@string/title_activity_times" />
         <activity
+            android:name="com.bit.andre.computsal.Atualizar_time"
+            android:label="Atualizar" />
+        <activity
             android:name="com.bit.andre.computsal.Time_jogador"
             android:label="Jogadores e Gols" />
         <activity

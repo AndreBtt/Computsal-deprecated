@@ -1,9 +1,15 @@
 package com.bit.andre.computsal;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ListView;
+import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -22,6 +28,8 @@ public class Time_jogador extends AppCompatActivity {
     private Time_jogadorAdapter adapter;
     private ListView listview;
     private List<Jogador> jogadores = new ArrayList<Jogador>();
+    private String email;
+    private String time;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +37,8 @@ public class Time_jogador extends AppCompatActivity {
         setContentView(R.layout.lista_time_jogador);
 
         Bundle b = this.getIntent().getExtras();
-        final String time = b.getString("time");
+        time = b.getString("time");
+        email = b.getString("email");
 
         listview = (ListView) findViewById(R.id.lista_time_jogador);
 
@@ -74,5 +83,30 @@ public class Time_jogador extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.atualizar_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId() == R.id.butao_atualizar){
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            if(user == null){
+                Toast.makeText(this, "Você não possui permissão", Toast.LENGTH_SHORT).show();
+            }
+            else if(email.equals(user.getEmail())){
+                Bundle b = new Bundle();
+                b.putString("time", time);
+                Intent proxima_pagina = new Intent(Time_jogador.this,Atualizar_time.class);
+                proxima_pagina.putExtras(b);
+                startActivity(proxima_pagina);
+            }
+            else Toast.makeText(this, "Você não possui permissão", Toast.LENGTH_SHORT).show();
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

@@ -84,6 +84,7 @@ public class Times extends AppCompatActivity {
 
                 Bundle b=new Bundle();
                 b.putString("time", time_atual.getNome_time());
+                b.putString("email", time_atual.getEmail());
                 Intent proxima_pagina = new Intent(Times.this,Time_jogador.class);
 
                 proxima_pagina.putExtras(b);
@@ -95,7 +96,7 @@ public class Times extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main_menu, menu);
+        getMenuInflater().inflate(R.menu.add_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
