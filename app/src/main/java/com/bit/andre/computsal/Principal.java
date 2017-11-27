@@ -87,7 +87,7 @@ public class Principal extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // PASSAR SE É CAPITAO
-                startActivity(new Intent(Principal.this, AgendarHorario.class));
+                //startActivity(new Intent(Principal.this, AgendarHorario.class));
             }
         });
 

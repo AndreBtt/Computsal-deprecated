@@ -5,7 +5,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
 
 <item
     android:id="@+id/butao_atualizar"
-    android:icon = "@mipmap/ic_settings_white_24dp"
+    android:icon = "@mipmap/ic_add_white_24dp"
     android:title = "Atualizar post"
     app:showAsAction = "always" />
 
